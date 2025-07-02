@@ -1,0 +1,170 @@
+[
+  {
+    "id": "686503c10b6486d4689309f0",
+    "barcode": "000038985",
+    "createdAt": "2024-12-13T06:12:54.000Z",
+    "updatedAt": "2025-01-18T03:00:11.000Z",
+    "productId": "659528cc9b785fbf0bf672b5",
+    "vendorId": null,
+    "inwardIds": [
+      "686503c10b6486d4689309f1"
+    ],
+    "outwardIds": []
+  },
+  {
+    "id": "686503cc0b6486d4689309f4",
+    "barcode": "000039242",
+    "createdAt": "2024-12-13T06:12:54.000Z",
+    "updatedAt": "2025-03-24T00:29:26.000Z",
+    "productId": "659528cc9b785fbf0bf672b5",
+    "vendorId": null,
+    "inwardIds": [
+      "686503cc0b6486d4689309f5"
+    ],
+    "outwardIds": []
+  },
+  {
+    "id": "686503d50b6486d4689309f8",
+    "barcode": "000039289",
+    "createdAt": "2024-12-13T06:12:54.000Z",
+    "updatedAt": "2025-03-24T00:29:27.000Z",
+    "productId": "659528cc9b785fbf0bf672b5",
+    "vendorId": null,
+    "inwardIds": [
+      "686503d50b6486d4689309f9"
+    ],
+    "outwardIds": []
+  },
+  {
+    "id": "686503dd0b6486d4689309fc",
+    "barcode": "000039535",
+    "createdAt": "2024-12-13T06:12:54.000Z",
+    "updatedAt": "2025-03-24T00:29:26.000Z",
+    "productId": "659528cc9b785fbf0bf672b5",
+    "vendorId": null,
+    "inwardIds": [
+      "686503dd0b6486d4689309fd"
+    ],
+    "outwardIds": []
+  },
+  {
+    "id": "686503e60b6486d468930a00",
+    "barcode": "000039342",
+    "createdAt": "2024-12-13T06:12:54.000Z",
+    "updatedAt": "2025-03-24T00:29:26.000Z",
+    "productId": "659528cc9b785fbf0bf672b5",
+    "vendorId": null,
+    "inwardIds": [
+      "686503e60b6486d468930a01"
+    ],
+    "outwardIds": []
+  },
+  {
+    "id": "686503f10b6486d468930a04",
+    "barcode": "000039252",
+    "createdAt": "2024-12-13T06:12:54.000Z",
+    "updatedAt": "2025-03-24T00:29:27.000Z",
+    "productId": "659528cc9b785fbf0bf672b5",
+    "vendorId": null,
+    "inwardIds": [
+      "686503f10b6486d468930a05"
+    ],
+    "outwardIds": []
+  },
+  {
+    "id": "686503f80b6486d468930a08",
+    "barcode": "000039370",
+    "createdAt": "2024-12-13T06:12:54.000Z",
+    "updatedAt": "2025-03-24T00:29:26.000Z",
+    "productId": "659528cc9b785fbf0bf672b5",
+    "vendorId": null,
+    "inwardIds": [
+      "686503f80b6486d468930a09"
+    ],
+    "outwardIds": []
+  },
+  {
+    "id": "686504030b6486d468930a0c",
+    "barcode": "000039101",
+    "createdAt": "2024-12-13T06:12:54.000Z",
+    "updatedAt": "2025-03-24T00:29:26.000Z",
+    "productId": "659528cc9b785fbf0bf672b5",
+    "vendorId": null,
+    "inwardIds": [
+      "686504030b6486d468930a0d"
+    ],
+    "outwardIds": []
+  },
+  {
+    "id": "6865040c0b6486d468930a10",
+    "barcode": "000039294",
+    "createdAt": "2024-12-13T06:12:54.000Z",
+    "updatedAt": "2025-03-24T00:29:27.000Z",
+    "productId": "659528cc9b785fbf0bf672b5",
+    "vendorId": null,
+    "inwardIds": [
+      "6865040c0b6486d468930a11"
+    ],
+    "outwardIds": []
+  },
+  {
+    "id": "686504150b6486d468930a14",
+    "barcode": "000039646",
+    "createdAt": "2024-12-13T06:12:54.000Z",
+    "updatedAt": "2025-03-24T00:29:27.000Z",
+    "productId": "659528cc9b785fbf0bf672b5",
+    "vendorId": null,
+    "inwardIds": [
+      "686504150b6486d468930a15"
+    ],
+    "outwardIds": []
+  },
+  {
+    "id": "6865041d0b6486d468930a18",
+    "barcode": "000039088",
+    "createdAt": "2024-12-13T06:12:54.000Z",
+    "updatedAt": "2025-03-24T00:29:28.000Z",
+    "productId": "659528cc9b785fbf0bf672b5",
+    "vendorId": null,
+    "inwardIds": [
+      "6865041d0b6486d468930a19"
+    ],
+    "outwardIds": []
+  },
+  {
+    "id": "686504250b6486d468930a1c",
+    "barcode": "000039432",
+    "createdAt": "2024-12-13T06:12:54.000Z",
+    "updatedAt": "2025-03-24T00:29:28.000Z",
+    "productId": "659528cc9b785fbf0bf672b5",
+    "vendorId": null,
+    "inwardIds": [
+      "686504250b6486d468930a1d"
+    ],
+    "outwardIds": []
+  },
+  {
+    "id": "6865042d0b6486d468930a20",
+    "barcode": "000039020",
+    "createdAt": "2024-12-13T06:12:54.000Z",
+    "updatedAt": "2025-03-24T00:29:29.000Z",
+    "productId": "659528cc9b785fbf0bf672b5",
+    "vendorId": null,
+    "inwardIds": [
+      "6865042d0b6486d468930a21"
+    ],
+    "outwardIds": []
+  },
+  {
+    "id": "686504350b6486d468930a24",
+    "barcode": "000251751",
+    "createdAt": "2024-12-21T02:40:17.000Z",
+    "updatedAt": "2025-03-24T00:29:27.000Z",
+    "productId": "659528cc9b785fbf0bf672b5",
+    "vendorId": null,
+    "inwardIds": [
+      "686504350b6486d468930a25"
+    ],
+    "outwardIds": []
+  }
+]

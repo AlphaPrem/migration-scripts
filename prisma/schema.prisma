@@ -1,0 +1,1437 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                           String                         @id @default(auto()) @map("_id") @db.ObjectId
+  email                        String                         @unique
+  name                         String
+  password                     String
+  phoneNumber                  String
+  status                       Boolean?
+  resetToken                   String?
+  resetRequestTime             DateTime?
+  role                         role?                          @relation(fields: [roleID], references: [id])
+  roleID                       String?                        @db.ObjectId
+  inward                       inward[]
+  outward                      outward[]
+  labProcess                   labProcess[]
+  DNA                          DNA[]
+  gelElectrophoresis           gelElectrophoresis[]
+  curationApprovals            curationApprovals[]            @relation(fields: [curationApprovalsId], references: [id])
+  curationApprovalsId          String[]                       @db.ObjectId
+  libraryPreparation           libraryPreparation[]
+  libraryPooling               libraryPooling[]
+  sequencing                   sequencing[]
+  sequencingEnd                sequencingEnd[]
+  dataTransferToBioinformatics dataTransferToBioinformatics[]
+  approvalComments             approvalComments[]
+  logs                         logs[]
+  apiKey                       apiKey[]
+  notificationToken            notificationToken[]
+  notifications                notifications[]
+  sampleCollectionData         sampleCollectionData[]
+  libraryPoolingComments       libraryPoolingComments[]
+  libraryPreparationComments   libraryPreparationComments[]
+  sampleCollection             sampleCollectionData[]         @relation("bioinformaticsQCBy")
+  departmentId                 String?                        @db.ObjectId
+  department                   department?                    @relation(fields: [departmentId], references: [id])
+  csvUpload                    csvUpload[]
+  bloodAgeOrder                bloodAgeOrder[]
+}
+
+model department {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  description String
+  status      Boolean
+  userIds     User[]
+}
+
+model csvUpload {
+  id                   String                 @id @default(auto()) @map("_id") @db.ObjectId
+  creationDate         DateTime               @default(now())
+  status               String
+  data                 String
+  reportId             String                 @unique
+  patientName          String
+  customer             customer?              @relation(fields: [customerId], references: [id])
+  barcode              String
+  fileUrl              String
+  completionTime       Int
+  customerId           String?                @db.ObjectId
+  reportSendDate       DateTime?
+  approval             User?                  @relation(fields: [approvalId], references: [id])
+  approvalId           String?                @db.ObjectId
+  approvalDate         DateTime?
+  sampleCollectionData sampleCollectionData[]
+}
+
+model role {
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  description   String
+  status        Boolean
+  permissionIDs String[]     @db.ObjectId
+  permissions   permission[] @relation(references: [id], fields: [permissionIDs])
+  User          User[]
+}
+
+model permission {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  title         String   @unique
+  componentSign String
+  roles         role[]   @relation(fields: [roleIds], references: [id])
+  roleIds       String[] @db.ObjectId
+}
+
+model customer {
+  id                   String                 @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt            DateTime               @default(now())
+  updatedAt            DateTime               @updatedAt
+  email                String                 @unique
+  name                 String
+  phone                String?
+  gender               String?
+  dob                  String?
+  communityUser        Boolean                @default(false)
+  verification         Boolean
+  csvUpload            csvUpload[]
+  outward              outward[]
+  sampleCollectionData sampleCollectionData[]
+  postFollowId         String[]               @db.ObjectId
+  postDisikeIds        String[]               @db.ObjectId
+  postLikeIds          String[]               @db.ObjectId
+  postDisLiks          post[]                 @relation(fields: [postDisikeIds], references: [id], name: "customerDislikes")
+  postLiks             post[]                 @relation(fields: [postLikeIds], references: [id], name: "customerLikes")
+  postCreate           post[]                 @relation("customerCreate")
+  comments             comment[]              @relation("customerComments")
+  postFollow           post[]                 @relation(fields: [postFollowId], references: [id], name: "customerBookMark")
+  followedByIDs        String[]               @db.ObjectId
+  followingIDs         String[]               @db.ObjectId
+  followedBy           customer[]             @relation("customerFollows", fields: [followedByIDs], references: [id])
+  following            customer[]             @relation("customerFollows", fields: [followingIDs], references: [id])
+  doctorFollowBy       doctor[]               @relation(fields: [followedByIDs], references: [id], name: "doctorFollowBy")
+  doctorfollowing      doctor[]               @relation(fields: [followingIDs], references: [id], name: "doctorfollowing")
+  notificationToken    notificationToken[]
+  notifications        notifications[]
+  bloodAgeOrder        bloodAgeOrder[]
+  sealerId             String?                @db.ObjectId // Foreign key for sealer
+  sealer               sealer?                @relation(fields: [sealerId], references: [id])
+}
+
+model doctor {
+  id                   String                 @id @default(auto()) @map("_id") @db.ObjectId
+  name                 String
+  email                String                 @unique
+  phone                String
+  type                 String
+  document             String
+  addressLine1         String
+  addressLine2         String
+  country              String
+  state                String
+  city                 String
+  pincode              String
+  businessPractice     String
+  practitionerType     String
+  designation          String
+  licenseNumber        String
+  website              String
+  newsletter           Boolean
+  companyName          String
+  profile              String
+  reference            String
+  outward              outward[]
+  noOfYears            String
+  gstName              String
+  gstNumber            String
+  verification         Boolean
+  postLikeIds          String[]               @db.ObjectId
+  postDisikeIds        String[]               @db.ObjectId
+  sampleCollectionData sampleCollectionData[]
+  postFollowId         String[]               @db.ObjectId
+  comments             comment[]              @relation("doctorComments")
+  postCreate           post[]                 @relation("doctorCreate")
+  postFollow           post[]                 @relation(fields: [postFollowId], references: [id], name: "doctorBookMark")
+  postLiks             post[]                 @relation(fields: [postLikeIds], references: [id], name: "doctorLike")
+  postDisLiks          post[]                 @relation(fields: [postDisikeIds], references: [id], name: "doctorDislike")
+  followedByIDs        String[]               @db.ObjectId
+  followingIDs         String[]               @db.ObjectId
+  followedBy           doctor[]               @relation("doctorFollows", fields: [followedByIDs], references: [id])
+  following            doctor[]               @relation("doctorFollows", fields: [followingIDs], references: [id])
+  customerfollow       customer[]             @relation(fields: [followingIDs], references: [id], name: "doctorFollowBy")
+  customerfollowBy     customer[]             @relation(fields: [followedByIDs], references: [id], name: "doctorfollowing")
+  notificationToken    notificationToken[]
+}
+
+model sampleCollectionData {
+  id                                          String       @id @default(auto()) @map("_id") @db.ObjectId
+  currentStage                                Int          @default(0)
+  name                                        String       @default("")
+  age                                         String?      @default("")
+  createdBy                                   String       @default("")
+  email                                       String       @default("")
+  DOB                                         String       @default("")
+  gender                                      String       @default("")
+  phone                                       String       @default("")
+  pincode                                     String?      @default("")
+  createdAt                                   DateTime     @default(now())
+  pickUp                                      pickUpStatus @default(pending)
+  city                                        String?      @default("")
+  kitCode                                     String       @unique
+  stoolSampleCollectionDate                   String?      @default("")
+  frequentGasAndBloating                      String?      @default("")
+  gasAndBloatingFrequency                     String?      @default("")
+  belchingBurpingFromFood                     String?      @default("")
+  sugarAlcoholBloatingGas                     String?      @default("")
+  chronicConstipation                         String?      @default("")
+  chronicDiarrhea                             String?      @default("")
+  durationOfSymptoms                          String?      @default("")
+  dailyBowelMovements                         String?      @default("")
+  usualSymptomExperience                      String?      @default("")
+  stoolColorConsistency                       String?      @default("")
+  abdominalPain                               String?      @default("")
+  hungerPain                                  String?      @default("")
+  hungerPainFrequency                         String?      @default("")
+  hungerPainTimeline                          String?      @default("")
+  bloodMucusInStool                           String?      @default("")
+  lastBloodMucusDate                          String?      @default("")
+  regularBloodMucusOccurrence                 String?      @default("")
+  stoolType                                   String       @default("")
+  nauseaVomitingTendency                      String?      @default("")
+  regularNauseaVomitingOccurrence             String?      @default("")
+  regularHeartburnAcidity                     String?      @default("")
+  heartburnTriggerFood                        String?      @default("")
+  frequentBitterThroat                        String?      @default("")
+  recentLossOfAppetite                        String?      @default("")
+  irregularCravings                           String?      @default("")
+  frequencyOfEatingOutsideFood                String?      @default("")
+  foodIntolerancesAllergies                   String?      @default("")
+  allergicFoodsDescription                    String?      @default("")
+  frequentTraveler                            String?      @default("")
+  mostFrequentTravelLocation                  String?      @default("")
+  chainSmoker                                 String?      @default("")
+  dailyCigaretteConsumption                   String?      @default("")
+  knownDiagnosesMedicalConditions             String[]     @default([])
+  otherKnownDiagnosesMedicalConditions        String?      @default("")
+  fatigueFrequency                            String?      @default("")
+  brainFogCognitiveIssues                     String?      @default("")
+  jointAcheOccurrence                         String?      @default("")
+  regularJointAche                            String?      @default("")
+  moodDisorderPresent                         String?      @default("")
+  moodDisorderDescription                     String?      @default("")
+  frequentHeadaches                           String?      @default("")
+  poorSleepQuality                            String?      @default("")
+  currentSkinRash                             String?      @default("")
+  skinRashDescription                         String?      @default("")
+  petOwnership                                String       @default("")
+  pickupRequest                               Boolean      @default(false)
+  purchaseLocation                            String?      @default("")
+  otherPurchaseLocation                       String?      @default("")
+  amazonOrderID                               String?      @default("")
+  address                                     Json
+  inward                                      inward?      @relation(fields: [inwardId], references: [id])
+  inwardId                                    String?      @db.ObjectId
+  labProcess                                  labProcess[]
+  tat                                         Int?         @default(3)
+  client                                      customer?    @relation(fields: [clientId], references: [id])
+  clientId                                    String?      @db.ObjectId
+  doctor                                      doctor?      @relation(fields: [doctorId], references: [id])
+  doctorId                                    String?      @db.ObjectId
+  biomeReport                                 csvUpload?   @relation(fields: [biomeReportID], references: [id])
+  biomeReportID                               String?      @db.ObjectId
+  seller                                      sealer?      @relation(fields: [sellerID], references: [id])
+  sellerID                                    String?      @db.ObjectId
+  isSoldByDecodeAge                           Boolean?     @default(true)
+  version                                     String?
+  pickBy                                      User?        @relation(fields: [pickById], references: [id])
+  pickById                                    String?      @db.ObjectId
+  pickUpDate                                  DateTime?
+  dietType                                    String?      @default("")
+  birthCity                                   String?      @default("")
+  // currentResidence                            String?
+  fruitConsumptionFrequency                   String?      @default("")
+  vegetablesConsumptionFrequency              String?      @default("")
+  pulsesLegumesNutsSeedsConsumptionFrequency  String?      @default("")
+  wholeGrainsConsumptionFrequency             String?      @default("")
+  fishSeafoodConsumptionFrequency             String?      @default("")
+  refinedGrainsConsumptionFrequency           String?      @default("")
+  dairyConsumptionFrequency                   String?      @default("")
+  artificialSugarConsumptionFrequency         String?      @default("")
+  fermentedFoodsConsumptionFrequency          String?      @default("")
+  eagsConsumptionFrequency                    String?      @default("")
+  haveYouTravelledPastSixMonths               String?      @default("")
+  whiteMeatConsumptionFrequency               String?      @default("")
+  redMeatConsumptionFrequency                 String?      @default("")
+  foodAllergies                               String[]     @default([])
+  dietarySupplementsConsumption               String[]     @default([])
+  otherFoodAllergies                          String?      @default("")
+  otherDietarySupplementsConsumption          String?      @default("")
+  upperAbdominalDiscomfortPastWeek            String?      @default("")
+  heartburnPastWeek                           String?      @default("")
+  acidRefluxPastWeek                          String?      @default("")
+  hungerPainsPastWeek                         String?      @default("")
+  nauseaPastWeek                              String?      @default("")
+  stomachRumblingPastWeek                     String?      @default("")
+  stomachBloatedPastWeek                      String?      @default("")
+  burpingPastWeek                             String?      @default("")
+  passingGasPastWeek                          String?      @default("")
+  constipationPastWeek                        String?      @default("")
+  diarrheaPastWeek                            String?      @default("")
+  looseStoolsPastWeek                         String?      @default("")
+  hardStoolsPastWeek                          String?      @default("")
+  urgentBowelMovementPastWeek                 String?      @default("")
+  incompleteBowelEmptyingPastWeek             String?      @default("")
+  helplessnessBowelProblems                   String?      @default("")
+  embarrassmentBowelProblemSmell              String?      @default("")
+  botheredTimeToilet                          String?      @default("")
+  vulnerabilityIllnessBowelProblems           String?      @default("")
+  feelingFatBowelProblems                     String?      @default("")
+  feelingLosingControlBowelProblems           String?      @default("")
+  lessEnjoymentLifeBowelProblems              String?      @default("")
+  uncomfortableDiscussingBowelProblems        String?      @default("")
+  depressionBowelProblems                     String?      @default("")
+  isolationBowelProblems                      String?      @default("")
+  dietaryRestrictionsBowelProblems            String?      @default("")
+  sexualDifficultyowelProblems                String?      @default("")
+  angerBowelProblems                          String?      @default("")
+  irritatingOthersBowelProblems               String?      @default("")
+  worryWorseningBowelProblems                 String?      @default("")
+  irritabilityBowelProblems                   String?      @default("")
+  worryExaggerationBowelProblems              String?      @default("")
+  reducedProductivityBowelProblems            String?      @default("")
+  avoidingStressBowelProblems                 String?      @default("")
+  reducedSexualDesireBowelProblems            String?      @default("")
+  clothingLimitationsBowelProblems            String?      @default("")
+  avoidingStrenuousActivityBowelProblems      String?      @default("")
+  dietaryMonitoringBowelProblems              String?      @default("")
+  difficultAroundStrangersBowelProblems       String?      @default("")
+  feelingSluggishBowelProblems                String?      @default("")
+  feelingUncleanBowelProblems                 String?      @default("")
+  difficultyWithLongTripsBowelProblems        String?      @default("")
+  frustrationDietaryRestrictionsBowelProblems String?      @default("")
+  nearToiletBowelProblems                     String?      @default("")
+  lifeRevolvesAroundBowelProblems             String?      @default("")
+  worryLosingControlBowels                    String?      @default("")
+  fearInabilityBowelMovement                  String?      @default("")
+  impactClosestRelationshipsBowelProblems     String?      @default("")
+  feelingMisunderstandingBowelProblems        String?      @default("")
+  fatigue                                     String?      @default("")
+  tiredness                                   String?      @default("")
+  physicalActivity                            String?      @default("")
+  enoughEnergy                                String?      @default("")
+  physicallyExhausted                         String?      @default("")
+  problemStartingThings                       String?      @default("")
+  problemsThinkingClearly                     String?      @default("")
+  noDesireToDoAnything                        String?      @default("")
+  metanllyExhausted                           String?      @default("")
+  doingSomethingConcentratingQuietWell        String?      @default("")
+  mentalEmotionalExhaustion                   String?      @default("")
+  fatigueExperience                           String?      @default("")
+  feelingTired                                String?      @default("")
+  tiredWiredBedtime                           String?      @default("")
+  jointMusclePain                             String?      @default("")
+  brainfogMemoryLapseFeelingCognitivelySludgy String?      @default("")
+  fluLikeSymptoms                             String?      @default("")
+  inhalingfeelsEffortful                      String?      @default("")
+  exhaustedAfterPhysicalActivity              String?      @default("")
+  overallSymptomIntensity                     String?      @default("")
+  functionalImpairment                        String?      @default("")
+  timeToFallAsleep                            String?      @default("")
+  totalWakeTime                               String?      @default("")
+  problematicNightsPerWeek                    String?      @default("")
+  sleepQualityRating                          String?      @default("")
+  poorSleepAffectedMood                       String?      @default("")
+  poorSepAffectedConcentrationProductivity    String?      @default("")
+  sleepTroubleImpact                          String?      @default("")
+  durationOfSleepProblem                      String?      @default("")
+  upsetUnexpect                               String?      @default("")
+  controlPerception                           String?      @default("")
+  stressFrequency                             String?      @default("")
+  confidencehandleProblemSolving              String?      @default("")
+  feltThingsYourWay                           String?      @default("")
+  notAbleCopeWithThings                       String?      @default("")
+  irritationControlFrequency                  String?      @default("")
+  feltTopOfThings                             String?      @default("")
+  lackOfControlAnger                          String?      @default("")
+  feltOverwhelmWhenpiling                     String?      @default("")
+  feelingAnxious                              String?      @default("")
+  controlWorry                                String?      @default("")
+  worryingdifferentThings                     String?      @default("")
+  troubleRelaxing                             String?      @default("")
+  restlessness                                String?      @default("")
+  irritability                                String?      @default("")
+  feelingAfraidSomethingHappen                String?      @default("")
+  followingMedications                        String?      @default("")
+  historySurgeryProcedure                     String?      @default("")
+  detailHistorySurgeryProcedure               String?      @default("")
+  exerciseFrequency                           String?      @default("")
+  exerciseType                                String?      @default("")
+  alcoholConsumption                          String?      @default("")
+  alcoholConsumptionSpecify                   String?      @default("")
+  smokingFrequency                            String?      @default("")
+  smokingFrequencySpecify                     String?      @default("")
+  weight                                      String?      @default("")
+  height                                      String?      @default("")
+  profession                                  String?      @default("")
+  bioinformaticsQCBy                          User?        @relation("bioinformaticsQCBy", fields: [userId], references: [id])
+  userId                                      String?      @db.ObjectId
+  noOfBases                                   String?      @default("")
+  noOfReads                                   String?      @default("")
+  meanReadLength                              String?      @default("")
+  dataSize                                    String?      @default("")
+  QCstatus                                    String?      @default("")
+  priority                                    String?      @default("Normal")
+  rejectReport                                String?      @default("")
+  chronicConditions                           String?      @default("")
+  digestiveEnzymes                            String?      @default("")
+  otherdigestiveEnzymes                       String?      @default("")
+  hour                                        String?      @default("")
+  minute                                      String?      @default("")
+  pickUpOverRide                              Boolean?     @default(false)
+  pickUpDetailsLastChecked                    DateTime?
+  estimatedTimeOfDelivery                     DateTime?
+  pickupDetailsFlag                           Boolean      @default(true)
+  bornType                                    String?      @default("")
+  bornBefore8Months                           String?      @default("")
+  breastFed                                   String?      @default("")
+  bloodGroup                                  String?      @default("")
+  currentOccupation                           String?      @default("")
+  maritalStatus                               String?      @default("")
+  sampleCollectionAddress                     String?      @default("")
+  followdietTimePeriod                        String?      @default("")
+  followdiet                                  String?      @default("")
+  foodSensitivity                             String[]     @default([])
+  drugsTake                                   String?      @default("")
+  otherDrugs                                  String[]     @default([])
+  supplementsTake                             String?      @default("")
+  otherSupplements                            String[]     @default([])
+  sleepingHours                               String?      @default("")
+  troubleSleeping                             String?      @default("")
+  troubleSleepingFrequency                    String?      @default("")
+  sleepingAid                                 String?      @default("")
+  sleepingAidSpecify                          String?      @default("")
+  tendencyToLoseGainWeight                    String?      @default("")
+  tendencyToLoseGainWeightSpecify             String?      @default("")
+  energyLevelsMorning                         String?      @default("")
+  energyLevelsAfternoon                       String?      @default("")
+  energyLevelsEvening                         String?      @default("")
+  exerciseTypeV3                              String[]     @default([])
+  exerciseTypeV3Specify                       String?      @default("")
+  petsAtHome                                  String[]     @default([])
+  stressedOrAnxious                           String?      @default("")
+  brainFog                                    String?      @default("")
+  bloatingOnset                               String?      @default("")
+  bloatingTimeline                            String?      @default("")
+  bloating                                    String?      @default("")
+  flatulenceOnset                             String?      @default("")
+  flatulenceTimeline                          String?      @default("")
+  flatulenceEmbaress                          String?      @default("")
+  flatulence                                  String?      @default("")
+  acidRefluxOnset                             String?      @default("")
+  acidRefluxTimeline                          String?      @default("")
+  acidReflux                                  String?      @default("")
+  burpingOnset                                String?      @default("")
+  burpingTimeline                             String?      @default("")
+  burping                                     String?      @default("")
+  constipationFrequency                       String?      @default("")
+  constipationTimeline                        String?      @default("")
+  constipationCompleteBowel                   String?      @default("")
+  constipation                                String?      @default("")
+  diarroheaFrequency                          String?      @default("")
+  diarroheaTimeline                           String?      @default("")
+  diarrohea                                   String?      @default("")
+  abdominalPainFrequency                      String?      @default("")
+  abdominalPainTimeline                       String?      @default("")
+  chronicMedicalConditionSpecify              String[]     @default([])
+  chronicMedicalCondition                     String?      @default("")
+  gastrointestinalSpecify                     String[]     @default([])
+  gastrointestinal                            String?      @default("")
+  cancerSpecify                               String[]     @default([])
+  cancer                                      String?      @default("")
+  covid19Specify                              String?      @default("")
+  covid19                                     String?      @default("")
+  gastrointestinalProcedureSpecify            String[]     @default([])
+  gastrointestinalProcedure                   String?      @default("")
+  goals                                       String[]     @default([])
+  isRead                                      Boolean      @default(false)
+  historyOfSurgicalProcedureV3                String       @default("")
+  surgeryOption                               Json[]       @default([])
+}
+
+enum pickUpStatus {
+  pending
+  assign
+}
+
+model longevity {
+  id                          String           @id @default(auto()) @map("_id") @db.ObjectId
+  creationDate                DateTime         @default(now())
+  email                       String
+  name                        String
+  phone                       String
+  occupation                  String
+  dob                         String
+  gender                      String
+  city                        String
+  maritalStatus               String
+  heightFeet                  String
+  heightInches                String
+  weight                      String
+  havePetAtHome               String
+  dietPreference              String
+  seafoodPortionPerWeek       String
+  specificDiet                String
+  fastingType                 String
+  saladPortionsPerWeek        String
+  sleepQuality                String
+  problemFallingAsleep        String
+  takeSleepMedication         String
+  wakeUpTimes                 String
+  sleepTime                   String
+  wakeupTime                  String
+  workoutFrequency            String
+  workoutTypes                String[]
+  alcoholConsumption          String
+  smokingHabit                String
+  stressFrequency             String
+  takeSupplementsOrMedication String
+  healthConditions            String[]
+  healthGoals                 String[]
+  longevityReport             longevityReport? @relation(fields: [longevityReportId], references: [id])
+  longevityReportId           String?          @unique @db.ObjectId
+}
+
+model longevityReport {
+  id                    String          @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt             DateTime        @default(now())
+  updatedAt             DateTime        @updatedAt
+  activityGroups        activityGroup[] @relation(fields: [activityGroupsIDs], references: [id])
+  activityGroupsIDs     String[]        @db.ObjectId
+  activity              activity[]      @relation(fields: [activityIDs], references: [id])
+  activityIDs           String[]        @db.ObjectId
+  supplement            supplement[]    @relation(fields: [supplementsIDs], references: [id])
+  supplementsIDs        String[]        @db.ObjectId
+  disease               disease[]       @relation(fields: [diseaseIDs], references: [id])
+  diseaseIDs            String[]        @db.ObjectId
+  lifeGoals             lifeGoals[]     @relation(fields: [lifeGoalsIDs], references: [id])
+  lifeGoalsIDs          String[]        @db.ObjectId
+  weekSchedule          weekSchedule[]  @relation(fields: [weekScheduleIds], references: [id])
+  weekScheduleIds       String[]        @db.ObjectId
+  longevity             longevity?
+  reportUrl             String
+  completionTime        Int
+  inProcess             Boolean
+  lastPDFGenerationDate DateTime
+}
+
+model activityGroup {
+  id                String            @id @default(auto()) @map("_id") @db.ObjectId
+  title             String            @unique
+  pictureLink       String
+  subtitle          String
+  activitys         activity[]
+  longevityReport   longevityReport[] @relation(fields: [longevityReportId], references: [id])
+  longevityReportId String[]          @db.ObjectId
+}
+
+model activity {
+  id                  String            @id @default(auto()) @map("_id") @db.ObjectId
+  activityGroup       activityGroup?    @relation(fields: [activityGroupIDs], references: [id])
+  activityGroupIDs    String?           @db.ObjectId
+  title               String            @unique
+  explain             String
+  idealTime           String
+  link                String
+  blockPicture        String
+  idealTimeRef        timeBlock[]       @relation(fields: [idealTimeRefID], references: [id]) //array
+  idealTimeRefID      String[]          @db.ObjectId
+  ageGroup            String[]
+  numberOfTimesInWeek Int
+  longevityReport     longevityReport[] @relation(fields: [longevityReportId], references: [id])
+  longevityReportId   String[]          @db.ObjectId
+  routine             routine[]         @relation(fields: [routineId], references: [id])
+  routineId           String[]          @db.ObjectId
+  pdfMessage          String
+}
+
+model supplement {
+  id                       String            @id @default(auto()) @map("_id") @db.ObjectId
+  title                    String            @unique
+  description              String
+  link                     String
+  pictureLink              String
+  diseaseAvoid             disease[]         @relation("DiseaseAvoid", fields: [diseaseAvoidIDs], references: [id])
+  diseaseAvoidIDs          String[]          @db.ObjectId
+  diseaseRecommendation    disease[]         @relation("DiseaseRecommendation", fields: [diseaseRecommendationIDs], references: [id])
+  diseaseRecommendationIDs String[]          @db.ObjectId
+  ageGroup                 String[]
+  numberOfTimesInWeek      Int
+  idealTimeRef             timeBlock[]       @relation(fields: [idealTimeRefID], references: [id]) // conert into array 
+  idealTimeRefID           String[]          @db.ObjectId
+  lifeGoals                lifeGoals[]       @relation(fields: [lifeGoalsIDs], references: [id])
+  lifeGoalsIDs             String[]          @db.ObjectId
+  longevityReport          longevityReport[] @relation(fields: [longevityReportId], references: [id])
+  longevityReportId        String[]          @db.ObjectId
+  routine                  routine[]         @relation(fields: [routineIDs], references: [id])
+  routineIDs               String[]          @db.ObjectId
+  pdfMessage               String
+  recommend                answer[]          @relation("recommmend", fields: [recommendrId], references: [id])
+  recommendrId             String[]          @db.ObjectId
+  avoid                    answer[]          @relation("avoid", fields: [avoidIds], references: [id])
+  avoidIds                 String[]          @db.ObjectId
+}
+
+model timeBlock {
+  id           String       @id @default(auto()) @map("_id") @db.ObjectId
+  title        String       @unique
+  seriesNumber Int          @unique
+  activity     activity[]   @relation(fields: [activityId], references: [id])
+  supplement   supplement[] @relation(fields: [supplementId], references: [id])
+  activityId   String[]     @db.ObjectId
+  supplementId String[]     @db.ObjectId
+  routine      routine[]
+  blockPicture String
+}
+
+model lifeGoals {
+  id                String            @id @default(auto()) @map("_id") @db.ObjectId
+  title             String            @unique
+  supplement        supplement[]      @relation(fields: [supplementId], references: [id])
+  supplementId      String[]          @db.ObjectId
+  longevityReport   longevityReport[] @relation(fields: [longevityReportId], references: [id])
+  longevityReportId String[]          @db.ObjectId
+}
+
+model disease {
+  id                         String            @id @default(auto()) @map("_id") @db.ObjectId
+  title                      String            @unique
+  avoidsupplement            supplement[]      @relation("DiseaseAvoid", fields: [avoidSupplementId], references: [id]) //convet array
+  avoidSupplementId          String[]          @db.ObjectId
+  recommendationSupplement   supplement[]      @relation("DiseaseRecommendation", fields: [recommendationSupplementId], references: [id]) //convet array
+  recommendationSupplementId String[]          @db.ObjectId
+  longevityReport            longevityReport[] @relation(fields: [longevityReportId], references: [id])
+  longevityReportId          String[]          @db.ObjectId
+}
+
+model weekSchedule {
+  id                String            @id @default(auto()) @map("_id") @db.ObjectId
+  day               Int
+  routine           routine[]         @relation(fields: [routineIDs], references: [id])
+  routineIDs        String[]          @db.ObjectId
+  longevityReport   longevityReport[] @relation(fields: [longevityReportId], references: [id])
+  longevityReportId String[]          @db.ObjectId
+}
+
+model routine {
+  id             String         @id @default(auto()) @map("_id") @db.ObjectId
+  timeBlock      timeBlock?     @relation(fields: [timeBlockId], references: [id])
+  timeBlockId    String?        @db.ObjectId
+  weekSchedule   weekSchedule[] @relation(fields: [weekScheduleId], references: [id])
+  weekScheduleId String[]       @db.ObjectId
+  activity       activity[]     @relation(fields: [activityId], references: [id])
+  activityId     String[]       @db.ObjectId
+  supplements    supplement[]   @relation(fields: [supplementsId], references: [id])
+  supplementsId  String[]       @db.ObjectId
+}
+
+model apiKey {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  title     String
+  key       String   @unique
+  status    Boolean
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @db.ObjectId
+}
+
+model product {
+  id               String      @id @default(auto()) @map("_id") @db.ObjectId
+  sku              String      @unique
+  title            String
+  description      String
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+  isBiomeInventory Boolean?
+  inventory        inventory[]
+}
+
+model inventory {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  barcode    String    @unique
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  product    product?  @relation(fields: [productId], references: [id])
+  productId  String?   @db.ObjectId
+  vendor     vendor?   @relation(fields: [vendorId], references: [id])
+  vendorId   String?   @db.ObjectId
+  inwards    inward[]
+  inwardIds  String[]  @db.ObjectId
+  outwards   outward[]
+  outwardIds String[]  @db.ObjectId
+}
+
+model inward {
+  id                   String                 @id @default(auto()) @map("_id") @db.ObjectId
+  inventory            inventory?             @relation(fields: [inventoryId], references: [id])
+  inventoryId          String?                @db.ObjectId
+  updatedAt            DateTime               @updatedAt
+  remark               String?
+  createdAt            DateTime               @default(now())
+  user                 User?                  @relation(fields: [userId], references: [id])
+  userId               String?                @db.ObjectId
+  sampleCollectionData sampleCollectionData[]
+  outward              outward[]
+  labInward            Boolean?
+  weight               String?
+  fridgeLocation       String?
+  sampleTubeBarCode    String?
+}
+
+model outward {
+  id                    String    @id @default(auto()) @map("_id") @db.ObjectId
+  inventory             inventory @relation(fields: [inventoryId], references: [id])
+  inventoryId           String    @db.ObjectId
+  user                  User?     @relation(fields: [userId], references: [id])
+  userId                String?   @db.ObjectId
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+  address               Json?
+  customer              customer? @relation(fields: [customerId], references: [id])
+  customerId            String?   @db.ObjectId
+  doctor                doctor?   @relation(fields: [doctorId], references: [id])
+  doctorId              String?   @db.ObjectId
+  inward                inward?   @relation(fields: [inwardId], references: [id])
+  inwardId              String?   @db.ObjectId
+  orderID               String?
+  channelID             String?
+  phoneNumber           String?
+  sealer                sealer?   @relation(fields: [sealerId], references: [id])
+  sealerId              String?   @db.ObjectId
+  isSoldByDecodeAge     Boolean?
+  EstimatedDeliveryDate DateTime?
+  ETDNotFound           Boolean?
+  Delivered             Boolean   @default(false)
+  DeliveryDetailsFlag   Boolean   @default(true)
+}
+
+model layout {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  type      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  items     Json[]
+}
+
+model labProcess {
+  id                           String                        @id @default(auto()) @map("_id") @db.ObjectId
+  createdBy                    User                          @relation(fields: [createdById], references: [id])
+  createdById                  String                        @db.ObjectId
+  createdAt                    DateTime                      @default(now())
+  updatedAt                    DateTime                      @updatedAt
+  fridgeLocation               String
+  sampleTubeBarCode            String                        @unique
+  status                       String                        @default("sampleEntryProcess")
+  weight                       Float?
+  dateTime                     DateTime?                     @default(now())
+  remark                       String?
+  sampleCollectionData         sampleCollectionData?         @relation(fields: [sampleCollectionId], references: [id])
+  sampleCollectionId           String?                       @db.ObjectId
+  DNA                          DNA?
+  gelElectrophoresis           gelElectrophoresis?
+  libraryPreparation           libraryPreparation?           @relation(fields: [libraryPreparationId], references: [id])
+  libraryPreparationId         String?                       @db.ObjectId
+  libraryPreparationBarcode    String?
+  libraryPooling               libraryPooling?               @relation(fields: [libraryPoolingId], references: [id])
+  libraryPoolingId             String?                       @db.ObjectId
+  sequencing                   sequencing?                   @relation(fields: [sequencingId], references: [id])
+  sequencingId                 String?                       @db.ObjectId
+  sequencingEnd                sequencingEnd?                @relation(fields: [sequencingEndId], references: [id])
+  sequencingEndId              String?                       @db.ObjectId
+  dataTransferToBioinformatics dataTransferToBioinformatics?
+  reject                       Boolean?
+  labProcessUID                String?
+}
+
+model DNA {
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  employee     User        @relation(fields: [employeeId], references: [id])
+  employeeId   String      @db.ObjectId
+  createdAt    DateTime    @default(now())
+  qcStatus     QCStatus    @default(pending)
+  statusLog    Json[]      @default([])
+  labId        String
+  kitName      String?
+  labProcess   labProcess? @relation(fields: [labProcessId], references: [id])
+  labProcessId String?     @unique @db.ObjectId
+}
+
+enum QCStatus {
+  pending
+  approved
+  rejected
+}
+
+model jobPosition {
+  id           String       @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  name         String       @unique
+  jobAvailable Boolean
+  careerForm   careerForm[]
+}
+
+model contactForm {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  email     String
+  phone     String
+  subject   String
+  message   String
+}
+
+model careerForm {
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  name          String
+  email         String
+  phone         String
+  jobPosition   jobPosition? @relation(fields: [jobPositionId], references: [id])
+  jobPositionId String?      @db.ObjectId
+  currentCTC    Int
+  expectedCTC   Int
+  location      String
+  link          String
+}
+
+model logs {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userRef   User?    @relation(fields: [userId], references: [id])
+  userId    String?  @db.ObjectId
+  email     String?
+  action    String
+  module    String
+  createdAt DateTime @default(now())
+}
+
+model gelElectrophoresis {
+  id           String      @id @default(auto()) @map("_id") @db.ObjectId
+  employee     User        @relation(fields: [employeeId], references: [id])
+  employeeId   String      @db.ObjectId
+  createdAt    DateTime    @default(now())
+  status       String      @default("inProcess")
+  remark       String?
+  score        Float?
+  statusLog    Json?
+  labProcess   labProcess? @relation(fields: [labProcessId], references: [id])
+  labProcessId String?     @unique @db.ObjectId
+}
+
+model curationApprovals {
+  id               String              @id @default(auto()) @map("_id") @db.ObjectId
+  toNode           Json
+  edge             Json
+  value            String
+  fromNode         Json
+  isApproved       Boolean             @default(false)
+  approvals        User[]              @relation(fields: [approvalIds], references: [id])
+  approvalIds      String[]            @db.ObjectId
+  displayValue     String
+  approvalComments approvalComments[]
+  score            Int                 @default(0)
+  relatedApprovals curationApprovals[] @relation("RelatedApprovals", fields: [relatedIds], references: [id])
+  relatedIds       String[]            @db.ObjectId
+  following        curationApprovals[] @relation("RelatedApprovals", fields: [relatedIds], references: [id])
+  reject           Boolean?
+}
+
+model libraryPreparation {
+  id                               String                       @id @default(auto()) @map("_id") @db.ObjectId
+  shortId                          String                       @unique
+  employee                         User                         @relation(fields: [employeeId], references: [id])
+  employeeId                       String                       @db.ObjectId
+  createdAt                        DateTime                     @default(now())
+  status                           String                       @default("inProcess")
+  labKitPreparationName            String?
+  kitName                          String
+  flowCellID                       String?
+  image                            String
+  labProcess                       labProcess[]
+  comments                         libraryPreparationComments[]
+  volumeOfDna                      Json[]                       @default([])
+  initialQubitReading              Json[]                       @default([])
+  postProcessQubitReading          Json[]                       @default([])
+  afterBarcodeLigationQubitReading Json[]                       @default([])
+  afterAdapterLigationQubitReading Json[]                       @default([])
+  finalQubitReading                Json[]                       @default([])
+}
+
+model libraryPooling {
+  id                  String                   @id @default(auto()) @map("_id") @db.ObjectId
+  shortId             String                   @unique
+  employee            User                     @relation(fields: [employeeId], references: [id])
+  employeeId          String                   @db.ObjectId
+  createdAt           DateTime                 @default(now())
+  status              String                   @default("inProcess")
+  libraryPoolingRunId String?
+  labProcess          labProcess[]
+  comments            libraryPoolingComments[]
+  adapterLigation     String                   @default("")
+  finalQubitReadings  String                   @default("")
+}
+
+model sequencing {
+  id                   String           @id @default(auto()) @map("_id") @db.ObjectId
+  employee             User             @relation(fields: [employeeId], references: [id])
+  employeeId           String           @db.ObjectId
+  createdAt            DateTime         @default(now())
+  loadingDateAndTime   DateTime?
+  cellId               String?
+  sequencingMaster     sequenceMachine? @relation(fields: [sequencingMasterId], references: [id])
+  sequencingMasterId   String?          @db.ObjectId
+  remarks              String?          @default("")
+  status               String           @default("inProcess")
+  labProcess           labProcess[]
+  numberOfActiveSpores Float?           @default(0)
+}
+
+model sequencingEnd {
+  id                   String       @id @default(auto()) @map("_id") @db.ObjectId
+  employee             User         @relation(fields: [employeeId], references: [id])
+  employeeId           String       @db.ObjectId
+  createdAt            DateTime     @default(now())
+  remarks              String?      @default("")
+  totalDataGenerate    String?
+  status               String       @default("inProcess")
+  labProcess           labProcess[]
+  numberOfActiveSpores Float?       @default(0)
+  numberOfPassedReads  Float?       @default(0)
+  numberOfFailedReads  Float?       @default(0)
+  N50                  Float?       @default(0)
+}
+
+model dataTransferToBioinformatics {
+  id                    String      @id @default(auto()) @map("_id") @db.ObjectId
+  barcode               String? // Barcode 
+  kitName               String? // Kit name from DNA Extration and QC
+  quantity              String? // Weight From labprocess
+  gelImage              String? // Image 
+  qubitConcentration    Float? // Final Qubit Readings: // lib pooling
+  nanoDropConcentration String? // Concentration from approval from  DNA Extration and QC
+  firstRatio            Float? //  firstRatio from approval from  DNA Extration and QC
+  secondRatio           Float? //  secondRatio from approval from  DNA Extration and QC
+  extractionDate        DateTime? //  create At from  DNA Extration and QC
+  repeatNo              Float? // Number of time Repet in DNA Extration and QC
+  remarks               String?
+  createdAt             DateTime    @default(now())
+  updatedAt             DateTime?   @updatedAt
+  employee              User        @relation(fields: [employeeId], references: [id])
+  employeeId            String      @db.ObjectId
+  modeOfDataTransfer    String
+  labProcess            labProcess? @relation(fields: [labProcessId], references: [id])
+  labProcessId          String?     @unique @db.ObjectId
+}
+
+model post {
+  id                 String       @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt          DateTime     @default(now())
+  title              String
+  image              String?
+  polls              Json?
+  pollsArray         String[]
+  type               questionType
+  visible            Boolean
+  bookMarksIds       String[]     @db.ObjectId
+  postCreaterId      String?      @db.ObjectId
+  comment            comment[]
+  likeIds            String[]     @db.ObjectId
+  dislikeIds         String[]     @db.ObjectId
+  customerlike       customer[]   @relation(fields: [likeIds], references: [id], name: "customerLikes")
+  doctorPostlike     doctor[]     @relation(fields: [likeIds], references: [id], name: "doctorLike")
+  customerDislike    customer[]   @relation(fields: [dislikeIds], references: [id], name: "customerDislikes")
+  doctorPostDislike  doctor[]     @relation(fields: [dislikeIds], references: [id], name: "doctorDislike")
+  customerPostCreate customer?    @relation(fields: [postCreaterId], references: [id], name: "customerCreate")
+  doctorPostCreate   doctor?      @relation(fields: [postCreaterId], references: [id], name: "doctorCreate")
+  customerBookMark   customer[]   @relation(fields: [bookMarksIds], references: [id], name: "customerBookMark")
+  doctorPostBookMark doctor[]     @relation(fields: [bookMarksIds], references: [id], name: "doctorBookMark")
+}
+
+enum questionType {
+  Question
+  Polls
+}
+
+model comment {
+  id                String    @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt         DateTime  @default(now())
+  comment           String
+  post              post      @relation(fields: [postId], references: [id])
+  postId            String    @db.ObjectId
+  customerCommentId customer? @relation(fields: [commentsUserId], references: [id], name: "customerComments")
+  DoctorCommentId   doctor?   @relation(fields: [commentsUserId], references: [id], name: "doctorComments")
+  commentsUserId    String?   @db.ObjectId
+}
+
+model approvalComments {
+  id                 String            @id @default(auto()) @map("_id") @db.ObjectId
+  userId             String            @db.ObjectId
+  user               User              @relation(fields: [userId], references: [id])
+  comment            String
+  createdAt          DateTime          @default(now())
+  curationApproval   curationApprovals @relation(fields: [curationApprovalId], references: [id])
+  curationApprovalId String            @db.ObjectId
+  reject             Boolean?
+}
+
+model libraryPoolingComments {
+  id               String         @id @default(auto()) @map("_id") @db.ObjectId
+  userId           String         @db.ObjectId
+  user             User           @relation(fields: [userId], references: [id])
+  comment          String
+  createdAt        DateTime       @default(now())
+  libraryPooling   libraryPooling @relation(fields: [libraryPoolingId], references: [id])
+  libraryPoolingId String         @db.ObjectId
+}
+
+model libraryPreparationComments {
+  id                   String             @id @default(auto()) @map("_id") @db.ObjectId
+  userId               String             @db.ObjectId
+  user                 User               @relation(fields: [userId], references: [id])
+  comment              String
+  createdAt            DateTime           @default(now())
+  libraryPreparation   libraryPreparation @relation(fields: [libraryPreparationId], references: [id])
+  libraryPreparationId String             @db.ObjectId
+}
+
+model notificationToken {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt  DateTime  @default(now())
+  token      String    @unique
+  adminUser  Boolean
+  user       User?     @relation(fields: [userId], references: [id])
+  userId     String?   @db.ObjectId
+  customer   customer? @relation(fields: [customerId], references: [id])
+  customerId String?   @db.ObjectId
+  doctor     doctor?   @relation(fields: [doctorId], references: [id])
+  doctorId   String?   @db.ObjectId
+}
+
+model notifications {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  read        Boolean   @default(false)
+  url         String?
+  sentAt      DateTime  @default(now())
+  user        User?     @relation(fields: [userId], references: [id])
+  userId      String?   @db.ObjectId
+  customer    customer? @relation(fields: [customerId], references: [id])
+  customerId  String?   @db.ObjectId
+}
+
+model sequenceMachine {
+  id         String       @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  name       String
+  status     Boolean
+  uid        String       @unique
+  sequencing sequencing[]
+}
+
+model uid {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  number    Int
+}
+
+model vendor {
+  id         String      @id @default(auto()) @map("_id") @db.ObjectId
+  vendorName String
+  vendorID   String      @unique
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  type       String
+  inventory  inventory[]
+}
+
+model sealer {
+  id                   String                 @id @default(auto()) @map("_id") @db.ObjectId
+  tat                  Int?                   @default(3)
+  sealerId             String
+  name                 String
+  poc_name             String?
+  poc_email            String?
+  poc_phone            String?
+  createdAt            DateTime               @default(now())
+  updatedAt            DateTime               @updatedAt
+  isWhiteLabeled       Boolean?               @default(false)
+  email                String?
+  website              String?
+  logo                 String?
+  footerLogo           String?
+  orgName              String?
+  orgAddress           String?
+  orgEmail             String?
+  orgPhone             String?
+  outward              outward[]
+  customer             customer[]
+  sampleCollectionData sampleCollectionData[]
+}
+
+model question {
+  id             String     @id @default(auto()) @map("_id") @db.ObjectId
+  title          String
+  childQuestion  question[] @relation("childQuestion")
+  question       question?  @relation("childQuestion", fields: [questionId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  questionId     String?    @db.ObjectId
+  parentAnswer   answer?    @relation("parentAnswer", fields: [answerId], references: [id])
+  answerId       String?    @db.ObjectId
+  options        answer[]   @relation("option", fields: [optionsIds], references: [id])
+  optionsIds     String[]   @db.ObjectId
+  root           Boolean
+  multipleAnswer Boolean
+}
+
+model answer {
+  id                String       @id @default(auto()) @map("_id") @db.ObjectId
+  answer            String
+  question          question[]   @relation("parentAnswer")
+  optionquestion    question[]   @relation("option", fields: [optionquestionIds], references: [id])
+  optionquestionIds String[]     @db.ObjectId
+  recommend         supplement[] @relation("recommmend", fields: [recommendIds], references: [id])
+  recommendIds      String[]     @db.ObjectId
+  avoid             supplement[] @relation("avoid", fields: [avoidIds], references: [id])
+  avoidIds          String[]     @db.ObjectId
+}
+
+model extractionKitName {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  kitName   String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  status    Boolean
+}
+
+model flowCellVersion {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  flowCell  String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  status    Boolean
+}
+
+model labKitPreparationName {
+  id                    String   @id @default(auto()) @map("_id") @db.ObjectId
+  labKitPreparationName String   @unique
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  status                Boolean
+}
+
+model latestDate {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  type     String @unique
+  latestId String @unique
+
+  @@unique(fields: [type, latestId], name: "type_latestId")
+}
+
+enum BloodAgeSelection {
+  profilingQuestions
+  lifestyle
+  familiHistory
+  personalMedicalHistory
+  medicalSymptomsQuestionnaire
+  gynecologicalHealth
+}
+
+model bloodAge {
+  id                                         String            @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt                                  DateTime          @default(now())
+  updatedAt                                  DateTime          @updatedAt
+  currentStage                               Int               @default(0)
+  kitId                                      String            @unique
+  selection                                  BloodAgeSelection @default(profilingQuestions)
+  bloodAgeOrder                              bloodAgeOrder     @relation(fields: [bloodAgeOrderID], references: [id])
+  bloodAgeOrderID                            String            @unique @db.ObjectId
+  name                                       String            @default("")
+  dateOfBirth                                DateTime?
+  bornType                                   String            @default("")
+  bornBefore8Months                          String            @default("")
+  breastFed                                  String            @default("")
+  gender                                     String            @default("")
+  bloodGroup                                 String            @default("")
+  currentOccupation                          String            @default("")
+  maritalStatus                              String            @default("")
+  birthPlace                                 String            @default("")
+  currentResidential                         String?
+  sampleCollectionAddress                    String?
+  otherContactNumber                         String            @default("")
+  phoneNumber                                String            @default("")
+  email                                      String            @default("")
+  weight                                     String            @default("")
+  height                                     String            @default("")
+  fruitConsumptionFrequency                  String            @default("")
+  vegetablesConsumptionFrequency             String            @default("")
+  pulsesLegumesNutsSeedsConsumptionFrequency String            @default("")
+  wholeGrainConsumptionFrequency             String            @default("")
+  refinedGrainConsumptionFrequency           String            @default("")
+  refinedSugarConsumptionFrequency           String            @default("")
+  dairyConsumptionFrequency                  String            @default("")
+  fishOrSeafoodConsumptionFrequency          String            @default("")
+  whiteMeatConsumptionFrequency              String            @default("")
+  redConsumptionFrequency                    String            @default("")
+  foodAllergies                              String            @default("")
+  typicalNightlySleepHours                   String            @default("")
+  troubleSleepingTimes                       String            @default("")
+  usesSleepingAid                            String            @default("")
+  otherSleepingAid                           String?
+  exerciseFrequency                          String            @default("")
+  exerciseType                               String            @default("")
+  fatigueAfterExercise                       String            @default("")
+  smokesCurrently                            String            @default("")
+  packsPerDay                                String            @default("")
+  numberofYear                               String            @default("")
+  smokingHistory                             String            @default("")
+  smokingHistoryYear                         String            @default("")
+  consumesAlcohol                            String            @default("")
+  weeklyAlcoholicBeverages                   String?
+  stressfullSituation                        String            @default("")
+  hasCancer                                  String[]          @default([])
+  hasHeartDiseas                             String[]          @default([])
+  hasHypertension                            String[]          @default([])
+  hasObesity                                 String[]          @default([])
+  hasDiabetes                                String[]          @default([])
+  hasStroke                                  String[]          @default([])
+  hasAutoimmuneDisease                       String[]          @default([])
+  hasArthritis                               String[]          @default([])
+  hasKidneyDisease                           String[]          @default([])
+  hasThyroidProblem                          String[]          @default([])
+  hasSeizures                                String[]          @default([])
+  hasPsychiatricDisorders                    String[]          @default([])
+  hasAnxiety                                 String[]          @default([])
+  hasDepression                              String[]          @default([])
+  hasAsthma                                  String[]          @default([])
+  hasAllergies                               String[]          @default([])
+  hasEczema                                  String[]          @default([])
+  hasADHD                                    String[]          @default([])
+  hadIrritableBowel                          String[]          @default([])
+  hasDementia                                String[]          @default([])
+  hasSubstanceAbuse                          String[]          @default([])
+  hasGeneticDisorders                        String[]          @default([])
+  difficultiesWithSubstanceAbuse             String            @default("")
+  tendencyBleedEasily                        String            @default("")
+  diagnosedWithCancer                        String            @default("")
+  treatedForPsychiatricDisorders             String            @default("")
+  diabetesType                               String            @default("")
+  highCholesterolLevel                       String            @default("")
+  cardiacConditions                          String            @default("")
+  diagnosedWithHepatitis                     String            @default("")
+  experiencedDentalIssues                    String            @default("")
+  neurologicalDisorders                      String            @default("")
+  hasGastrointestinalConditions              String            @default("")
+  hasKidneyRelatedDiseases                   String            @default("")
+  hasThyroidDisorder                         String            @default("")
+  hasHasVaricoseVeins                        String            @default("")
+  hasDiagnosedWithSeizureDisorder            String            @default("")
+  hasLungDiseasesOrConditions                String            @default("")
+  hadBloodClots                              String            @default("")
+  experiencedSeriousTrauma                   String            @default("")
+  hadSTIs                                    String            @default("")
+  hasAutoimmuneConditions                    String            @default("")
+  hasDiagnosedWithArthritis                  String            @default("")
+  hasBloodPressureIssues                     String            @default("")
+  hadCataracts                               String            @default("")
+  hasExperiencedJaundice                     String            @default("")
+  hasAnemia                                  String            @default("")
+  hasDiagnosedWithFibromyalgia               String            @default("")
+  hasProstateDisease                         String            @default("")
+  hasGeneticConditionsInFamily               String            @default("")
+  otherMedicalCondition                      String?
+  historyOfSurgicalProcedure                 String            @default("")
+  surgeryOption                              Json[]            @default([])
+  dietType                                   String?           @default("")
+  otherFoodAllergies                         String            @default("")
+  takesSupplementsOrDrugsRegularly           String            @default("")
+  symtoms                                    String            @default("")
+  hasHeadaches                               String            @default("")
+  hasFaintness                               String            @default("")
+  hasDizziness                               String            @default("")
+  hasInsomnia                                String            @default("")
+  hasWateryOrItchyEyes                       String            @default("")
+  hasSwollenReddenedStickyEyelids            String            @default("")
+  hasBagsDarkCircles                         String            @default("")
+  hasBlurredTtunnelVision                    String            @default("")
+  hasItchyEars                               String            @default("")
+  hasEarachesInfectionsEars                  String            @default("")
+  hasDrainageFromEar                         String            @default("")
+  hasRingingOrHearingEars                    String            @default("")
+  hasStuffyNose                              String            @default("")
+  hasSinusProblems                           String            @default("")
+  hasHayFever                                String            @default("")
+  hasSneezingAttacks                         String            @default("")
+  hasExcessiveMucusFormation                 String            @default("")
+  hasChronicCoughing                         String            @default("")
+  hasGaggingFrequentThroat                   String            @default("")
+  hasSoreThroatHoarseness                    String            @default("")
+  hasSwollenDiscoloredGumsLips               String            @default("")
+  hasCankerSores                             String            @default("")
+  hasAcne                                    String            @default("")
+  hasHivesRashesDrySkin                      String            @default("")
+  hasHairLoss                                String            @default("")
+  hasFlushingHotFlashes                      String            @default("")
+  hasExcessiveSweating                       String            @default("")
+  hasIrregularOrSkippedHeartbeat             String            @default("")
+  hasRapidOrPoundingHeartbeat                String            @default("")
+  hasChestPain                               String            @default("")
+  hasChestCongestion                         String            @default("")
+  hasAsthmaBronchitis                        String            @default("")
+  hasShortnessOfBreath                       String            @default("")
+  hasDifficultyBreathing                     String            @default("")
+  hasNauseaVomiting                          String            @default("")
+  hasDiarrhea                                String            @default("")
+  hasConstipation                            String            @default("")
+  hasBloatedFeeling                          String            @default("")
+  hasBelchingPassingGas                      String            @default("")
+  hasHeartburn                               String            @default("")
+  hasIntestinalStomachPain                   String            @default("")
+  hasPainOrAchesInJoints                     String            @default("")
+  hasArthritiss                              String            @default("")
+  hasAutism                                  String[]          @default([])
+  hasStiffnessOrLimitationOfMovement         String            @default("")
+  hasPainOrAchesInMuscles                    String            @default("")
+  hasFeelingOfWeaknessOrTiredness            String            @default("")
+  hasBingeEatingDrinking                     String            @default("")
+  hasCravingCertainFoods                     String            @default("")
+  hasExcessiveWeight                         String            @default("")
+  hasCompulsiveEating                        String            @default("")
+  hasWaterRetention                          String            @default("")
+  hasUnderweight                             String            @default("")
+  hasFatigueSluggishness                     String            @default("")
+  hasApathyLethargy                          String            @default("")
+  hasHyperactivity                           String            @default("")
+  hasRestlessness                            String            @default("")
+  hasPoorMemory                              String            @default("")
+  hasConfusionPoorComprehension              String            @default("")
+  hasPoorConcentration                       String            @default("")
+  hasPoorPhysicalCoordination                String            @default("")
+  hasDifficultyInMakingDecisions             String            @default("")
+  hasStutteringOrStammering                  String            @default("")
+  hasSlurredSpeech                           String            @default("")
+  hasLearningDisabilities                    String            @default("")
+  hasMoodSwings                              String            @default("")
+  hasAnxietyFearNervousness                  String            @default("")
+  hasAngerIrritabilityAggressiveness         String            @default("")
+  hasDepressions                             String            @default("")
+  hasFrequentIllness                         String            @default("")
+  hasFrequentOrUrgentUrination               String            @default("")
+  hasGenitalItchOrDischarge                  String            @default("")
+  gyCurrentStatus                            String            @default("")
+  numberOfPregnancies                        String            @default("")
+  periodEveryMonth                           String            @default("")
+  menstruating                               String            @default("")
+  becomePregnantWill                         String            @default("")
+  cycleLength                                String            @default("")
+  otherSupplementsOrDrugsRegularly           String            @default("")
+  flow                                       String            @default("")
+  otherAutoimmuneConditions                  String            @default("")
+  isRead                                     String            @default("")
+  bookingDate                                DateTime?
+  bookingSelection                           String            @default("")
+  otherGeneticConditions                     String            @default("")
+  historyOfSurgicalProcedureV3               Json[]            @default([])
+  foodIntolerences                           String            @default("")
+  cravings                                   String            @default("")
+}
+
+model bloodAgeOrder {
+  id                        String          @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+  customer                  customer        @relation(fields: [customerId], references: [id])
+  customerId                String          @db.ObjectId
+  defaultAddress            Json
+  billingAddress            Json
+  sku                       String
+  orderId                   String
+  orderStatusUrl            String
+  orderDetail               Json
+  tata1mgReport             tata1mgReport?  @relation(fields: [tata1mgReportId], references: [id])
+  tata1mgReportId           String?         @db.ObjectId
+  bloodAgeID                String          @unique
+  tata1MGRegNo              String?
+  bloodAge                  bloodAge?
+  deepLongevityLastDownload DateTime?
+  downloader                User?           @relation(fields: [downloaderId], references: [id])
+  downloaderId              String?         @db.ObjectId
+  report                    bloodAgeReport? @relation(fields: [reportId], references: [id])
+  reportId                  String?         @db.ObjectId
+  reportSendDate            DateTime?
+}
+
+model bloodAgeReport {
+  id              String               @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt       DateTime             @default(now())
+  updatedAt       DateTime             @updatedAt
+  data            String
+  oldReport       String
+  generatedReport String
+  bloodAgeOrder   bloodAgeOrder[]
+  status          BloodAgeReportStatus @default(PENDING)
+}
+
+model tata1mgReport {
+  id                   String          @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt            DateTime        @default(now())
+  updatedAt            DateTime        @updatedAt
+  sampleCollectionDate DateTime
+  approvalDate         DateTime
+  regNo                String          @unique
+  report               Json[]
+  bloodAgeOrder        bloodAgeOrder[]
+}
+
+model formError {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  type      String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model consent {
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  data      String
+  form      consentType
+}
+
+enum consentType {
+  BLOODAGE
+  BIOME
+}
+
+enum BloodAgeReportStatus {
+  SUCCESS
+  FAIL
+  PENDING
+  IN_PROGRESS
+}

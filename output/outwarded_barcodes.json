@@ -1,0 +1,312 @@
+[
+  {
+    "inventoryID": "67091694e4b9294e3852ba99",
+    "outwardID": "6710ed2fec572da6d519d93d",
+    "barcode": "000415160"
+  },
+  {
+    "inventoryID": "67091699e4b9294e3852bae5",
+    "outwardID": "67299b22aefac60ea76697c9",
+    "barcode": "000415090"
+  },
+  {
+    "inventoryID": "6709169be4b9294e3852bb1d",
+    "outwardID": "67299b22aefac60ea76697b4",
+    "barcode": "000415088"
+  },
+  {
+    "inventoryID": "67091694e4b9294e3852ba85",
+    "outwardID": "67c18d9025312abf4fdea3c6",
+    "barcode": "000415086"
+  },
+  {
+    "inventoryID": "670916a5e4b9294e3852bc25",
+    "outwardID": "67299b23aefac60ea76697d1",
+    "barcode": "000415080"
+  },
+  {
+    "inventoryID": "67091691e4b9294e3852ba2d",
+    "outwardID": "67299b22aefac60ea76697be",
+    "barcode": "000415078"
+  },
+  {
+    "inventoryID": "670916a4e4b9294e3852bc19",
+    "outwardID": "67299a9eaefac60ea7669788",
+    "barcode": "000415047"
+  },
+  {
+    "inventoryID": "6709169fe4b9294e3852bb99",
+    "outwardID": "67299b22aefac60ea76697c5",
+    "barcode": "000415043"
+  },
+  {
+    "inventoryID": "67091693e4b9294e3852ba71",
+    "outwardID": "6710ed30ec572da6d519d94f",
+    "barcode": "000415042"
+  },
+  {
+    "inventoryID": "67091693e4b9294e3852ba61",
+    "outwardID": "6710ed30ec572da6d519d945",
+    "barcode": "000415029"
+  },
+  {
+    "inventoryID": "670916a2e4b9294e3852bbd5",
+    "outwardID": "673342e06fdd27330fe61ce1",
+    "barcode": "000415028"
+  },
+  {
+    "inventoryID": "6709169ee4b9294e3852bb6d",
+    "outwardID": "67299b22aefac60ea76697b6",
+    "barcode": "000414989"
+  },
+  {
+    "inventoryID": "67091691e4b9294e3852ba29",
+    "outwardID": "673304fd6fdd27330fe61c3c",
+    "barcode": "000414963"
+  },
+  {
+    "inventoryID": "67091698e4b9294e3852bae1",
+    "outwardID": "67299b22aefac60ea76697c2",
+    "barcode": "000414960"
+  },
+  {
+    "inventoryID": "67091699e4b9294e3852bafd",
+    "outwardID": "67299b22aefac60ea76697c3",
+    "barcode": "000414946"
+  },
+  {
+    "inventoryID": "67091695e4b9294e3852baa5",
+    "outwardID": "6710ed30ec572da6d519d947",
+    "barcode": "000414944"
+  },
+  {
+    "inventoryID": "67091698e4b9294e3852bac9",
+    "outwardID": "67299b22aefac60ea76697c4",
+    "barcode": "000414943"
+  },
+  {
+    "inventoryID": "67091691e4b9294e3852ba31",
+    "outwardID": "673863a86fdd27330fe61dce",
+    "barcode": "000414925"
+  },
+  {
+    "inventoryID": "670916a4e4b9294e3852bc15",
+    "outwardID": "67299b22aefac60ea76697b7",
+    "barcode": "000414924"
+  },
+  {
+    "inventoryID": "67091692e4b9294e3852ba49",
+    "outwardID": "6710ed30ec572da6d519d943",
+    "barcode": "000414922"
+  },
+  {
+    "inventoryID": "67091693e4b9294e3852ba6d",
+    "outwardID": "6710ed2fec572da6d519d938",
+    "barcode": "000414918"
+  },
+  {
+    "inventoryID": "670916a1e4b9294e3852bbc5",
+    "outwardID": "6710ed30ec572da6d519d950",
+    "barcode": "000414911"
+  },
+  {
+    "inventoryID": "6709169de4b9294e3852bb5d",
+    "outwardID": "6710ed2fec572da6d519d93e",
+    "barcode": "000414910"
+  },
+  {
+    "inventoryID": "67091692e4b9294e3852ba4d",
+    "outwardID": "6710ed30ec572da6d519d948",
+    "barcode": "000414907"
+  },
+  {
+    "inventoryID": "67091698e4b9294e3852bacd",
+    "outwardID": "67299b23aefac60ea76697d0",
+    "barcode": "000414905"
+  },
+  {
+    "inventoryID": "67091698e4b9294e3852badd",
+    "outwardID": "67299b22aefac60ea76697c7",
+    "barcode": "000414893"
+  },
+  {
+    "inventoryID": "67091694e4b9294e3852ba7d",
+    "outwardID": "6710ed2fec572da6d519d93f",
+    "barcode": "000414882"
+  },
+  {
+    "inventoryID": "67091690e4b9294e3852ba19",
+    "outwardID": "6710ed2fec572da6d519d93a",
+    "barcode": "000414881"
+  },
+  {
+    "inventoryID": "67091692e4b9294e3852ba59",
+    "outwardID": "6710ed2fec572da6d519d934",
+    "barcode": "000414848"
+  },
+  {
+    "inventoryID": "670916a2e4b9294e3852bbdd",
+    "outwardID": "673341a86fdd27330fe61ca3",
+    "barcode": "000414847"
+  },
+  {
+    "inventoryID": "6709168fe4b9294e3852ba09",
+    "outwardID": "6710ed30ec572da6d519d941",
+    "barcode": "000414844"
+  },
+  {
+    "inventoryID": "6709168ee4b9294e3852b9f9",
+    "outwardID": "67c5886b0c76c527fe017b57",
+    "barcode": "000414842"
+  },
+  {
+    "inventoryID": "670916a4e4b9294e3852bc01",
+    "outwardID": "67299b22aefac60ea76697cb",
+    "barcode": "000414834"
+  },
+  {
+    "inventoryID": "67091699e4b9294e3852bae9",
+    "outwardID": "67299b22aefac60ea76697b5",
+    "barcode": "000414824"
+  },
+  {
+    "inventoryID": "6709169de4b9294e3852bb59",
+    "outwardID": "67e62acc84ead03c45dd5bff",
+    "barcode": "000414823"
+  },
+  {
+    "inventoryID": "6709168ee4b9294e3852b9fd",
+    "outwardID": "6710ed30ec572da6d519d942",
+    "barcode": "000414819"
+  },
+  {
+    "inventoryID": "67091691e4b9294e3852ba3d",
+    "outwardID": "673c3aff6fdd27330fe61e2e",
+    "barcode": "000414818"
+  },
+  {
+    "inventoryID": "670916a0e4b9294e3852bba5",
+    "outwardID": "6710ed2fec572da6d519d936",
+    "barcode": "000414816"
+  },
+  {
+    "inventoryID": "67091697e4b9294e3852bab9",
+    "outwardID": "6710ed30ec572da6d519d949",
+    "barcode": "000414811"
+  },
+  {
+    "inventoryID": "670916a4e4b9294e3852bc05",
+    "outwardID": "6710ed30ec572da6d519d946",
+    "barcode": "000414809"
+  },
+  {
+    "inventoryID": "670916b1e4b9294e3852bd33",
+    "outwardID": "673342e06fdd27330fe61ce6",
+    "barcode": "000414773"
+  },
+  {
+    "inventoryID": "6709169be4b9294e3852bb29",
+    "outwardID": "6710ed30ec572da6d519d94c",
+    "barcode": "000414761"
+  },
+  {
+    "inventoryID": "670916a9e4b9294e3852bc81",
+    "outwardID": "673341a96fdd27330fe61cad",
+    "barcode": "000414748"
+  },
+  {
+    "inventoryID": "670916aee4b9294e3852bcee",
+    "outwardID": "673342e16fdd27330fe61ced",
+    "barcode": "000414747"
+  },
+  {
+    "inventoryID": "670916a7e4b9294e3852bc59",
+    "outwardID": "673341a96fdd27330fe61cb2",
+    "barcode": "000414746"
+  },
+  {
+    "inventoryID": "670916b2e4b9294e3852bd53",
+    "outwardID": "67386a196fdd27330fe61ddf",
+    "barcode": "000414745"
+  },
+  {
+    "inventoryID": "670916b4e4b9294e3852bd97",
+    "outwardID": "673341a86fdd27330fe61ca6",
+    "barcode": "000414744"
+  },
+  {
+    "inventoryID": "670916a8e4b9294e3852bc65",
+    "outwardID": "673341a96fdd27330fe61cb8",
+    "barcode": "000414738"
+  },
+  {
+    "inventoryID": "670916ace4b9294e3852bc9d",
+    "outwardID": "673341a86fdd27330fe61ca5",
+    "barcode": "000414735"
+  },
+  {
+    "inventoryID": "67091692e4b9294e3852ba45",
+    "outwardID": "6710ed2fec572da6d519d93b",
+    "barcode": "000414731"
+  },
+  {
+    "inventoryID": "6709169ce4b9294e3852bb41",
+    "outwardID": "673c3b6f6fdd27330fe61e33",
+    "barcode": "000414715"
+  },
+  {
+    "inventoryID": "6709169be4b9294e3852bb2d",
+    "outwardID": "67299b22aefac60ea76697bc",
+    "barcode": "000414714"
+  },
+  {
+    "inventoryID": "670916aae4b9294e3852bc89",
+    "outwardID": "673342e06fdd27330fe61ce5",
+    "barcode": "000414713"
+  },
+  {
+    "inventoryID": "670916b2e4b9294e3852bd47",
+    "outwardID": "673341a96fdd27330fe61cb4",
+    "barcode": "000414711"
+  },
+  {
+    "inventoryID": "670916b6e4b9294e3852bdb0",
+    "outwardID": "67c18d8e25312abf4fdea3c4",
+    "barcode": "000414709"
+  },
+  {
+    "inventoryID": "670916a5e4b9294e3852bc21",
+    "outwardID": "67299b22aefac60ea76697c6",
+    "barcode": "000414689"
+  },
+  {
+    "inventoryID": "6709169de4b9294e3852bb61",
+    "outwardID": "67299b22aefac60ea76697c1",
+    "barcode": "000414688"
+  },
+  {
+    "inventoryID": "670916b1e4b9294e3852bd2f",
+    "outwardID": "673342e06fdd27330fe61ce7",
+    "barcode": "000414659"
+  },
+  {
+    "inventoryID": "659fc5ed9ac6e00ffea3d498",
+    "outwardID": "6634691fc7bb8ff6da6a2500",
+    "barcode": "000414503"
+  },
+  {
+    "inventoryID": "659fc5f29ac6e00ffea3d5dc",
+    "outwardID": "6634691fc7bb8ff6da6a2501",
+    "barcode": "000414481"
+  },
+  {
+    "inventoryID": "659fc5ec9ac6e00ffea3d47c",
+    "outwardID": "6618d63525caa0dec6114d7c",
+    "barcode": "000414480"
+  },
+  {
+    "inventoryID": "659fc5ed9ac6e00ffea3d4b4",
+    "outwardID": "663b3cc0c7bb8ff6da6a2709",
+    "barcode": "000414471"
+  }
+]

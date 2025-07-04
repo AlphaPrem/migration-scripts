@@ -1,11 +1,9 @@
-import axios,{ isAxiosError} from "axios"
-import { LabInwardInput } from "../types/labInward"
+import axios from "axios";
+import { LabInwardInput } from "../types/labInward";
+import { isAxiosError } from "axios";
 
-async function createSeller(
-  labInwardInput: LabInwardInput
-): Promise<any> {
+async function createSeller(labInwardInput: LabInwardInput): Promise<any> {
   try {
-
     const data = JSON.stringify({
       operationName: "createB2BSealer",
       query: `mutation createB2BSealer($input: SealerB2BInput) {
@@ -33,7 +31,7 @@ async function createSeller(
       variables: {
         input: labInwardInput,
       },
-    })
+    });
 
     const config = {
       method: "post",
@@ -44,29 +42,25 @@ async function createSeller(
         "Content-Type": "application/json",
       },
       data: data,
-    }
+    };
 
-    const response = await axios.request(config)
+    const response = await axios.request(config);
 
     if (!response.data.data || !response.data.data.createB2BSealer) {
-      throw new Error("Failed to create B2bClient In Lab database")
+      throw new Error("Failed to create B2bClient In Lab database");
     }
 
-    return response.data.data.createB2BSealer
+    return response.data.data.createB2BSealer;
   } catch (error: unknown) {
     if (isAxiosError(error)) {
-      console.dir(error?.response?.data)
+      console.dir(error?.response?.data);
       throw new Error(
         `Axios error occurred while creating seller: ${error?.response?.data?.errors?.[0]?.message}`
-      )
+      );
     }
     if (error instanceof Error) {
-      throw new Error(error.message)
+      throw new Error(error.message);
     }
-    throw new Error(`${error}`)
+    throw new Error(`${error}`);
   }
 }
-function isAxiosError(error: unknown) {
-    throw new Error("Function not implemented.")
-}
-

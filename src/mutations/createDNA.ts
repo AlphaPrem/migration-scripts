@@ -2,20 +2,21 @@ import axios from "axios";
 import { isAxiosError } from "axios";
 import { USERID } from "../../scripts/createLabprocesses";
 import logger from "../../lib/logger/logger";
-import { ILabProcessInput } from "../types/labProcess";
+import { IDNAInput } from "../types/dna";
 
-async function createLabProcess(labProcessInput: ILabProcessInput): Promise<any> {
+async function createDNA(dnaInput: IDNAInput,labProcessId:string): Promise<any> {
   try {
     const data = JSON.stringify({
-      operationName: "createNewLabProcess",
-      query: `mutation createNewLabProcess($input: NewLabProcessInput) {
-        createNewLabProcess(input: $input) {
-        id
-        sampleTubeBarCode
+      operationName: "CreateDNA",
+      query: `mutation CreateDNA($labProcessId: String!, $input: DNAInput) {
+        createDNA(labProcessId: $labProcessId, input: $input) {
+          id
         }
-      }`,
+      }
+      `,
       variables: {
-        input: labProcessInput,
+        input: dnaInput,
+        labProcessId:labProcessId
       },
     });
 
@@ -32,19 +33,19 @@ async function createLabProcess(labProcessInput: ILabProcessInput): Promise<any>
 
     const response = await axios.request(config);
 
-    if (!response.data.data || !response.data.data.createNewLabProcess) {
-      throw new Error("Failed to create lab Process In Lab database");
+    if (!response.data.data || !response.data.data.createDNA) {
+      throw new Error("Failed to create DNA In Lab database");
     }
 
-    return response.data.data.createNewLabProcess;
+    return response.data.data.createDNA;
   } catch (error: unknown) {
     if (isAxiosError(error)) {
       console.dir(error?.response?.data);
       logger.error(
-        `Axios error occurred while creating lab Process: ${error?.response?.data?.errors?.[0]?.message}`
+        `Axios error occurred while creating DNA: ${error?.response?.data?.errors?.[0]?.message}`
       );
       throw new Error(
-        `Axios error occurred while creating lab Process: ${error?.response?.data?.errors?.[0]?.message}`
+        `Axios error occurred while creating DNA: ${error?.response?.data?.errors?.[0]?.message}`
       );
     }
     if (error instanceof Error) {
@@ -56,4 +57,4 @@ async function createLabProcess(labProcessInput: ILabProcessInput): Promise<any>
   }
 }
 
-export { createLabProcess };
+export { createDNA };

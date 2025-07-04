@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { appendFileSync, writeFileSync } from "fs";
 import { barcodes } from "../barcodes"; // Import the static list of barcodes
 
-const logFilePath = "./output/match_log.txt";
+const logFilePath = "./inventory/match_log.txt";
 
 const prisma = new PrismaClient();
 
@@ -438,11 +438,11 @@ async function main() {
   }
 
   writeFileSync(
-    "./output/existing_barcodes.json",
+    "./inventory/existing_barcodes.json",
     JSON.stringify(matchedBarcodes, null, 2)
   );
   writeFileSync(
-    "./output/non_existing_barcodes.json",
+    "./inventory/non_existing_barcodes.json",
     JSON.stringify(notMatchedBarcodes, null, 2)
   );
   console.log(

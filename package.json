@@ -18,13 +18,13 @@
   "type": "commonjs",
   "devDependencies": {
     "@types/node": "^24.0.3",
+    "@types/winston": "^2.4.4",
     "prisma": "^6.10.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {
     "@prisma/client": "^6.10.1",
-    "@types/winston": "^2.4.4",
     "winston": "^3.17.0"
   }
 }

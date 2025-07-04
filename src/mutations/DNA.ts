@@ -89,11 +89,11 @@ async function updateDNA(
 
     const response = await axios.request(config);
 
-    if (!response.data.data || !response.data.data.UpdateDNA) {
+    if (!response.data.data || !response.data.data.updateDNA) {
       throw new Error("Failed to update DNA In Lab database");
     }
 
-    return response.data.data.UpdateDNA;
+    return response.data.data.updateDNA;
   } catch (error: unknown) {
     if (isAxiosError(error)) {
       console.dir(error?.response?.data);

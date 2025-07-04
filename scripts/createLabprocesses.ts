@@ -3,6 +3,10 @@ import { Prisma, PrismaClient } from "@prisma/client";
 import { writeFileSync } from "fs";
 import { labs } from "../data/process"; // Import the static list of customers
 
+const prisma = new PrismaClient();
+
+const USERID = "63f8b0c1d4f3e2b1c4a5d6e7"; // Replace with the actual user ID for migration
+
 async function main() {
   if (labs.length === 0) {
     console.warn("No customer data supplied ‑ nothing to seed.");

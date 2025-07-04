@@ -1,7 +1,7 @@
 // src/seedCustomers.ts
 import { Prisma, PrismaClient } from "@prisma/client";
 import { writeFileSync } from "fs";
-import { labs } from "../data/process"; // Import the static list of customers
+import { labs } from "../output/data/process"; // Import the static list of customers
 
 async function main() {
   if (labs.length === 0) {

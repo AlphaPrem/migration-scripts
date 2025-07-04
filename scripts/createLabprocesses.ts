@@ -6,7 +6,7 @@ import { labs } from "../output/data/process"; // Import the static list of cust
 const prisma = new PrismaClient();
 
 // 1️⃣  Use a constant for the migration user ID
-const USERID = "63f0b8c3d4e2f5a1b2c3d4e5"; // Replace with the actual user ID
+export const USERID = "63f0b8c3d4e2f5a1b2c3d4e5"; // Replace with the actual user ID
 
 async function main() {
   if (labs.length === 0) {

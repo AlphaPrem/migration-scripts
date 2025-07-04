@@ -1,25 +1,21 @@
 import axios from "axios";
-import { ILabInwardInput } from "../types/labInward";
 import { isAxiosError } from "axios";
 import { USERID } from "../../scripts/createLabprocesses";
 import logger from "../../lib/logger/logger";
+import { ILabProcessInput } from "../types/labProcess";
 
-async function createLabInward(labInwardInput: ILabInwardInput): Promise<any> {
+async function createLabInward(labProcessInput: ILabProcessInput): Promise<any> {
   try {
     const data = JSON.stringify({
-      operationName: "createNewInward",
-      query: `mutation CreateNewInward($input: NewInwardInput!) {
-        createNewInward(input: $input) {    
+      operationName: "createNewLabProcess",
+      query: `mutation createNewLabProcess($input: NewLabProcessInput) {
+        createNewLabProcess(input: $input) {
         id
-        createdAt
-        user {
-          id
-          name
-          }
+        sampleTubeBarCode
         }
       }`,
       variables: {
-        input: labInwardInput,
+        input: labProcessInput,
       },
     });
 
@@ -36,19 +32,19 @@ async function createLabInward(labInwardInput: ILabInwardInput): Promise<any> {
 
     const response = await axios.request(config);
 
-    if (!response.data.data || !response.data.data.createNewInward) {
-      throw new Error("Failed to create lab Inward In Lab database");
+    if (!response.data.data || !response.data.data.createNewLabProcess) {
+      throw new Error("Failed to create lab Process In Lab database");
     }
 
-    return response.data.data.createNewInward;
+    return response.data.data.createNewLabProcess;
   } catch (error: unknown) {
     if (isAxiosError(error)) {
       console.dir(error?.response?.data);
       logger.error(
-        `Axios error occurred while creating lab Inward: ${error?.response?.data?.errors?.[0]?.message}`
+        `Axios error occurred while creating lab Process: ${error?.response?.data?.errors?.[0]?.message}`
       );
       throw new Error(
-        `Axios error occurred while creating lab Inward: ${error?.response?.data?.errors?.[0]?.message}`
+        `Axios error occurred while creating lab Process: ${error?.response?.data?.errors?.[0]?.message}`
       );
     }
     if (error instanceof Error) {

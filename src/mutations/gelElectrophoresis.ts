@@ -4,12 +4,19 @@ import axios from "axios";
 import { isAxiosError } from "axios";
 import { USERID } from "../../scripts/createLabprocesses";
 import logger from "../../lib/logger/logger";
-import { IcreateGelElectrophoresisInput, IUpdateGelElectrophoresisUpdateInput } from "../types/gelElectrophoresis";
+import {
+  IcreateGelElectrophoresisInput,
+  IUpdateGelElectrophoresisUpdateInput,
+} from "../types/gelElectrophoresis";
+
+interface IGelElectrophoresisResponse {
+  id: string;
+}
 
 async function createGelElectrophoresis(
   createGelElectrophoresisInput: IcreateGelElectrophoresisInput,
   labProcessId: string
-): Promise<any> {
+): Promise<IGelElectrophoresisResponse> {
   try {
     const data = JSON.stringify({
       operationName: "CreateGelElectrophoresis",
@@ -120,4 +127,4 @@ async function updateGelElectrophoresis(
     throw new Error(`${error}`);
   }
 }
-export { createGelElectrophoresis,updateGelElectrophoresis };
+export { createGelElectrophoresis, updateGelElectrophoresis };

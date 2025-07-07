@@ -4,7 +4,18 @@ import { isAxiosError } from "axios";
 import { USERID } from "../../scripts/createLabprocesses";
 import logger from "../../lib/logger/logger";
 
-async function createLabInward(labInwardInput: ILabInwardInput): Promise<any> {
+interface ICreateLabInwardResponse {
+  id: string;
+  createdAt: string;
+  user: {
+    id: string;
+    name: string;
+  };
+}
+
+async function createLabInward(
+  labInwardInput: ILabInwardInput
+): Promise<ICreateLabInwardResponse> {
   try {
     const data = JSON.stringify({
       operationName: "createNewInward",

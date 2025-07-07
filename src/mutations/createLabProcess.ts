@@ -4,7 +4,14 @@ import { USERID } from "../../scripts/createLabprocesses";
 import logger from "../../lib/logger/logger";
 import { ILabProcessInput } from "../types/labProcess";
 
-async function createLabProcess(labProcessInput: ILabProcessInput): Promise<any> {
+interface LabProcessResponse {
+  id: string;
+  sampleTubeBarCode: string;
+}
+
+async function createLabProcess(
+  labProcessInput: ILabProcessInput
+): Promise<LabProcessResponse> {
   try {
     const data = JSON.stringify({
       operationName: "createNewLabProcess",

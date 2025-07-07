@@ -17,6 +17,31 @@ import {
   createLibraryPreparation,
   updateLibraryPreparation,
 } from "../src/mutations/libraryPreparation";
+import {
+  IcreateLibraryPoolingInput,
+  ILibraryPoolingUpdateInput,
+} from "../src/types/libraryPooling";
+import {
+  createLibraryPooling,
+  updateLibraryPooling,
+} from "../src/mutations/libraryPooling";
+import {
+  ISequencingCreateInput,
+  ISequencingUpdateInput,
+} from "../src/types/startSequencing";
+import {
+  createSequencing,
+  updateSequencing,
+} from "../src/mutations/startSequencing";
+import {
+  IcreateSequencingEndInput,
+  ISequencingEndUpdateInput,
+} from "../src/types/endSequencing";
+import {
+  createENDSequencing,
+  updateENDSequencing,
+} from "../src/mutations/endSequencing";
+import { IDataTransferToBioinformaticsInput } from "../src/types/dataTransferToBioinformatics";
 
 const prisma = new PrismaClient();
 
@@ -173,6 +198,91 @@ async function main() {
       );
 
       // step - 6: library pooling
+
+      const libPoolInput: IcreateLibraryPoolingInput = {
+        employeeId: USERID, // Use the constant defined above
+      };
+
+      const libraryPooling = await createLibraryPooling(
+        libPoolInput,
+        labProcess.id
+      );
+
+      const libPoolUpdateInput: ILibraryPoolingUpdateInput = {
+        adapterLigation: lab.Adapter_Ligation__c.toString(), // Convert to string
+        finalQubitReadings: lab.Final_Qubit__c.toString(), // Convert to string
+        status: lab.LibPool_Status__c,
+      };
+
+      const updatedLibraryPooling = await updateLibraryPooling(
+        libPoolUpdateInput,
+        libraryPooling.id
+      );
+
+      // step - 7: sequencing start
+
+      const seqStartInput: ISequencingCreateInput = {
+        employeeId: USERID, // Use the constant defined above
+        cellId: lab.Run_Id__c,
+        sequencingMasterId: lab.SeqStart_Id,
+      };
+
+      const sequencingStart = await createSequencing(
+        seqStartInput,
+        labProcess.id
+      );
+
+      const updateSequencingStartInput: ISequencingUpdateInput = {
+        numberOfActiveSpores: lab.Number_Of_Active_Pores_sequencing_start__c,
+        status: lab.Status_sequencing_start__c,
+        remarks: lab.Remarks_sequencing_start__c || "",
+      };
+
+      const updatedSequencingStart = await updateSequencing(
+        updateSequencingStartInput,
+        sequencingStart.id
+      );
+
+      // step - 8: sequencing end
+
+      const seqEndInput: IcreateSequencingEndInput = {
+        employeeId: USERID, // Use the constant defined above
+      };
+
+      const sequencingEnd = await createENDSequencing(
+        seqEndInput,
+        sequencingStart.id
+      );
+
+      const updateSequencingEndInput: ISequencingEndUpdateInput = {
+        numberOfActivePores: lab.Number_Of_Active_Pores__c,
+        numberOfPassedReads: lab.Number_Of_Passed_Bases__c,
+        numberOfFailedReads: lab.Number_Of_Failed_Bases__c,
+        N50: lab.N50__c,
+        status: lab.SeqEnd_Status__c,
+        remarks: lab.SeqEnd_Remark__c || "",
+        totalDataGenerate: lab.Total_Data_Generated__c.toString(), // Convert to string
+      };
+
+      const updatedSequencingEnd = await updateENDSequencing(
+        updateSequencingEndInput,
+        sequencingEnd.id
+      );
+
+      //step - 9: data transfer to bioinformatics
+      const dataTransferInput: IDataTransferToBioinformaticsInput = {
+        modeOfDataTransfer: lab.Mode_of_Data_Transfer__c,
+        remarks: lab.Remarks_Data_Transfer__c || "",
+        barcode: lab.Kit_ID_text__c,
+        extractionDate: new Date(lab.DataTrans_CreatedDate).toISOString(),
+        firstRatio: lab.X1st_Ratio_260_280__c,
+        secondRatio: lab.X2nd_Ratio_260_230__c,
+        kitName: lab.Extraction_Kit_Name__c,
+        nanoDropConcentration: lab.toString(), // Convert to string
+        qubitConcentration: parseFloat(lab.Qubit_Concentration__c),
+        quantity: lab.Quantity__c.toString(), // Convert to string
+        repeatNo: parseInt(lab.Repeat_No__c, 10),
+      };
 
       return inward;
     } catch (error: unknown) {

@@ -1,6 +1,6 @@
 export interface IcreateLibraryPoolingInput {
   employeeId: string;
-  notification: boolean;
+  notification?: boolean;
 }
 
 export interface ILibraryPoolingUpdateInput {

@@ -18,7 +18,7 @@ export const labProcessData = [
     DNA_LastModifiedDate: "2025-01-16 05:44:42",
     DNA_Lab_Process__c: "a9KIU000000oMFc2AM",
     Concentration__c: 871.6,
-    Extraction_Kit_Name__c: "a9CIU000000blQp2AI",
+    Extraction_Kit_Name__c: "Qiagen Fast Stool Mini Kit",
     DNA_Remark__c: null,
     DNA_Status__c: "Approved",
     X1st_Ratio_260_280__c: 2.04,

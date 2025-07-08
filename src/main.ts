@@ -42,8 +42,14 @@ import {
   updateENDSequencing,
 } from "../src/mutations/endSequencing";
 import { IDataTransferToBioinformaticsInput } from "../src/types/dataTransferToBioinformatics";
+import { IUpdateGelElectrophoresisUpdateInput } from "./types/gelElectrophoresis";
 
 const prisma = new PrismaClient();
+
+const status = {
+  libPrep: "Approved",
+  libPool: "Approved",
+};
 
 // 1️⃣  Use a constant for the migration user ID
 export const USERID = "63f0b8c3d4e2f5a1b2c3d4e5"; // Replace with the actual user ID
@@ -109,7 +115,7 @@ async function main() {
         qcStatus: lab.DNA_Status__c,
         employeeId: USERID, // Use the constant defined above
         statusLog: [],
-        kitName: lab.Extraction_Kit_Name__c,
+        kitName: lab.Extraction_Kit_Name__c, // TOBE CHANGED
         customerId: "", //used to send email notification
       };
 
@@ -189,7 +195,7 @@ async function main() {
             processId: libraryPreparation.id,
           },
         ],
-        status: lab.LibPrep_Status__c,
+        status: status.libPrep, // Use the constant defined above
       };
 
       const updatedLibraryPreparation = await updateLibraryPreparation(
@@ -211,7 +217,7 @@ async function main() {
       const libPoolUpdateInput: ILibraryPoolingUpdateInput = {
         adapterLigation: lab.Adapter_Ligation__c.toString(), // Convert to string
         finalQubitReadings: lab.Final_Qubit__c.toString(), // Convert to string
-        status: lab.LibPool_Status__c,
+        status: status.libPool,
       };
 
       const updatedLibraryPooling = await updateLibraryPooling(

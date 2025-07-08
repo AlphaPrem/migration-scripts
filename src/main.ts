@@ -8,7 +8,10 @@ import { ILabProcessInput } from "../src/types/labProcess";
 import { createLabProcess } from "../src/mutations/createLabProcess";
 import { createDNA, updateDNA } from "../src/mutations/DNA";
 import { IDNAInput } from "../src/types/dna";
-import { createGelElectrophoresis } from "../src/mutations/gelElectrophoresis";
+import {
+  createGelElectrophoresis,
+  updateGelElectrophoresis,
+} from "../src/mutations/gelElectrophoresis";
 import {
   IcreateLibraryPreparationInput,
   ILibraryPreparationUpdateInput,
@@ -53,6 +56,7 @@ import {
 } from "./mutations/bioInformaticsQC";
 import logger from "../lib/logger/logger";
 import { UpdateSampleCollectionInward } from "./mutations/updateSampleCollectionInward";
+import { IUpdateGelElectrophoresisUpdateInput } from "./types/gelElectrophoresis";
 
 const prisma = new PrismaClient();
 
@@ -166,9 +170,9 @@ async function main() {
       // step - 4: gel electrophoresis
 
       const gelElectrophoresisInput = {
-        remark: lab.GEL_Remark__c,
-        score: lab.Score__c,
-        status: lab.GEL_Status1__c,
+        remark: lab.GEL_Remark__c || "",
+        score: 0,
+        status: "inProcess",
         employeeId: USERID, // Use the constant defined above
         customerId: "", //used to send email notification
       };
@@ -178,21 +182,42 @@ async function main() {
         labProcess.id
       );
 
-      // There is update gel electrophoresis function, but it is not used in this script.
+      const updateGelElectrophoresisInput: IUpdateGelElectrophoresisUpdateInput =
+        {
+          status: lab.GEL_Status1__c === "Approved" ? "accepted" : "rejected",
+          remark: lab.GEL_Remark__c || "",
+          score: lab.Score__c,
+          statusLog: [
+            {
+              remark: lab.GEL_Remark__c || "",
+              status:
+                lab.GEL_Status1__c === "Approved" ? "approved" : "rejected",
+              score: lab.Score__c.toString(), // Convert score to string
+              createdAt: new Date().toISOString(), // Use current date
+            },
+          ],
+        };
+
+      const updatedGelElectrophoresis = await updateGelElectrophoresis(
+        updateGelElectrophoresisInput,
+        gelElectrophoresis.id
+      );
 
       // step - 5: library preparation
       const libPrepInput: IcreateLibraryPreparationInput = {
-        kitName: lab.LibPrep_Name,
-        flowCellID: lab.LibPrep_Id,
-        labKitPreparationName: lab.LibPrep_Name,
+        kitName: lab.LibPrep_Name, // TOBE CHANGED
+        flowCellID: "Other",
+        labKitPreparationName: "",
         employeeId: USERID, // Use the constant defined above
-        libraryPreparationBarcode: lab.Sample_Tube_Barcode_Text__c,
+        libraryPreparationBarcode: `NB${lab.NB__c}`,
       };
 
       const libraryPreparation = await createLibraryPreparation(
         libPrepInput,
         labProcess.id
       );
+
+      // CONTINUE
 
       const updateLibraryPreparationInput: ILibraryPreparationUpdateInput = {
         volumeOfDna: [

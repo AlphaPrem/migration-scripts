@@ -36,6 +36,7 @@ async function createSequencing(
       headers: {
         "x-admin-token": process.env.GRAPHQL_TOKEN,
         "Content-Type": "application/json",
+        Authorization: process.env.AUTH_TOKEN,
       },
       data: data,
     };
@@ -98,6 +99,7 @@ async function updateSequencing(
       headers: {
         "x-admin-token": process.env.GRAPHQL_TOKEN,
         "Content-Type": "application/json",
+        Authorization: process.env.AUTH_TOKEN,
       },
       data: data,
     };
@@ -154,6 +156,7 @@ async function connectSequencing(
       headers: {
         "x-admin-token": process.env.GRAPHQL_TOKEN,
         "Content-Type": "application/json",
+        Authorization: process.env.AUTH_TOKEN,
       },
       data: data,
     };

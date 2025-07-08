@@ -36,6 +36,7 @@ async function createDataTransferToBioinformatics(
       headers: {
         "x-admin-token": process.env.GRAPHQL_TOKEN,
         "Content-Type": "application/json",
+        Authorization: process.env.AUTH_TOKEN,
       },
       data: data,
     };

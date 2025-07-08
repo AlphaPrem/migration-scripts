@@ -17,8 +17,10 @@ async function createLabInward(
   labInwardInput: ILabInwardInput
 ): Promise<ICreateLabInwardResponse> {
   try {
+    logger.info(`[LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: ${labInwardInput.sampleTubeBarCode}`);
+
     const data = JSON.stringify({
-      operationName: "createNewInward",
+      operationName: "CreateNewInward",
       query: `mutation CreateNewInward($input: NewInwardInput!) {
         createNewInward(input: $input) {    
         id
@@ -41,6 +43,7 @@ async function createLabInward(
       headers: {
         "x-admin-token": process.env.GRAPHQL_TOKEN,
         "Content-Type": "application/json",
+        Authorization: process.env.AUTH_TOKEN,
       },
       data: data,
     };
@@ -50,6 +53,10 @@ async function createLabInward(
     if (!response.data.data || !response.data.data.createNewInward) {
       throw new Error("Failed to create lab Inward In Lab database");
     }
+
+    logger.info(
+      `[LAB-INWARD] Lab Inward created successfully. ID: ${response.data.data.createNewInward.id}, Created At: ${response.data.data.createNewInward.createdAt}`
+    );
 
     return response.data.data.createNewInward;
   } catch (error: unknown) {

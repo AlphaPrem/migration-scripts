@@ -11,7 +11,7 @@ export const labProcessData = [
     Weight__c: 17.35,
     Current_Status__c: "Complete",
     Lab_Inward_Time__c: "2025-01-16 05:44:00",
-    Sample_Tube_Barcode_Text__c: "000039101",
+    Sample_Tube_Barcode_Text__c: "00007726",
     DNA_Id: "a9FIU000000brlW2AQ",
     DNA_Name: "EC-A000051",
     DNA_CreatedDate: "2025-01-16 05:44:42",

@@ -6,7 +6,10 @@ import {
   IcreateLibraryPreparationInput,
   ILibraryPreparationUpdateInput,
 } from "../types/libraryPreparation";
-import { IcreateLibraryPoolingInput, ILibraryPoolingUpdateInput } from "../types/libraryPooling";
+import {
+  IcreateLibraryPoolingInput,
+  ILibraryPoolingUpdateInput,
+} from "../types/libraryPooling";
 
 interface ICreateLibraryPoolingResponse {
   id: string;
@@ -40,6 +43,7 @@ async function createLibraryPooling(
       headers: {
         "x-admin-token": process.env.GRAPHQL_TOKEN,
         "Content-Type": "application/json",
+        Authorization: process.env.AUTH_TOKEN,
       },
       data: data,
     };
@@ -102,6 +106,7 @@ async function updateLibraryPooling(
       headers: {
         "x-admin-token": process.env.GRAPHQL_TOKEN,
         "Content-Type": "application/json",
+        Authorization: process.env.AUTH_TOKEN,
       },
       data: data,
     };

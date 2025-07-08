@@ -54,6 +54,9 @@ async function createLibraryPooling(
       throw new Error("Failed to create LibraryPooling In Lab database");
     }
 
+    logger.info(`[LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: ${response.data.data.createLibraryPooling.id}`);
+   
+
     return response.data.data.createLibraryPooling;
   } catch (error: unknown) {
     if (isAxiosError(error)) {
@@ -117,6 +120,8 @@ async function updateLibraryPooling(
       throw new Error("Failed to update LibraryPooling In Lab database");
     }
 
+    logger.info(`[LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: ${response.data.data.updateLibraryPooling.id}`);
+    
     return response.data.data.updateLibraryPooling;
   } catch (error: unknown) {
     if (isAxiosError(error)) {

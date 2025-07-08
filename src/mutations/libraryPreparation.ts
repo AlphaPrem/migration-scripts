@@ -49,6 +49,8 @@ async function createLibraryPreparation(
       throw new Error("Failed to create LibraryPreparation In Lab database");
     }
 
+    logger.info(`[LIBRARY-PREP][CREATE] Library preparation created successfully. ID: ${response.data.data.createLibraryPreparation.id}`);
+    
     return response.data.data.createLibraryPreparation;
   } catch (error: unknown) {
     if (isAxiosError(error)) {
@@ -111,6 +113,10 @@ async function updateLibraryPreparation(
     if (!response.data.data || !response.data.data.updateLibraryPreparation) {
       throw new Error("Failed to update LibraryPreparation In Lab database");
     }
+
+
+    logger.info(`[LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: ${response.data.data.updateLibraryPreparation.id}`);
+    
 
     return response.data.data.updateLibraryPreparation;
   } catch (error: unknown) {

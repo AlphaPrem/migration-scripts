@@ -45,6 +45,8 @@ async function createDNA(
       throw new Error("Failed to create DNA In Lab database");
     }
 
+    logger.info(`[DNA][CREATE] DNA record created successfully. ID: ${response.data.data.createDNA.id}`);
+
     return response.data.data.createDNA;
   } catch (error: unknown) {
     if (isAxiosError(error)) {
@@ -99,6 +101,8 @@ async function updateDNA(
       throw new Error("Failed to update DNA In Lab database");
     }
 
+    logger.info(`[DNA][UPDATE] DNA record updated successfully. ID: ${updateDnaId}`);
+    
     return response.data.data.updateDNA;
   } catch (error: unknown) {
     if (isAxiosError(error)) {

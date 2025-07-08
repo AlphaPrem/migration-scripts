@@ -12,6 +12,10 @@ async function startBioInformaticsQC(
   startBioInformaticsQCInput: IBioInfoQCInput
 ): Promise<any> {
   try {
+    logger.info(
+      `[BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: ${startBioInformaticsQCInput.id}`
+    );
+
     const data = JSON.stringify({
       operationName: "StartBioInformaticsQC",
       query: `mutation StartBioInformaticsQC($input: QCInput!) {
@@ -39,6 +43,10 @@ async function startBioInformaticsQC(
       throw new Error("Failed to create BioInformaticsQC In Lab database");
     }
 
+    logger.info(
+      `[BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: ${startBioInformaticsQCInput.id}`
+    );
+
     return response.data.data.startBioInformaticsQC;
   } catch (error: unknown) {
     if (isAxiosError(error)) {
@@ -63,6 +71,10 @@ async function updateBioInformaticsQC(
   updateBioInformaticsQCInput: IBioInfoQcStatusInput
 ): Promise<any> {
   try {
+    logger.info(
+      `[BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: ${updateBioInformaticsQCInput.id}`
+    );
+
     const data = JSON.stringify({
       operationName: "UpdateBioInformaticsQCStatus",
       query: `mutation UpdateBioInformaticsQCStatus($input: QcStatusInput!) {
@@ -80,7 +92,7 @@ async function updateBioInformaticsQC(
       headers: {
         "x-admin-token": process.env.GRAPHQL_TOKEN,
         "Content-Type": "application/json",
-        "Authorization":process.env.AUTH_TOKEN
+        Authorization: process.env.AUTH_TOKEN,
       },
       data: data,
     };
@@ -93,6 +105,10 @@ async function updateBioInformaticsQC(
     ) {
       throw new Error("Failed to update BioInformaticsQC In Lab database");
     }
+
+    logger.info(
+      `[BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: ${updateBioInformaticsQCInput.id}`
+    );
 
     return response.data.data.updateBioInformaticsQCStatus;
   } catch (error: unknown) {

@@ -16,6 +16,10 @@ async function createSequencing(
   labProcessId: string
 ): Promise<ICreateSequencingStartResponse> {
   try {
+    logger.info(
+      `[SEQUENCING-Start] Creating sequencing for lab process ID: ${labProcessId}`
+    );
+
     const data = JSON.stringify({
       operationName: "CreateSequencing",
       query: `mutation CreateSequencing($labProcessId: String!, $input: sequencingInput) {
@@ -47,6 +51,10 @@ async function createSequencing(
       throw new Error("Failed to create Sequencing In Lab database");
     }
 
+    logger.info(
+      `[SEQUENCING-Start] Successfully created sequencing for lab process ID: ${labProcessId}`
+    );
+
     return response.data.data.createSequencing;
   } catch (error: unknown) {
     if (isAxiosError(error)) {
@@ -76,6 +84,10 @@ async function updateSequencing(
   updateSequencingId: string
 ): Promise<IUpdateSequencingStartResponse> {
   try {
+    logger.info(
+      `[SEQUENCING-Update] Updating sequencing for ID: ${updateSequencingId}`
+    );
+
     const data = JSON.stringify({
       operationName: "UpdateSequencing",
       query: `mutation UpdateSequencing(
@@ -110,6 +122,10 @@ async function updateSequencing(
       throw new Error("Failed to update Sequencing In Lab database");
     }
 
+    logger.info(
+      `[SEQUENCING-Update] Successfully updated sequencing for ID: ${updateSequencingId}`
+    );
+
     return response.data.data.updateSequencing;
   } catch (error: unknown) {
     if (isAxiosError(error)) {
@@ -135,6 +151,10 @@ async function connectSequencing(
   sequencingId: string
 ): Promise<any> {
   try {
+    logger.info(
+      `[SEQUENCING-Connect] Connecting sequencing for lab process ID: ${labProcessId} and sequencing ID: ${sequencingId}`
+    );
+
     const data = JSON.stringify({
       operationName: "SequencingUpdate",
       query: `mutation SequencingUpdate(
@@ -166,6 +186,10 @@ async function connectSequencing(
     if (!response.data.data || !response.data.data.sequencingUpdate) {
       throw new Error("Failed to connect Sequencing In Lab database");
     }
+
+    logger.info(
+      `[SEQUENCING-Connect] Successfully connected sequencing for lab process ID: ${labProcessId} and sequencing ID: ${sequencingId}`
+    );
 
     return response.data.data.sequencingUpdate;
   } catch (error: unknown) {

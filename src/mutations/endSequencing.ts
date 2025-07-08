@@ -16,6 +16,10 @@ async function createENDSequencing(
   labProcessId: string
 ): Promise<ICreateSequencingENDResponse> {
   try {
+    logger.info(
+      `[SEQUENCING-End] Creating sequencing end for lab process ID: ${labProcessId}`
+    );
+
     const data = JSON.stringify({
       operationName: "CreateSequencingEnd",
       query: `mutation CreateSequencingEnd(
@@ -50,6 +54,10 @@ async function createENDSequencing(
       throw new Error("Failed to create SequencingEND In Lab database");
     }
 
+    logger.info(
+      `[SEQUENCING-End] Successfully created sequencing end for lab process ID: ${labProcessId}`
+    );
+
     return response.data.data.createSequencingEnd;
   } catch (error: unknown) {
     if (isAxiosError(error)) {
@@ -79,6 +87,10 @@ async function updateENDSequencing(
   updateSequencingEndId: string
 ): Promise<IUpdateSequencingENDResponse> {
   try {
+    logger.info(
+      `[SEQUENCING-End] updating sequencing end for seq id: ${updateSequencingEndId}`
+    );
+
     const data = JSON.stringify({
       operationName: "UpdateSequencingEnd",
       query: `mutation UpdateSequencingEnd(
@@ -114,6 +126,10 @@ async function updateENDSequencing(
       throw new Error("Failed to update Sequencing END In Lab database");
     }
 
+    logger.info(
+      `[SEQUENCING-End] successfully updated sequencing end for seq id: ${updateSequencingEndId}`
+    );
+
     return response.data.data.updateSequencingEnd;
   } catch (error: unknown) {
     if (isAxiosError(error)) {
@@ -139,6 +155,10 @@ async function connectSequencingEnd(
   sequencingEndId: string
 ): Promise<any> {
   try {
+    logger.info(
+      `[SEQUENCING-End] Connecting sequencing end for lab process ID: ${labProcessId} and sequencing end ID: ${sequencingEndId}`
+    );
+
     const data = JSON.stringify({
       operationName: "SequencingEndUpdate",
       query: `mutation SequencingEndUpdate(
@@ -170,6 +190,10 @@ async function connectSequencingEnd(
     if (!response.data.data || !response.data.data.sequencingUpdate) {
       throw new Error("Failed to connect Sequencing In Lab database");
     }
+
+    logger.info(
+      `[SEQUENCING-End] Successfully connected sequencing end for lab process ID: ${labProcessId} and sequencing end ID: ${sequencingEndId}`
+    );
 
     return response.data.data.sequencingUpdate;
   } catch (error: unknown) {

@@ -4,10 +4,14 @@ import { USERID } from "../../scripts/createLabprocesses";
 import logger from "../../lib/logger/logger";
 import { IDataTransferToBioinformaticsInput } from "../types/dataTransferToBioinformatics";
 
+interface ICreateDataTransferToBioinformaticsResponse {
+  id: string;
+}
+
 async function createDataTransferToBioinformatics(
   createDataTransferToBioinformaticsInput: IDataTransferToBioinformaticsInput,
   labProcessId: string
-): Promise<any> {
+): Promise<ICreateDataTransferToBioinformaticsResponse> {
   try {
     const data = JSON.stringify({
       operationName: "CreateDataTransferToBioinformatics",

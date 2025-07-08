@@ -7,10 +7,14 @@ import {
   ISequencingEndUpdateInput,
 } from "../types/endSequencing";
 
+interface ICreateSequencingENDResponse {
+  id: string;
+}
+
 async function createENDSequencing(
   createSequencingENDInput: IcreateSequencingEndInput,
   labProcessId: string
-): Promise<any> {
+): Promise<ICreateSequencingENDResponse> {
   try {
     const data = JSON.stringify({
       operationName: "CreateSequencingEnd",
@@ -65,10 +69,14 @@ async function createENDSequencing(
   }
 }
 
+interface IUpdateSequencingENDResponse {
+  id: string;
+}
+
 async function updateENDSequencing(
   updateSequencingENDInput: ISequencingEndUpdateInput,
   updateSequencingEndId: string
-): Promise<any> {
+): Promise<IUpdateSequencingENDResponse> {
   try {
     const data = JSON.stringify({
       operationName: "UpdateSequencingEnd",

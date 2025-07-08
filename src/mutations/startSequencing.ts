@@ -4,10 +4,14 @@ import { USERID } from "../../scripts/createLabprocesses";
 import logger from "../../lib/logger/logger";
 import { ISequencingCreateInput, ISequencingUpdateInput } from "../types/startSequencing";
 
+interface ICreateSequencingStartResponse {
+  id: string;
+}
+
 async function createSequencing(
   createSequencingInput: ISequencingCreateInput,
   labProcessId: string
-): Promise<any> {
+): Promise<ICreateSequencingStartResponse> {
   try {
     const data = JSON.stringify({
       operationName: "CreateSequencing",
@@ -59,10 +63,14 @@ async function createSequencing(
   }
 }
 
+interface IUpdateSequencingStartResponse {
+  id: string;
+}
+
 async function updateSequencing(
   updateSequencingInput: ISequencingUpdateInput,
   updateSequencingId: string
-): Promise<any> {
+): Promise<IUpdateSequencingStartResponse> {
   try {
     const data = JSON.stringify({
       operationName: "UpdateSequencing",

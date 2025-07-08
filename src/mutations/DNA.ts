@@ -4,10 +4,14 @@ import { USERID } from "../../scripts/createLabprocesses";
 import logger from "../../lib/logger/logger";
 import { IDNAInput, IDNAUpdateInput } from "../types/dna";
 
+interface ICreateDNAResponse {
+  id: string;
+}
+
 async function createDNA(
   dnaInput: IDNAInput,
   labProcessId: string
-): Promise<any> {
+): Promise<ICreateDNAResponse> {
   try {
     const data = JSON.stringify({
       operationName: "CreateDNA",

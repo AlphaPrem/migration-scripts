@@ -94,6 +94,30 @@ async function main() {
   for (const lab of labs) {
     try {
       // step - 0: data gathering
+      const ids = [];
+      const timeStamps = {
+        Lab_CreatedDate: lab.Lab_CreatedDate,
+        Lab_LastModifiedDate: lab.Lab_LastModifiedDate,
+        Lab_Inward_Time__c: lab,
+        DNA_CreatedDate: lab.DNA_CreatedDate,
+        DNA_LastModifiedDate: lab.DNA_LastModifiedDate,
+        GEL_CreatedDate: lab.GEL_CreatedDate,
+        GEL_LastModifiedDate: lab.GEL_LastModifiedDate,
+        LibPrep_CreatedDate: lab.LibPrep_CreatedDate,
+        LibPrep_LastModifiedDate: lab.LibPrep_LastModifiedDate,
+        LibPool_CreatedDate: lab.LibPool_CreatedDate,
+        LibPool_LastModifiedDate: lab.LibPool_LastModifiedDate,
+        PoolBatch_CreatedDate: lab.PoolBatch_CreatedDate,
+        PoolBatch_LastModifiedDate: lab.PoolBatch_LastModifiedDate,
+        SeqStart_CreatedDate: lab.SeqStart_CreatedDate,
+        SeqStart_LastModifiedDate: lab.SeqStart_LastModifiedDate,
+        SeqEnd_CreatedDate: lab.SeqEnd_CreatedDate,
+        SeqEnd_LastModifiedDate: lab.SeqEnd_LastModifiedDate,
+        DataTrans_CreatedDate: lab.DataTrans_CreatedDate,
+        DataTrans_LastModifiedDate: lab.DataTrans_LastModifiedDate,
+        QC_CreatedDate: lab.QC_CreatedDate,
+        QC_LastModifiedDate: lab.QC_LastModifiedDate,
+      };
       const questionnaire = await prisma.sampleCollectionData.findUnique({
         where: {
           kitCode: lab.Sample_Tube_Barcode_Text__c,
@@ -103,12 +127,20 @@ async function main() {
         },
       });
 
+      if (questionnaire) {
+        ids.push({ sampleCollectionDataID: questionnaire.id });
+      }
+
       const inventory = await prisma.inventory.findUnique({
         where: {
           barcode: lab.Sample_Tube_Barcode_Text__c,
         },
         select: { id: true },
       });
+
+      if (inventory) {
+        ids.push({ inventoryID: inventory.id });
+      }
 
       if (!questionnaire || !inventory) {
         logger.warn(
@@ -130,6 +162,10 @@ async function main() {
 
       const inward = await createLabInward(inwardData);
 
+      if (inward) {
+        ids.push({ labInwardID: inward.id });
+      }
+
       const updateRef = await UpdateSampleCollectionInward(
         questionnaire.id,
         inward.id
@@ -145,6 +181,10 @@ async function main() {
 
       const labProcess = await createLabProcess(labProcessData);
 
+      if (labProcess) {
+        ids.push({ labProcessID: labProcess.id });
+      }
+
       // step - 3: Update inward with lab process ID
       const dnaInput: IDNAInput = {
         qcStatus: "pending",
@@ -155,6 +195,10 @@ async function main() {
       };
 
       const dna = await createDNA(dnaInput, labProcess.id);
+
+      if (dna) {
+        ids.push({ dnaID: dna.id });
+      }
 
       const updateDNAInput = {
         qcStatus: lab.DNA_Status__c,
@@ -188,6 +232,10 @@ async function main() {
         gelElectrophoresisInput,
         labProcess.id
       );
+
+      if (gelElectrophoresis) {
+        ids.push({ gelElectrophoresisID: gelElectrophoresis.id });
+      }
 
       const updateGelElectrophoresisInput: IUpdateGelElectrophoresisUpdateInput =
         {
@@ -223,6 +271,10 @@ async function main() {
         libPrepInput,
         labProcess.id
       );
+
+      if (libraryPreparation) {
+        ids.push({ libraryPreparationID: libraryPreparation.id });
+      }
 
       const updateLibraryPreparationInput: ILibraryPreparationUpdateInput = {
         volumeOfDna: [
@@ -268,6 +320,10 @@ async function main() {
         labProcess.id
       );
 
+      if (libraryPooling) {
+        ids.push({ libraryPoolingID: libraryPooling.id });
+      }
+
       const libPoolUpdateInput: ILibraryPoolingUpdateInput = {
         adapterLigation: lab.Adapter_Ligation__c.toString(), // Convert to string
         finalQubitReadings: lab.Final_Qubit__c.toString(), // Convert to string
@@ -300,6 +356,10 @@ async function main() {
         labProcess.id
       );
 
+      if (sequencingStart) {
+        ids.push({ sequencingStartID: sequencingStart.id });
+      }
+
       await connectSequencing(labProcess.id, sequencingStart.id);
 
       const updateSequencingStartInput: ISequencingUpdateInput = {
@@ -323,6 +383,10 @@ async function main() {
         seqEndInput,
         labProcess.id
       );
+
+      if (sequencingEnd) {
+        ids.push({ sequencingEndID: sequencingEnd.id });
+      }
 
       await connectSequencingEnd(labProcess.id, sequencingEnd.id);
 
@@ -362,6 +426,10 @@ async function main() {
         labProcess.id
       );
 
+      if (dataTransfer) {
+        ids.push({ dataTransferID: dataTransfer.id });
+      }
+
       // step - 10: start sequencing
       const startBioInformaticsQCInput: IBioInfoQCInput = {
         id: questionnaire.id,
@@ -378,11 +446,16 @@ async function main() {
 
       const updateBioInformaticsQCInput: IBioInfoQcStatusInput = {
         id: questionnaire.id,
-        QCstatus: lab.QC_Status__c === "Approved" ? "Approve" : "rejected",
+        QCstatus: lab.QC_Status__c === "Approved" ? "Approve" : "Reject",
       };
 
       const updatedBioInformaticsQC = await updateBioInformaticsQC(
         updateBioInformaticsQCInput
+      );
+
+      writeFileSync(
+        `./scriptLog/${lab.Kit_ID_text__c}.json`,
+        JSON.stringify({ ...ids, ...timeStamps }, null, 2)
       );
 
       return inward;
@@ -397,17 +470,6 @@ async function main() {
       continue; // Skip to the next lab if an error occurs
     }
   }
-
-  const ids = created.map((c) => c.id);
-
-  writeFileSync(
-    "./customer/created_customers.json",
-    JSON.stringify(created, null, 2)
-  );
-  writeFileSync(
-    "./customer/created_customers_id.json",
-    JSON.stringify(ids, null, 2)
-  );
 }
 
 main()

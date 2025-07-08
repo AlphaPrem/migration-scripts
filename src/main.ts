@@ -48,10 +48,6 @@ const prisma = new PrismaClient();
 // 1️⃣  Use a constant for the migration user ID
 export const USERID = "63f0b8c3d4e2f5a1b2c3d4e5"; // Replace with the actual user ID
 
-const prisma = new PrismaClient();
-
-const USERID = "63f8b0c1d4f3e2b1c4a5d6e7"; // Replace with the actual user ID for migration
-
 async function main() {
   const createdLabProcessIds: string[] = [];
 

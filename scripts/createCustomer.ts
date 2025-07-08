@@ -1,7 +1,7 @@
 // src/seedCustomers.ts
 import { PrismaClient } from "@prisma/client";
 import { writeFileSync } from "fs";
-import { customers } from "../data/customers"; // Import the static list of customers
+import { customers } from "../output/data/customers"; // Import the static list of customers
 
 const prisma = new PrismaClient();
 

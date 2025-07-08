@@ -42,13 +42,25 @@ import {
   updateENDSequencing,
 } from "../src/mutations/endSequencing";
 import { IDataTransferToBioinformaticsInput } from "../src/types/dataTransferToBioinformatics";
-import { IUpdateGelElectrophoresisUpdateInput } from "./types/gelElectrophoresis";
+import { createDataTransferToBioinformatics } from "./mutations/dataTransferToBioinformatics";
+import {
+  IBioInfoQCInput,
+  IBioInfoQcStatusInput,
+} from "./types/bioInformaticsQC";
+import {
+  startBioInformaticsQC,
+  updateBioInformaticsQC,
+} from "./mutations/bioInformaticsQC";
+import logger from "../lib/logger/logger";
+import { UpdateSampleCollectionInward } from "./mutations/updateSampleCollectionInward";
 
 const prisma = new PrismaClient();
 
 const status = {
   libPrep: "Approved",
   libPool: "Approved",
+  seqStart: "Approved",
+  seqEnd: "Approved",
 };
 
 // 1️⃣  Use a constant for the migration user ID
@@ -71,17 +83,24 @@ async function main() {
   for (const lab of labs) {
     try {
       // step - 0: data gathering
-      const questionnaire = await prisma.sampleCollectionData.findFirst({
+      const questionnaire = await prisma.sampleCollectionData.findUnique({
         where: {
-          kitCode: lab.Kit_ID_text__c,
+          kitCode: lab.Sample_Tube_Barcode_Text__c,
         },
         select: {
           id: true,
         },
       });
 
-      if (!questionnaire) {
-        console.warn(
+      const inventory = await prisma.inventory.findUnique({
+        where: {
+          barcode: lab.Sample_Tube_Barcode_Text__c,
+        },
+        select: { id: true },
+      });
+
+      if (!questionnaire || !inventory) {
+        logger.warn(
           `⚠️ No questionnaire found for kit code ${lab.Kit_ID_text__c}. Skipping lab ${lab.Lab_Name}.`
         );
         continue; // Skip to the next lab if no questionnaire is found
@@ -90,9 +109,9 @@ async function main() {
       // Step - 1: Create the lab inward data
       const inwardData: ILabInwardInput = {
         fridgeLocation: lab.Fridge_Location__c,
-        inventoryId: lab.Sample_Tube_Barcode_Text__c,
+        inventoryId: inventory?.id,
         labInward: true,
-        remark: lab.Lab_Process_Remark__c || "",
+        remark: "",
         sampleTubeBarCode: lab.Sample_Tube_Barcode_Text__c,
         userId: USERID, // Use the constant defined above
         weight: lab.Weight__c.toString(), // Convert weight to string
@@ -100,11 +119,16 @@ async function main() {
 
       const inward = await createLabInward(inwardData);
 
+      const updateRef = await UpdateSampleCollectionInward(
+        questionnaire.id,
+        inward.id
+      );
+
       // step - 2": create lab process
       const labProcessData: ILabProcessInput = {
         createdById: USERID, // Use the constant defined above
-        status: lab.Current_Status__c,
-        sampleCollectionId: questionnaire?.id, // Use the ID from the created inward
+        status: "sampleEntryProcess",
+        sampleCollectionId: questionnaire.id, // Use the ID from the created inward
         remark: lab.Lab_Process_Remark__c || "",
       };
 
@@ -112,7 +136,7 @@ async function main() {
 
       // step - 3: Update inward with lab process ID
       const dnaInput: IDNAInput = {
-        qcStatus: lab.DNA_Status__c,
+        qcStatus: "pending",
         employeeId: USERID, // Use the constant defined above
         statusLog: [],
         kitName: lab.Extraction_Kit_Name__c, // TOBE CHANGED
@@ -240,7 +264,7 @@ async function main() {
 
       const updateSequencingStartInput: ISequencingUpdateInput = {
         numberOfActiveSpores: lab.Number_Of_Active_Pores_sequencing_start__c,
-        status: lab.Status_sequencing_start__c,
+        status: status.seqStart,
         remarks: lab.Remarks_sequencing_start__c || "",
       };
 
@@ -257,15 +281,15 @@ async function main() {
 
       const sequencingEnd = await createENDSequencing(
         seqEndInput,
-        sequencingStart.id
+        labProcess.id
       );
 
       const updateSequencingEndInput: ISequencingEndUpdateInput = {
-        numberOfActivePores: lab.Number_Of_Active_Pores__c,
+        numberOfActiveSpores: lab.Number_Of_Active_Pores__c,
         numberOfPassedReads: lab.Number_Of_Passed_Bases__c,
         numberOfFailedReads: lab.Number_Of_Failed_Bases__c,
         N50: lab.N50__c,
-        status: lab.SeqEnd_Status__c,
+        status: status.seqEnd,
         remarks: lab.SeqEnd_Remark__c || "",
         totalDataGenerate: lab.Total_Data_Generated__c.toString(), // Convert to string
       };
@@ -285,10 +309,38 @@ async function main() {
         secondRatio: lab.X2nd_Ratio_260_230__c,
         kitName: lab.Extraction_Kit_Name__c,
         nanoDropConcentration: lab.toString(), // Convert to string
-        qubitConcentration: parseFloat(lab.Qubit_Concentration__c),
+        qubitConcentration: lab.Final_Qubit__c,
         quantity: lab.Quantity__c.toString(), // Convert to string
         repeatNo: parseInt(lab.Repeat_No__c, 10),
       };
+
+      const dataTransfer = await createDataTransferToBioinformatics(
+        dataTransferInput,
+        labProcess.id
+      );
+
+      // step - 10: start sequencing
+      const startBioInformaticsQCInput: IBioInfoQCInput = {
+        id: questionnaire.id,
+        userID: USERID, // Use the constant defined above
+        noOfBases: lab.Number_of_Bases__c.toString(), // Convert to string
+        noOfReads: lab.Number_of_Reads__c.toString(), // Convert to string
+        meanReadLength: lab.Mean_Read_Length__c.toString(), // Convert to string
+        dataSize: lab.Data_Size__c.toString(), // Convert to string
+      };
+
+      const bioInformaticsQC = await startBioInformaticsQC(
+        startBioInformaticsQCInput
+      );
+
+      const updateBioInformaticsQCInput: IBioInfoQcStatusInput = {
+        id: questionnaire.id,
+        QCstatus: lab.QC_Status__c,
+      };
+
+      const updatedBioInformaticsQC = await updateBioInformaticsQC(
+        updateBioInformaticsQCInput
+      );
 
       return inward;
     } catch (error: unknown) {

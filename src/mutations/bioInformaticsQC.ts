@@ -2,9 +2,11 @@
 
 import axios from "axios";
 import { isAxiosError } from "axios";
-import { USERID } from "../../scripts/createLabprocesses";
 import logger from "../../lib/logger/logger";
-import { IBioInfoQCInput, IBioInfoQcStatusInput } from "../types/bioInformaticsQC";
+import {
+  IBioInfoQCInput,
+  IBioInfoQcStatusInput,
+} from "../types/bioInformaticsQC";
 
 async function startBioInformaticsQC(
   startBioInformaticsQCInput: IBioInfoQCInput
@@ -84,7 +86,10 @@ async function updateBioInformaticsQC(
 
     const response = await axios.request(config);
 
-    if (!response.data.data || !response.data.data.updateBioInformaticsQCStatus) {
+    if (
+      !response.data.data ||
+      !response.data.data.updateBioInformaticsQCStatus
+    ) {
       throw new Error("Failed to update BioInformaticsQC In Lab database");
     }
 
@@ -108,4 +113,4 @@ async function updateBioInformaticsQC(
   }
 }
 
-export { startBioInformaticsQC , updateBioInformaticsQC};
+export { startBioInformaticsQC, updateBioInformaticsQC };

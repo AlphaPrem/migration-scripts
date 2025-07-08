@@ -44,6 +44,10 @@ async function createLabProcess(
       throw new Error("Failed to create lab Process In Lab database");
     }
 
+    logger.info(
+      `[LAB-PROCESS][CREATE] Successfully created new lab process with ID: ${response.data.data.createNewLabProcess.id}`
+    );
+
     return response.data.data.createNewLabProcess;
   } catch (error: unknown) {
     if (isAxiosError(error)) {

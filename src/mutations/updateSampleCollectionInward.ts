@@ -51,6 +51,8 @@ async function UpdateSampleCollectionInward(
     ) {
       throw new Error("Failed to UpdateSampleCollectionInward In Lab database");
     }
+    
+    logger.info(`[updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData ${id}`);
 
     return response.data.data.updateSampleCollectionInward;
   } catch (error: unknown) {

@@ -68,10 +68,16 @@ async function createGelElectrophoresis(
   }
 }
 
+interface IGelElectrophoresisUpdateResponse {
+  id: string;
+  status: string;
+  score: string;
+}
+
 async function updateGelElectrophoresis(
   createGelElectrophoresisInput: IUpdateGelElectrophoresisUpdateInput,
   updateGelElectrophoresisId: string
-): Promise<any> {
+): Promise<IGelElectrophoresisUpdateResponse> {
   try {
     const data = JSON.stringify({
       operationName: "UpdateGelElectrophoresis",

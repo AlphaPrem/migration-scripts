@@ -8,10 +8,14 @@ import {
 } from "../types/libraryPreparation";
 import { IcreateLibraryPoolingInput, ILibraryPoolingUpdateInput } from "../types/libraryPooling";
 
+interface ICreateLibraryPoolingResponse {
+  id: string;
+}
+
 async function createLibraryPooling(
   createlibraryPoolingInput: IcreateLibraryPoolingInput,
   labProcessId: string
-): Promise<any> {
+): Promise<ICreateLibraryPoolingResponse> {
   try {
     const data = JSON.stringify({
       operationName: "CreateLibraryPooling",
@@ -66,10 +70,14 @@ async function createLibraryPooling(
   }
 }
 
+interface IUpdateLibraryPoolingResponse {
+  id: string;
+}
+
 async function updateLibraryPooling(
   updatelibraryPoolingInput: ILibraryPoolingUpdateInput,
   updateLibraryPoolingId: string
-): Promise<any> {
+): Promise<IUpdateLibraryPoolingResponse> {
   try {
     const data = JSON.stringify({
       operationName: "UpdateLibraryPooling",

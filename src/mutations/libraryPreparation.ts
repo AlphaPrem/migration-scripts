@@ -7,10 +7,14 @@ import {
   ILibraryPreparationUpdateInput,
 } from "../types/libraryPreparation";
 
+interface IcreateLibraryPreparationResponse {
+  id: string;
+}
+
 async function createLibraryPreparation(
   createlibraryPreparationInput: IcreateLibraryPreparationInput,
   labProcessId: string
-): Promise<any> {
+): Promise<IcreateLibraryPreparationResponse> {
   try {
     const data = JSON.stringify({
       operationName: "CreateLibraryPreparation",
@@ -65,10 +69,14 @@ async function createLibraryPreparation(
   }
 }
 
+interface IupdateLibraryPreparationResponse {
+  id: string;
+}
+
 async function updateLibraryPreparation(
   updatelibraryPreparationInput: ILibraryPreparationUpdateInput,
   updateLibraryPreparationId: string
-): Promise<any> {
+): Promise<IupdateLibraryPreparationResponse> {
   try {
     const data = JSON.stringify({
       operationName: "UpdateLibraryPreparation",

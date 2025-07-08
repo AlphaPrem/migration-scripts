@@ -33,6 +33,7 @@ import {
   ISequencingUpdateInput,
 } from "../src/types/startSequencing";
 import {
+  connectSequencing,
   createSequencing,
   updateSequencing,
 } from "../src/mutations/startSequencing";
@@ -41,6 +42,7 @@ import {
   ISequencingEndUpdateInput,
 } from "../src/types/endSequencing";
 import {
+  connectSequencingEnd,
   createENDSequencing,
   updateENDSequencing,
 } from "../src/mutations/endSequencing";
@@ -61,10 +63,15 @@ import { IUpdateGelElectrophoresisUpdateInput } from "./types/gelElectrophoresis
 const prisma = new PrismaClient();
 
 const status = {
-  libPrep: "Approved",
-  libPool: "Approved",
-  seqStart: "Approved",
-  seqEnd: "Approved",
+  libPrep: "accepted",
+  libPool: "accepted",
+  seqStart: "accepted",
+  seqEnd: "accepted",
+};
+
+const machine = {
+  a9QIU000000fyCI2AY: "65436bc97d66af58a5027cf6",
+  a9QIU000000fyCa2AI: "65436bd17d66af58a5027cf7",
 };
 
 // 1️⃣  Use a constant for the migration user ID
@@ -217,8 +224,6 @@ async function main() {
         labProcess.id
       );
 
-      // CONTINUE
-
       const updateLibraryPreparationInput: ILibraryPreparationUpdateInput = {
         volumeOfDna: [
           {
@@ -276,16 +281,26 @@ async function main() {
 
       // step - 7: sequencing start
 
+      if (!(lab.Sequence_Machine_Name__c in machine)) {
+        logger.error(
+          `Machine id is not defined in machine array constant object. ID: ${lab.Sequence_Machine_Name__c}`
+        );
+        return; // or handle the error as appropriate
+      }
+
       const seqStartInput: ISequencingCreateInput = {
         employeeId: USERID, // Use the constant defined above
-        cellId: lab.Run_Id__c,
-        sequencingMasterId: lab.SeqStart_Id,
+        cellId: "Other",
+        sequencingMasterId:
+          machine[lab.Sequence_Machine_Name__c as keyof typeof machine] || "", // Use the constant defined above
       };
 
       const sequencingStart = await createSequencing(
         seqStartInput,
         labProcess.id
       );
+
+      await connectSequencing(labProcess.id, sequencingStart.id);
 
       const updateSequencingStartInput: ISequencingUpdateInput = {
         numberOfActiveSpores: lab.Number_Of_Active_Pores_sequencing_start__c,
@@ -309,6 +324,8 @@ async function main() {
         labProcess.id
       );
 
+      await connectSequencingEnd(labProcess.id, sequencingEnd.id);
+
       const updateSequencingEndInput: ISequencingEndUpdateInput = {
         numberOfActiveSpores: lab.Number_Of_Active_Pores__c,
         numberOfPassedReads: lab.Number_Of_Passed_Bases__c,
@@ -326,6 +343,7 @@ async function main() {
 
       //step - 9: data transfer to bioinformatics
       const dataTransferInput: IDataTransferToBioinformaticsInput = {
+        employeeId: USERID, // Use the constant defined above
         modeOfDataTransfer: lab.Mode_of_Data_Transfer__c,
         remarks: lab.Remarks_Data_Transfer__c || "",
         barcode: lab.Kit_ID_text__c,
@@ -333,10 +351,10 @@ async function main() {
         firstRatio: lab.X1st_Ratio_260_280__c,
         secondRatio: lab.X2nd_Ratio_260_230__c,
         kitName: lab.Extraction_Kit_Name__c,
-        nanoDropConcentration: lab.toString(), // Convert to string
+        nanoDropConcentration: lab.Concentration__c.toString(), // Convert to string
         qubitConcentration: lab.Final_Qubit__c,
-        quantity: lab.Quantity__c.toString(), // Convert to string
-        repeatNo: parseInt(lab.Repeat_No__c, 10),
+        quantity: lab.Weight__c.toString(), // lab weight is quantity
+        repeatNo: 0,
       };
 
       const dataTransfer = await createDataTransferToBioinformatics(
@@ -360,7 +378,7 @@ async function main() {
 
       const updateBioInformaticsQCInput: IBioInfoQcStatusInput = {
         id: questionnaire.id,
-        QCstatus: lab.QC_Status__c,
+        QCstatus: lab.QC_Status__c === "Approved" ? "Approve" : "rejected",
       };
 
       const updatedBioInformaticsQC = await updateBioInformaticsQC(

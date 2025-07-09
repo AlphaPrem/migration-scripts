@@ -1,5 +1,3 @@
-// StartBioInformaticsQC
-
 import axios from "axios";
 import { isAxiosError } from "axios";
 import logger from "../../lib/logger/logger";
@@ -40,7 +38,7 @@ async function startBioInformaticsQC(
     const response = await axios.request(config);
 
     if (!response.data.data || !response.data.data.startBioInformaticsQC) {
-      throw new Error("Failed to create BioInformaticsQC In Lab database");
+      throw new Error(response.data.errors[0].message);
     }
 
     logger.info(
@@ -49,6 +47,7 @@ async function startBioInformaticsQC(
 
     return response.data.data.startBioInformaticsQC;
   } catch (error: unknown) {
+    console.log(error);
     if (isAxiosError(error)) {
       console.dir(error?.response?.data);
       logger.error(
@@ -103,7 +102,7 @@ async function updateBioInformaticsQC(
       !response.data.data ||
       !response.data.data.updateBioInformaticsQCStatus
     ) {
-      throw new Error("Failed to update BioInformaticsQC In Lab database");
+      throw new Error(response.data.errors[0].message);
     }
 
     logger.info(
@@ -112,6 +111,7 @@ async function updateBioInformaticsQC(
 
     return response.data.data.updateBioInformaticsQCStatus;
   } catch (error: unknown) {
+    console.log(error);
     if (isAxiosError(error)) {
       console.dir(error?.response?.data);
       logger.error(

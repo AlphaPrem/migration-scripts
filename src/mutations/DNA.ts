@@ -1,6 +1,5 @@
 import axios from "axios";
 import { isAxiosError } from "axios";
-import { USERID } from "../../scripts/createLabprocesses";
 import logger from "../../lib/logger/logger";
 import { IDNAInput, IDNAUpdateInput } from "../types/dna";
 
@@ -42,13 +41,16 @@ async function createDNA(
     const response = await axios.request(config);
 
     if (!response.data.data || !response.data.data.createDNA) {
-      throw new Error("Failed to create DNA In Lab database");
+      throw new Error(response.data.errors[0].message);
     }
 
-    logger.info(`[DNA][CREATE] DNA record created successfully. ID: ${response.data.data.createDNA.id}`);
+    logger.info(
+      `[DNA][CREATE] DNA record created successfully. ID: ${response.data.data.createDNA.id}`
+    );
 
     return response.data.data.createDNA;
   } catch (error: unknown) {
+    console.error(error);
     if (isAxiosError(error)) {
       console.dir(error?.response?.data);
       logger.error(
@@ -98,13 +100,16 @@ async function updateDNA(
     const response = await axios.request(config);
 
     if (!response.data.data || !response.data.data.updateDNA) {
-      throw new Error("Failed to update DNA In Lab database");
+      throw new Error(response.data.errors[0].message);
     }
 
-    logger.info(`[DNA][UPDATE] DNA record updated successfully. ID: ${updateDnaId}`);
-    
+    logger.info(
+      `[DNA][UPDATE] DNA record updated successfully. ID: ${updateDnaId}`
+    );
+
     return response.data.data.updateDNA;
   } catch (error: unknown) {
+    console.error(error);
     if (isAxiosError(error)) {
       console.dir(error?.response?.data);
       logger.error(

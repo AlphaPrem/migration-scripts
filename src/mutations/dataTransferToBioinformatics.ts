@@ -1,6 +1,5 @@
 import axios from "axios";
 import { isAxiosError } from "axios";
-import { USERID } from "../../scripts/createLabprocesses";
 import logger from "../../lib/logger/logger";
 import { IDataTransferToBioinformaticsInput } from "../types/dataTransferToBioinformatics";
 
@@ -47,13 +46,12 @@ async function createDataTransferToBioinformatics(
       !response.data.data ||
       !response.data.data.createDataTransferToBioinformatics
     ) {
-      throw new Error(
-        "Failed to create DataTransferToBioinformatics In Lab database"
-      );
+      throw new Error(response.data.errors[0].message);
     }
 
     return response.data.data.createDataTransferToBioinformatics;
   } catch (error: unknown) {
+    console.error(error);
     if (isAxiosError(error)) {
       console.dir(error?.response?.data);
       logger.error(

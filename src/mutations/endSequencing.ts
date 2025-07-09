@@ -51,7 +51,7 @@ async function createENDSequencing(
     const response = await axios.request(config);
 
     if (!response.data.data || !response.data.data.createSequencingEnd) {
-      throw new Error("Failed to create SequencingEND In Lab database");
+      throw new Error(response.data.errors[0].message);
     }
 
     logger.info(
@@ -60,6 +60,7 @@ async function createENDSequencing(
 
     return response.data.data.createSequencingEnd;
   } catch (error: unknown) {
+    console.error(error);
     if (isAxiosError(error)) {
       console.dir(error?.response?.data);
       logger.error(
@@ -123,7 +124,7 @@ async function updateENDSequencing(
     const response = await axios.request(config);
 
     if (!response.data.data || !response.data.data.updateSequencingEnd) {
-      throw new Error("Failed to update Sequencing END In Lab database");
+      throw new Error(response.data.errors[0].message);
     }
 
     logger.info(
@@ -132,6 +133,7 @@ async function updateENDSequencing(
 
     return response.data.data.updateSequencingEnd;
   } catch (error: unknown) {
+    console.error(error);
     if (isAxiosError(error)) {
       console.dir(error?.response?.data);
       logger.error(
@@ -188,7 +190,7 @@ async function connectSequencingEnd(
     const response = await axios.request(config);
 
     if (!response.data.data || !response.data.data.sequencingUpdate) {
-      throw new Error("Failed to connect Sequencing In Lab database");
+      throw new Error(response.data.errors[0].message);
     }
 
     logger.info(
@@ -197,6 +199,7 @@ async function connectSequencingEnd(
 
     return response.data.data.sequencingUpdate;
   } catch (error: unknown) {
+    console.error(error);
     if (isAxiosError(error)) {
       console.dir(error?.response?.data);
       logger.error(

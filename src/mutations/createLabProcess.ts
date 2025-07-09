@@ -1,6 +1,5 @@
 import axios from "axios";
 import { isAxiosError } from "axios";
-import { USERID } from "../../scripts/createLabprocesses";
 import logger from "../../lib/logger/logger";
 import { ILabProcessInput } from "../types/labProcess";
 

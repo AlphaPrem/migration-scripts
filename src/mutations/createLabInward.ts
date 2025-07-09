@@ -1,7 +1,6 @@
 import axios from "axios";
 import { ILabInwardInput } from "../types/labInward";
 import { isAxiosError } from "axios";
-import { USERID } from "../../scripts/createLabprocesses";
 import logger from "../../lib/logger/logger";
 
 interface ICreateLabInwardResponse {
@@ -17,7 +16,9 @@ async function createLabInward(
   labInwardInput: ILabInwardInput
 ): Promise<ICreateLabInwardResponse> {
   try {
-    logger.info(`[LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: ${labInwardInput.sampleTubeBarCode}`);
+    logger.info(
+      `[LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: ${labInwardInput.sampleTubeBarCode}`
+    );
 
     const data = JSON.stringify({
       operationName: "CreateNewInward",
@@ -51,7 +52,7 @@ async function createLabInward(
     const response = await axios.request(config);
 
     if (!response.data.data || !response.data.data.createNewInward) {
-      throw new Error("Failed to create lab Inward In Lab database");
+      throw new Error(response.data.errors[0].message);
     }
 
     logger.info(
@@ -60,6 +61,7 @@ async function createLabInward(
 
     return response.data.data.createNewInward;
   } catch (error: unknown) {
+    console.log(error);
     if (isAxiosError(error)) {
       console.dir(error?.response?.data);
       logger.error(

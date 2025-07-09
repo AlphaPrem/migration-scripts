@@ -209,7 +209,7 @@ async function main() {
         labId: lab.DNA_Name,
         statusLog: [
           {
-            status: lab.DNA_Status__c,
+            status: lab.DNA_Status__c === "Approved" ? "approved" : "rejected",
             remark: lab.DNA_Remark__c || "",
             date: new Date().toISOString(), // Use current date
             concentration: lab.Concentration__c.toString(), // Convert concentration to string
@@ -283,13 +283,13 @@ async function main() {
       const updateLibraryPreparationInput: ILibraryPreparationUpdateInput = {
         volumeOfDna: [
           {
-            reading: parseFloat(lab.Volume_of_DNA__c),
+            reading: parseInt(lab.Volume_of_DNA__c),
             processId: libraryPreparation.id,
           },
         ],
         initialQubitReading: [
           {
-            reading: parseFloat(lab.Initial_Sample_Qubit__c),
+            reading: parseInt(lab.Initial_Sample_Qubit__c),
             processId: libraryPreparation.id,
           },
         ],

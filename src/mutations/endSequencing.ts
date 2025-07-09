@@ -167,7 +167,7 @@ async function connectSequencingEnd(
         $labProcessId: String!,
         $sequencingEndId: String!
       ) {
-        SequencingEndUpdate(labProcessId: $labProcessId, sequencingEndId: $sequencingId)
+        sequencingEndUpdate(labProcessId: $labProcessId, sequencingEndId: $sequencingEndId)
       }`,
       variables: {
         labProcessId,

@@ -1,4 +1,3 @@
-
 import { Prisma, PrismaClient } from "@prisma/client";
 import { writeFileSync } from "fs";
 import { labProcessData as labs } from "../data/lab";
@@ -131,7 +130,9 @@ async function main() {
         ids.push({ sampleCollectionDataID: questionnaire.id });
       }
 
-      logger.info(`Searching for sample collection data using kit code: ${lab.Sample_Tube_Barcode_Text__c}`);
+      logger.info(
+        `Searching for sample collection data using kit code: ${lab.Sample_Tube_Barcode_Text__c}`
+      );
 
       const inventory = await prisma.inventory.findUnique({
         where: {
@@ -204,7 +205,7 @@ async function main() {
       }
 
       const updateDNAInput = {
-        qcStatus: lab.DNA_Status__c,
+        qcStatus: lab.DNA_Status__c === "Approved" ? "approved" : "rejected",
         labId: lab.DNA_Name,
         statusLog: [
           {

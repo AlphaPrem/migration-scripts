@@ -75,11 +75,11 @@ async function main() {
   //   0
   // );
   writeFileSync(
-    "./outward/outwarded_barcodes.json",
+    "./output/outward/outwarded_barcodes.json",
     JSON.stringify(matchedBarcodes, null, 2)
   );
   writeFileSync(
-    "./outward/non_outwarded_barcodes.json",
+    "./output/outward/non_outwarded_barcodes.json",
     JSON.stringify(notMatchedBarcodes, null, 2)
   );
   console.log(

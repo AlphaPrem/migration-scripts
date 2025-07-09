@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { appendFileSync, writeFileSync } from "fs";
-import { barcodes, existing_quesitonnaire_barcodes } from "../barcodes"; // Import the static list of barcodes
+import { barcodes } from "../barcodes"; // Import the static list of barcodes
 
 const logFilePath = "./output/match_log.txt";
 const prisma = new PrismaClient();
@@ -11,17 +11,17 @@ async function main() {
 
   let total = 0;
 
-  for (const code of existing_quesitonnaire_barcodes) {
-    const questionnaire = await prisma.sampleCollectionData.findFirst({
+  for (const code of barcodes) {
+    const hit = await prisma.labProcess.findUnique({
       where: {
-        kitCode: code,
+        sampleTubeBarCode: code,
       },
       select: {
         id: true,
       },
     });
 
-    if (questionnaire) {
+    if (hit) {
       matchedBarcodes.push(code);
       total += 1;
       const logMsg = `✅ ${code} → match #${matchedBarcodes.length}`;
@@ -33,15 +33,18 @@ async function main() {
     }
   }
 
+  // const nullQuestionnaireCount = matchedBarcodes.reduce(
+  //   (count, { questionnaireID }) => count + (questionnaireID == null ? 1 : 0),
+  //   0
+  // );
   writeFileSync(
-    "./output/questionnaire/found.json",
+    "./output/existing.json",
     JSON.stringify(matchedBarcodes, null, 2)
   );
   writeFileSync(
-    "./output/questionnaire/not_found.json",
+    "./output/non_existing.json",
     JSON.stringify(notMatchedBarcodes, null, 2)
   );
-
   console.log(
     `📄 existing_barcodes.json written with ${total} matches., not filled questionnaires}`
   );

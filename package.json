@@ -11,6 +11,7 @@
     "checkCustomer": "ts-node scripts/checkCustomer.ts",
     "updateInventory": "ts-node scripts/updateInventory.ts",
     "checkQuestionnaire": "ts-node scripts/checkQuestionnaire.ts",
+    "createCustomer": "ts-node scripts/createCustomer.ts",
     "lab": "ts-node scripts/checkLabProcesses.ts",
     "analysis": "ts-node scripts/analysis.ts",
     "test": "echo \"Error: no test specified\" && exit 1"

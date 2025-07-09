@@ -41,11 +41,11 @@ async function main() {
   const ids = created.map((c) => c.id);
 
   writeFileSync(
-    "./customer/created_customers.json",
+    "./output/customer/created_customers.json",
     JSON.stringify(created, null, 2)
   );
   writeFileSync(
-    "./customer/created_customers_id.json",
+    "./output/customer/created_customers_id.json",
     JSON.stringify(ids, null, 2)
   );
 }

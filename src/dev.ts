@@ -97,7 +97,7 @@ async function main() {
       const timeStamps = {
         Lab_CreatedDate: lab.Lab_CreatedDate,
         Lab_LastModifiedDate: lab.Lab_LastModifiedDate,
-        Lab_Inward_Time__c: lab,
+        Lab_Inward_Time__c: lab.Lab_Inward_Time__c,
         DNA_CreatedDate: lab.DNA_CreatedDate,
         DNA_LastModifiedDate: lab.DNA_LastModifiedDate,
         GEL_CreatedDate: lab.GEL_CreatedDate,
@@ -285,25 +285,25 @@ async function main() {
         volumeOfDna: [
           {
             reading: parseInt(lab.Volume_of_DNA__c),
-            processId: libraryPreparation.id,
+            processId: labProcess.id,
           },
         ],
         initialQubitReading: [
           {
             reading: parseInt(lab.Initial_Sample_Qubit__c),
-            processId: libraryPreparation.id,
+            processId: labProcess.id,
           },
         ],
         postProcessQubitReading: [
           {
             reading: lab.After_End_Prep_Sample_Qubit__c,
-            processId: libraryPreparation.id,
+            processId: labProcess.id,
           },
         ],
         afterBarcodeLigationQubitReading: [
           {
             reading: lab.After_Barcode_Sample_Qubit__c,
-            processId: libraryPreparation.id,
+            processId: labProcess.id,
           },
         ],
         status: status.libPrep, // Use the constant defined above
@@ -346,7 +346,7 @@ async function main() {
         logger.error(
           `Machine id is not defined in machine array constant object. ID: ${lab.Sequence_Machine_Name__c}`
         );
-        return; // or handle the error as appropriate
+        continue;
       }
 
       const seqStartInput: ISequencingCreateInput = {
@@ -464,14 +464,33 @@ async function main() {
         labProcessId: labProcess.id,
         labProcessCreatedAt: lab.Lab_CreatedDate,
         labProcessUpdatedAt: lab.Lab_LastModifiedDate,
+        dnaId: dna.id,
+        dnaCreatedAt: lab.DNA_CreatedDate,
+        dnaUpdatedAt: lab.DNA_LastModifiedDate,
+        gelElectrophoresisId: gelElectrophoresis.id,
+        gelElectrophoresisCreatedAt: lab.GEL_CreatedDate,
+        gelElectrophoresisUpdatedAt: lab.GEL_LastModifiedDate,
+        libraryPreparationId: libraryPreparation.id,
+        libraryPreparationCreatedAt: lab.LibPrep_CreatedDate,
+        libraryPreparationUpdatedAt: lab.LibPrep_LastModifiedDate,
+        libraryPoolingId: libraryPooling.id,
+        libraryPoolingCreatedAt: lab.LibPrep_CreatedDate,
+        libraryPoolingUpdatedAt: lab.LibPool_LastModifiedDate,
+        sequencingStartId: sequencingStart.id,
+        sequencingStartCreatedAt: lab.SeqStart_CreatedDate,
+        sequencingStartUpdatedAt: lab.SeqStart_LastModifiedDate,
+        sequencingEndId: sequencingEnd.id,
+        sequencingEndCreatedAt: lab.SeqEnd_CreatedDate,
+        sequencingEndUpdatedAt: lab.SeqEnd_LastModifiedDate,
+        dataTransferId: dataTransfer.id,
+        dataTransferCreatedAt: lab.DataTrans_CreatedDate,
+        dataTransferUpdatedAt: lab.DataTrans_LastModifiedDate,
       });
 
       writeFileSync(
         `./scriptLog/${lab.Kit_ID_text__c}.json`,
         JSON.stringify({ ...ids, ...timeStamps }, null, 2)
       );
-
-      return inward;
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.error(
@@ -485,6 +504,7 @@ async function main() {
   }
 
   writeFileSync("./scriptLog/final.json", JSON.stringify(final, null, 2));
+  logger.info(final);
 }
 
 main()

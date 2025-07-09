@@ -90,11 +90,7 @@ async function updateGelElectrophoresis(
         $updateGelElectrophoresisId: ID!,
         $input: gelElectrophoresisUpdateInput
       ) {
-        updateGelElectrophoresis(id: $updateGelElectrophoresisId, input: $input) {
-          id
-          status
-          score
-        }
+        updateGelElectrophoresis(id: $updateGelElectrophoresisId, input: $input)
       }`,
       variables: {
         input: createGelElectrophoresisInput,

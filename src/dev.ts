@@ -77,7 +77,7 @@ const machine = {
 export const USERID = "654b266eeb0f33d6abaecdf2"; // Replace with the actual user ID
 
 async function main() {
-  const createdLabProcessIds: string[] = [];
+  const final = [];
 
   if (labs.length === 0) {
     console.warn("No customer data supplied ‑ nothing to seed.");
@@ -117,6 +117,7 @@ async function main() {
         QC_CreatedDate: lab.QC_CreatedDate,
         QC_LastModifiedDate: lab.QC_LastModifiedDate,
       };
+
       const questionnaire = await prisma.sampleCollectionData.findFirst({
         where: {
           kitCode: lab.Sample_Tube_Barcode_Text__c,
@@ -457,6 +458,8 @@ async function main() {
         updateBioInformaticsQCInput
       );
 
+      final.push({ ...ids, ...timeStamps });
+
       writeFileSync(
         `./scriptLog/${lab.Kit_ID_text__c}.json`,
         JSON.stringify({ ...ids, ...timeStamps }, null, 2)
@@ -474,6 +477,8 @@ async function main() {
       continue; // Skip to the next lab if an error occurs
     }
   }
+
+  writeFileSync("./scriptLog/final.json", JSON.stringify(final, null, 2));
 }
 
 main()

@@ -68,13 +68,22 @@ const status = {
   seqEnd: "accepted",
 };
 
+// prod
 const machine = {
-  a9QIU000000fyCI2AY: "686cf7ec518f421bbf5a6f86",
-  a9QIU000000fyCa2AI: "686cf7f4518f421bbf5a6f88",
+  a9QIU000000fyCI2AY: "65436bc97d66af58a5027cf6",
+  a9QIU000000fyCa2AI: "65436bd17d66af58a5027cf7",
 };
+// dev
+// const machine = {
+//   a9QIU000000fyCI2AY: "686cf7ec518f421bbf5a6f86",
+//   a9QIU000000fyCa2AI: "686cf7f4518f421bbf5a6f88",
+// };
 
 // 1️⃣  Use a constant for the migration user ID
-export const USERID = "654b266eeb0f33d6abaecdf2"; // Replace with the actual user ID
+// prod
+export const USERID = "63f0b8c3d4e2f5a1b2c3d4e5";
+// dev
+// export const USERID = "654b266eeb0f33d6abaecdf2"; // Replace with the actual user ID
 
 async function main() {
   const final = [];

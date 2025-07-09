@@ -182,7 +182,7 @@ async function connectSequencing(
 
     const response = await axios.request(config);
 
-    if (!response.data.data || !response.data.data.sequencingUpdate) {
+    if (!response.data.data) {
       throw new Error(response.data.errors[0].message);
     }
 

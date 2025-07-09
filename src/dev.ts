@@ -458,7 +458,13 @@ async function main() {
         updateBioInformaticsQCInput
       );
 
-      final.push({ ...ids, ...timeStamps });
+      final.push({
+        inwardId: inward.id,
+        inwardCreatedAt: lab.Lab_Inward_Time__c,
+        labProcessId: labProcess.id,
+        labProcessCreatedAt: lab.Lab_CreatedDate,
+        labProcessUpdatedAt: lab.Lab_LastModifiedDate,
+      });
 
       writeFileSync(
         `./scriptLog/${lab.Kit_ID_text__c}.json`,

@@ -1,6 +1,5 @@
 import axios from "axios";
 import { isAxiosError } from "axios";
-import { USERID } from "../../scripts/createLabprocesses";
 import logger from "../../lib/logger/logger";
 import {
   ISequencingCreateInput,
@@ -48,7 +47,7 @@ async function createSequencing(
     const response = await axios.request(config);
 
     if (!response.data.data || !response.data.data.createSequencing) {
-      throw new Error("Failed to create Sequencing In Lab database");
+      throw new Error(response.data.errors[0].message);
     }
 
     logger.info(
@@ -119,7 +118,7 @@ async function updateSequencing(
     const response = await axios.request(config);
 
     if (!response.data.data || !response.data.data.updateSequencing) {
-      throw new Error("Failed to update Sequencing In Lab database");
+      throw new Error(response.data.errors[0].message);
     }
 
     logger.info(
@@ -184,7 +183,7 @@ async function connectSequencing(
     const response = await axios.request(config);
 
     if (!response.data.data || !response.data.data.sequencingUpdate) {
-      throw new Error("Failed to connect Sequencing In Lab database");
+      throw new Error(response.data.errors[0].message);
     }
 
     logger.info(

@@ -1,11 +1,6 @@
 import axios from "axios";
 import { isAxiosError } from "axios";
-import { USERID } from "../../scripts/createLabprocesses";
 import logger from "../../lib/logger/logger";
-import {
-  IcreateLibraryPreparationInput,
-  ILibraryPreparationUpdateInput,
-} from "../types/libraryPreparation";
 import {
   IcreateLibraryPoolingInput,
   ILibraryPoolingUpdateInput,
@@ -51,11 +46,12 @@ async function createLibraryPooling(
     const response = await axios.request(config);
 
     if (!response.data.data || !response.data.data.createLibraryPooling) {
-      throw new Error("Failed to create LibraryPooling In Lab database");
+      throw new Error(response.data.errors[0].message);
     }
 
-    logger.info(`[LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: ${response.data.data.createLibraryPooling.id}`);
-   
+    logger.info(
+      `[LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: ${response.data.data.createLibraryPooling.id}`
+    );
 
     return response.data.data.createLibraryPooling;
   } catch (error: unknown) {
@@ -117,11 +113,13 @@ async function updateLibraryPooling(
     const response = await axios.request(config);
 
     if (!response.data.data || !response.data.data.updateLibraryPooling) {
-      throw new Error("Failed to update LibraryPooling In Lab database");
+      throw new Error(response.data.errors[0].message);
     }
 
-    logger.info(`[LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: ${response.data.data.updateLibraryPooling.id}`);
-    
+    logger.info(
+      `[LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: ${response.data.data.updateLibraryPooling.id}`
+    );
+
     return response.data.data.updateLibraryPooling;
   } catch (error: unknown) {
     if (isAxiosError(error)) {

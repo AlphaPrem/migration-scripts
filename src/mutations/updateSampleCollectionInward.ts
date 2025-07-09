@@ -49,10 +49,12 @@ async function UpdateSampleCollectionInward(
       !response.data.data ||
       !response.data.data.updateSampleCollectionInward
     ) {
-      throw new Error("Failed to UpdateSampleCollectionInward In Lab database");
+      throw new Error(response.data.errors[0].message);
     }
-    
-    logger.info(`[updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData ${id}`);
+
+    logger.info(
+      `[updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData ${id}`
+    );
 
     return response.data.data.updateSampleCollectionInward;
   } catch (error: unknown) {

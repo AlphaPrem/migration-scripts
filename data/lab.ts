@@ -32,7 +32,7 @@ export const labProcessData = [
     Score__c: 2,
     GEL_Status1__c: "Approved",
     LibPrep_Id: "a9MIU000000XZdZ2AW",
-    LibPrep_Name: "LP-Id-000041",
+    LibPrep_Name: "Mayu",
     LibPrep_CreatedDate: "2025-01-16 05:45:19",
     LibPrep_LastModifiedDate: "2025-01-20 05:36:45",
     LibPrep_Lab_Process__c: "a9KIU000000oMFc2AM",

@@ -46,11 +46,12 @@ async function createGelElectrophoresis(
     const response = await axios.request(config);
 
     if (!response.data.data || !response.data.data.createGelElectrophoresis) {
-      throw new Error("Failed to create GelElectrophoresis In Lab database");
+      throw new Error(response.data.errors[0].message);
     }
 
-    logger.info(`[GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: ${response.data.data.createGelElectrophoresis.id}`);
-    
+    logger.info(
+      `[GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: ${response.data.data.createGelElectrophoresis.id}`
+    );
 
     return response.data.data.createGelElectrophoresis;
   } catch (error: unknown) {
@@ -116,11 +117,13 @@ async function updateGelElectrophoresis(
     const response = await axios.request(config);
 
     if (!response.data.data || !response.data.data.updateGelElectrophoresis) {
-      throw new Error("Failed to update GelElectrophoresis In Lab database");
+      throw new Error(response.data.errors[0].message);
     }
 
-    logger.info(`[GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: ${response.data.data.updateGelElectrophoresis.id}`);
-    
+    logger.info(
+      `[GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: ${response.data.data.updateGelElectrophoresis.id}`
+    );
+
     return response.data.data.updateGelElectrophoresis;
   } catch (error: unknown) {
     if (isAxiosError(error)) {

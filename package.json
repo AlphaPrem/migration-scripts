@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node src/dev.ts",
+    "insert --confirm": "ts-node src/dev.ts",
     "barcode": "ts-node scripts/checkBarcodes.ts",
     "outward": "ts-node scripts/checkOutward.ts",
     "customer": "ts-node scripts/createCustomer.ts",

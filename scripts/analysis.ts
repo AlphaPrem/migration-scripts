@@ -27,13 +27,24 @@ async function main() {
       },
     });
 
-    const outward = await prisma.outward.findFirst({
+    const inventory = await prisma.inventory.findUnique({
       where: {
-        inventory: {
-          barcode: code,
-        },
+        barcode: code,
       },
     });
+
+    if (!inventory) {
+      console.log(`❌ ${code} → no inventory found`);
+      continue;
+    }
+
+    const outward = await prisma.outward.findFirst({
+      where: {
+        inventoryId: inventory.id,
+      },
+    });
+
+    // console.log("OUTWARD: ", outward);
 
     data.push({
       barcode: code,
@@ -41,23 +52,25 @@ async function main() {
       qus: questionnaire ? true : false,
       outward: outward ? true : false,
     });
-    
-    if (hit || questionnaire || outward) {
-      const obj = {
-        barcode: code,
-        questionnaire: questionnaire ? true : false,
-        outward: outward ? true : false,
-        lab: hit ? true : false,
-      };
-      matchedBarcodes.push(obj);
-      total += 1;
-      const logMsg = `✅ ${code} → match #${matchedBarcodes.length}`;
-      console.log(logMsg);
-      appendFileSync(logFilePath, logMsg + "\n");
-    } else {
-      notMatchedBarcodes.push(code);
-      console.log(`❌ ${code} → no match`);
-    }
+
+    const obj = {
+      barcode: code,
+      questionnaire: questionnaire ? true : false,
+      outward: outward ? true : false,
+      lab: hit ? true : false,
+    };
+    matchedBarcodes.push(obj);
+    total += 1;
+    const logMsg = `✅ ${code} → match #${matchedBarcodes.length}`;
+    console.log(logMsg);
+    appendFileSync(logFilePath, logMsg + "\n");
+
+    // if (hit || questionnaire || outward) {
+
+    // } else {
+    //   notMatchedBarcodes.push(code);
+    //   console.log(`❌ ${code} → no match`);
+    // }
   }
 
   writeFileSync(
@@ -81,10 +94,10 @@ async function main() {
     "./output/analysis/existing.json",
     JSON.stringify(matchedBarcodes, null, 2)
   );
-  writeFileSync(
-    "./output/analysis/non_existing.json",
-    JSON.stringify(notMatchedBarcodes, null, 2)
-  );
+  // writeFileSync(
+  //   "./output/analysis/non_existing.json",
+  //   JSON.stringify(notMatchedBarcodes, null, 2)
+  // );
   console.log(
     `📄 existing_barcodes.json written with ${total} matches., not filled questionnaires}`
   );

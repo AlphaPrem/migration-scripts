@@ -362,3 +362,107 @@
 2025-07-09 12:55:42.126 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 686619ecc178c956e5526770
 2025-07-09 12:55:42.273 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686619ecc178c956e5526770
 2025-07-09 12:55:42.274 info: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2025-07-09 16:40:17.464 info: Searching for sample collection data using kit code: 000039646
+2025-07-09 16:40:17.489 info: [SUCCESS] Inventory record found. ID: 686504150b6486d468930a14
+2025-07-09 16:40:17.491 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039646
+2025-07-09 16:40:17.681 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:40:17.704 info: Searching for sample collection data using kit code: 000251751
+2025-07-09 16:40:17.725 info: [SUCCESS] Inventory record found. ID: 686504350b6486d468930a24
+2025-07-09 16:40:17.725 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000251751
+2025-07-09 16:40:17.763 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:40:17.785 info: Searching for sample collection data using kit code: 000039342
+2025-07-09 16:40:17.805 info: [SUCCESS] Inventory record found. ID: 686503e60b6486d468930a00
+2025-07-09 16:40:17.806 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039342
+2025-07-09 16:40:17.846 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:40:17.872 info: Searching for sample collection data using kit code: 000006988
+2025-07-09 16:40:17.894 info: [SUCCESS] Inventory record found. ID: 67bebc840c76c527fe0174a5
+2025-07-09 16:40:17.895 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000006988
+2025-07-09 16:40:17.932 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:40:17.954 info: Searching for sample collection data using kit code: 000039535
+2025-07-09 16:40:17.976 info: [SUCCESS] Inventory record found. ID: 686503dd0b6486d4689309fc
+2025-07-09 16:40:17.977 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039535
+2025-07-09 16:40:18.020 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:40:18.047 info: Searching for sample collection data using kit code: 000039289
+2025-07-09 16:40:18.067 info: [SUCCESS] Inventory record found. ID: 686503d50b6486d4689309f8
+2025-07-09 16:40:18.068 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039289
+2025-07-09 16:40:18.106 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:40:18.132 info: Searching for sample collection data using kit code: 000039242
+2025-07-09 16:40:18.153 info: [SUCCESS] Inventory record found. ID: 686503cc0b6486d4689309f4
+2025-07-09 16:40:18.153 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039242
+2025-07-09 16:40:18.193 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:40:18.221 info: Searching for sample collection data using kit code: 000039294
+2025-07-09 16:40:18.239 info: [SUCCESS] Inventory record found. ID: 6865040c0b6486d468930a10
+2025-07-09 16:40:18.240 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039294
+2025-07-09 16:40:18.283 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:40:18.311 info: Searching for sample collection data using kit code: 000039370
+2025-07-09 16:40:18.331 info: [SUCCESS] Inventory record found. ID: 686503f80b6486d468930a08
+2025-07-09 16:40:18.332 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039370
+2025-07-09 16:40:18.372 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:40:18.400 info: Searching for sample collection data using kit code: 000039432
+2025-07-09 16:40:18.424 info: [SUCCESS] Inventory record found. ID: 686504250b6486d468930a1c
+2025-07-09 16:40:18.425 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039432
+2025-07-09 16:40:18.463 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:40:18.485 info: Searching for sample collection data using kit code: 000039101
+2025-07-09 16:40:18.504 info: [SUCCESS] Inventory record found. ID: 686504030b6486d468930a0c
+2025-07-09 16:40:18.505 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039101
+2025-07-09 16:40:18.542 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:40:18.568 info: Searching for sample collection data using kit code: 000039252
+2025-07-09 16:40:18.588 info: [SUCCESS] Inventory record found. ID: 686503f10b6486d468930a04
+2025-07-09 16:40:18.588 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039252
+2025-07-09 16:40:18.627 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:40:18.630 info: 
+2025-07-09 16:43:36.068 info: Searching for sample collection data using kit code: 000039646
+2025-07-09 16:43:36.103 info: [SUCCESS] Inventory record found. ID: 686504150b6486d468930a14
+2025-07-09 16:43:36.105 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039646
+2025-07-09 16:43:36.278 info: [LAB-INWARD] Lab Inward created successfully. ID: 686e4efd0b6486d468930fad, Created At: 1752059645057
+2025-07-09 16:43:36.985 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 686619ecc178c956e5526771
+2025-07-09 16:43:37.072 error: Please Select Unique value for labProcess_sampleTubeBarCode_key
+2025-07-09 16:43:37.105 info: Searching for sample collection data using kit code: 000251751
+2025-07-09 16:43:37.129 info: [SUCCESS] Inventory record found. ID: 686504350b6486d468930a24
+2025-07-09 16:43:37.130 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000251751
+2025-07-09 16:43:37.185 info: [LAB-INWARD] Lab Inward created successfully. ID: 686e4efd0b6486d468930fb1, Created At: 1752059645978
+2025-07-09 16:43:37.902 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 68661dbfb16fbaf818b2b750
+2025-07-09 16:43:37.970 error: Please Select Unique value for labProcess_sampleTubeBarCode_key
+2025-07-09 16:43:38.009 info: Searching for sample collection data using kit code: 000039342
+2025-07-09 16:43:38.036 info: [SUCCESS] Inventory record found. ID: 686503e60b6486d468930a00
+2025-07-09 16:43:38.036 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039342
+2025-07-09 16:43:38.094 info: [LAB-INWARD] Lab Inward created successfully. ID: 686e4efe0b6486d468930fb5, Created At: 1752059646884
+2025-07-09 16:43:38.811 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 68661dbfb16fbaf818b2b751
+2025-07-09 16:43:38.882 error: Please Select Unique value for labProcess_sampleTubeBarCode_key
+2025-07-09 16:43:38.915 info: Searching for sample collection data using kit code: 000006988
+2025-07-09 16:43:38.940 info: [SUCCESS] Inventory record found. ID: 67bebc840c76c527fe0174a5
+2025-07-09 16:43:38.940 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000006988
+2025-07-09 16:43:38.979 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:43:39.011 info: Searching for sample collection data using kit code: 000039535
+2025-07-09 16:43:39.034 info: [SUCCESS] Inventory record found. ID: 686503dd0b6486d4689309fc
+2025-07-09 16:43:39.034 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039535
+2025-07-09 16:43:39.068 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:43:39.096 info: Searching for sample collection data using kit code: 000039289
+2025-07-09 16:43:39.122 info: [SUCCESS] Inventory record found. ID: 686503d50b6486d4689309f8
+2025-07-09 16:43:39.123 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039289
+2025-07-09 16:43:39.159 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:43:39.184 info: Searching for sample collection data using kit code: 000039242
+2025-07-09 16:43:39.206 info: [SUCCESS] Inventory record found. ID: 686503cc0b6486d4689309f4
+2025-07-09 16:43:39.207 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039242
+2025-07-09 16:43:39.241 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:43:39.268 info: Searching for sample collection data using kit code: 000039294
+2025-07-09 16:43:39.291 info: [SUCCESS] Inventory record found. ID: 6865040c0b6486d468930a10
+2025-07-09 16:43:39.292 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039294
+2025-07-09 16:43:39.327 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:43:39.354 info: Searching for sample collection data using kit code: 000039370
+2025-07-09 16:43:39.379 info: [SUCCESS] Inventory record found. ID: 686503f80b6486d468930a08
+2025-07-09 16:43:39.379 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039370
+2025-07-09 16:43:39.414 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:43:39.440 info: Searching for sample collection data using kit code: 000039432
+2025-07-09 16:43:39.464 info: [SUCCESS] Inventory record found. ID: 686504250b6486d468930a1c
+2025-07-09 16:43:39.465 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039432
+2025-07-09 16:43:39.498 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:43:39.523 info: Searching for sample collection data using kit code: 000039101
+2025-07-09 16:43:39.546 info: [SUCCESS] Inventory record found. ID: 686504030b6486d468930a0c
+2025-07-09 16:43:39.546 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039101
+2025-07-09 16:43:39.583 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:43:39.613 info: Searching for sample collection data using kit code: 000039252
+2025-07-09 16:43:39.638 info: [SUCCESS] Inventory record found. ID: 686503f10b6486d468930a04
+2025-07-09 16:43:39.639 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039252
+2025-07-09 16:43:39.676 error: Error: For this barcode, Inward already exists !
+2025-07-09 16:43:39.679 info: 

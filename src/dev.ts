@@ -274,7 +274,7 @@ async function main() {
 
       // step - 5: library preparation
       const libPrepInput: IcreateLibraryPreparationInput = {
-        kitName: lab.LibPrep_Name, // TOBE CHANGED
+        kitName: "NBD-114.24", // TOBE CHANGED
         flowCellID: "Other",
         labKitPreparationName: "",
         employeeId: USERID, // Use the constant defined above

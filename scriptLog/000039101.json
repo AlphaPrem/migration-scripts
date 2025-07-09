@@ -1,149 +1,40 @@
 {
   "0": {
-    "sampleCollectionDataID": "686b98336246a249482ec752"
+    "sampleCollectionDataID": "686619ecc178c956e552676f"
   },
   "1": {
-    "inventoryID": "686b96bc6246a249482ec743"
+    "inventoryID": "686504030b6486d468930a0c"
   },
   "2": {
-    "labInwardID": "686df46470401fe372650e65"
+    "labInwardID": "686e196c0b6486d468930f55"
   },
   "3": {
-    "labProcessID": "686df46570401fe372650e68"
+    "labProcessID": "686e196d0b6486d468930f58"
   },
   "4": {
-    "dnaID": "686df46570401fe372650e6a"
+    "dnaID": "686e196d0b6486d468930f5a"
   },
   "5": {
-    "gelElectrophoresisID": "686df46570401fe372650e6e"
+    "gelElectrophoresisID": "686e196d0b6486d468930f5e"
   },
   "6": {
-    "libraryPreparationID": "686df46670401fe372650e73"
+    "libraryPreparationID": "686e196e0b6486d468930f63"
   },
   "7": {
-    "libraryPoolingID": "686df46770401fe372650e79"
+    "libraryPoolingID": "686e196f0b6486d468930f69"
   },
   "8": {
-    "sequencingStartID": "686df46770401fe372650e7c"
+    "sequencingStartID": "686e196f0b6486d468930f6c"
   },
   "9": {
-    "sequencingEndID": "686df46770401fe372650e82"
+    "sequencingEndID": "686e196f0b6486d468930f72"
   },
   "10": {
-    "dataTransferID": "686df46970401fe372650e87"
+    "dataTransferID": "686e19700b6486d468930f77"
   },
   "Lab_CreatedDate": "2025-01-06 07:45:12",
   "Lab_LastModifiedDate": "2025-01-20 07:22:45",
-  "Lab_Inward_Time__c": {
-    "Lab_Id": "a9KIU000000oMFc2AM",
-    "Lab_Name": "LID-A-000165",
-    "Lab_CreatedDate": "2025-01-06 07:45:12",
-    "Lab_LastModifiedDate": "2025-01-20 07:22:45",
-    "Biome_Form_Detail__c": "a9AIU000000bnNd2AI",
-    "Current_Lab_Process_Step__c": "Bioinformatics QC",
-    "Fridge_Location__c": "F 1.2",
-    "Lab_Process_Remark__c": null,
-    "Weight__c": 17.35,
-    "Current_Status__c": "Complete",
-    "Lab_Inward_Time__c": "2025-01-16 05:44:00",
-    "Sample_Tube_Barcode_Text__c": "00007726",
-    "DNA_Id": "a9FIU000000brlW2AQ",
-    "DNA_Name": "EC-A000051",
-    "DNA_CreatedDate": "2025-01-16 05:44:42",
-    "DNA_LastModifiedDate": "2025-01-16 05:44:42",
-    "DNA_Lab_Process__c": "a9KIU000000oMFc2AM",
-    "Concentration__c": 871.6,
-    "Extraction_Kit_Name__c": "Qiagen Fast Stool Mini Kit",
-    "DNA_Remark__c": null,
-    "DNA_Status__c": "Approved",
-    "X1st_Ratio_260_280__c": 2.04,
-    "X2nd_Ratio_260_230__c": 0,
-    "GEL_Id": "a9HIU000000XbW22AK",
-    "GEL_Name": "GE-000042",
-    "GEL_CreatedDate": "2025-01-16 05:45:19",
-    "GEL_LastModifiedDate": "2025-01-16 05:45:19",
-    "GEL_Lab_Process__c": "a9KIU000000oMFc2AM",
-    "GEL_Remark__c": "good band with minor fragments",
-    "Score__c": 2,
-    "GEL_Status1__c": "Approved",
-    "LibPrep_Id": "a9MIU000000XZdZ2AW",
-    "LibPrep_Name": "Mayu",
-    "LibPrep_CreatedDate": "2025-01-16 05:45:19",
-    "LibPrep_LastModifiedDate": "2025-01-20 05:36:45",
-    "LibPrep_Lab_Process__c": "a9KIU000000oMFc2AM",
-    "After_Barcode_Sample_Qubit__c": 108,
-    "After_End_Prep_Sample_Qubit__c": 307,
-    "Batch_Preparation_Done__c": "0",
-    "Initial_Sample_Qubit__c": "936",
-    "Lab_Batch__c": "a9IIU000000hHGL2A2",
-    "NB__c": "16",
-    "Volume_of_DNA__c": "18",
-    "LibPool_Id": "a9LIU000000Xa2K2AS",
-    "LibPool_Name": "LP-Id-000048",
-    "LibPool_CreatedDate": "2025-01-20 05:37:29",
-    "LibPool_LastModifiedDate": "2025-01-20 05:37:29",
-    "LibPool_Lab_Process__c": "a9KIU000000oMFc2AM",
-    "LibPool_Lab_Batch__c": "a9IIU000000hHGL2A2",
-    "Pooling_Batch__c": "a9NIU000000Zct92AC",
-    "PoolBatch_Id": "a9NIU000000Zct92AC",
-    "PoolBatch_Name": "PB-Id-000037",
-    "PoolBatch_CreatedDate": "2025-01-20 05:37:22",
-    "PoolBatch_LastModifiedDate": "2025-01-20 05:37:29",
-    "ABC__c": "LB-20-01-25-0038",
-    "Adapter_Ligation__c": 120,
-    "Comments__c": null,
-    "Final_Qubit__c": 92.8,
-    "PoolBatch_Lab_Batch__c": "a9IIU000000hHGL2A2",
-    "Run_Id__c": "RUN-00038",
-    "Sequence_Number__c": "28",
-    "PoolBatch_Status__c": "Accept",
-    "SeqStart_Id": "a9SIU000000Xl6k2AC",
-    "SeqStart_Name": "RUN - A0054",
-    "SeqStart_CreatedDate": "2025-01-20 05:42:39",
-    "SeqStart_LastModifiedDate": "2025-01-20 05:42:39",
-    "SeqStart_Lab_Process__c": "a9KIU000000oMFc2AM",
-    "Number_Of_Active_Pores_sequencing_start__c": 6371,
-    "Remarks_sequencing_start__c": null,
-    "Sequence_Machine_Name__c": "a9QIU000000fyCI2AY",
-    "Status_sequencing_start__c": null,
-    "SeqStart_Status1__c": "Approved",
-    "SeqEnd_Id": "a9RIU000000XaZf2AK",
-    "SeqEnd_Name": "RUN - A0054",
-    "SeqEnd_CreatedDate": "2025-01-20 05:42:48",
-    "SeqEnd_LastModifiedDate": "2025-01-20 05:42:48",
-    "SeqEnd_Lab_Process__c": "a9KIU000000oMFc2AM",
-    "N50__c": 4.69,
-    "Number_Of_Active_Pores__c": 2963,
-    "Number_Of_Failed_Bases__c": 3.92,
-    "Number_Of_Passed_Bases__c": 15.04,
-    "SeqEnd_Remark__c": null,
-    "Sequencing_Start__c": "a9SIU000000Xl6k2AC",
-    "SeqEnd_Status__c": null,
-    "Total_Data_Generated__c": 18.6,
-    "SeqEnd_Status1__c": "Approved",
-    "DataTrans_Id": "a9GIU000000XZyv2AG",
-    "DataTrans_Name": "BIO-0048",
-    "DataTrans_CreatedDate": "2025-01-20 05:43:00",
-    "DataTrans_LastModifiedDate": "2025-01-20 05:43:00",
-    "DataTrans_Lab_Process__c": "a9KIU000000oMFc2AM",
-    "Mode_of_Data_Transfer__c": "ethernet",
-    "Remarks_Data_Transfer__c": "run 216",
-    "DataTrans_Status__c": "Complete",
-    "QC_Id": "a99IU000000XZOWYA4",
-    "QC_Name": "BIO-0048",
-    "QC_CreatedDate": "2025-01-20 05:43:00",
-    "QC_LastModifiedDate": "2025-01-20 07:22:45",
-    "QC_Lab_Process_Name__c": "a9KIU000000oMFc2AM",
-    "Data_Transfer_To_Bioinformatic__c": "a9GIU000000XZyv2AG",
-    "Library_Preparation__c": "a9MIU000000XZdZ2AW",
-    "QC_Status__c": "Approved",
-    "Data_Size__c": "889",
-    "Mean_Read_Length__c": 3057.3,
-    "Number_of_Bases__c": "888526055",
-    "Number_of_Reads__c": "290623",
-    "Library_Pooling_Batch_Name__c": "a9NIU000000Zct92AC",
-    "Kit_ID_text__c": "000039101"
-  },
+  "Lab_Inward_Time__c": "2025-01-16 05:44:00",
   "DNA_CreatedDate": "2025-01-16 05:44:42",
   "DNA_LastModifiedDate": "2025-01-16 05:44:42",
   "GEL_CreatedDate": "2025-01-16 05:45:19",

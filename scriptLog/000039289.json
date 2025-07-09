@@ -1,0 +1,56 @@
+{
+  "0": {
+    "sampleCollectionDataID": "68661dbfb16fbaf818b2b753"
+  },
+  "1": {
+    "inventoryID": "686503d50b6486d4689309f8"
+  },
+  "2": {
+    "labInwardID": "686e19530b6486d468930e92"
+  },
+  "3": {
+    "labProcessID": "686e19540b6486d468930e95"
+  },
+  "4": {
+    "dnaID": "686e19540b6486d468930e97"
+  },
+  "5": {
+    "gelElectrophoresisID": "686e19540b6486d468930e9b"
+  },
+  "6": {
+    "libraryPreparationID": "686e19540b6486d468930ea0"
+  },
+  "7": {
+    "libraryPoolingID": "686e19550b6486d468930ea6"
+  },
+  "8": {
+    "sequencingStartID": "686e19560b6486d468930ea9"
+  },
+  "9": {
+    "sequencingEndID": "686e19560b6486d468930eaf"
+  },
+  "10": {
+    "dataTransferID": "686e19570b6486d468930eb4"
+  },
+  "Lab_CreatedDate": "2025-01-28 04:54:56",
+  "Lab_LastModifiedDate": "2025-02-17 05:57:22",
+  "Lab_Inward_Time__c": "2025-02-12 09:07:18",
+  "DNA_CreatedDate": "2025-02-12 09:07:47",
+  "DNA_LastModifiedDate": "2025-02-12 09:07:47",
+  "GEL_CreatedDate": "2025-02-12 09:09:17",
+  "GEL_LastModifiedDate": "2025-02-12 09:09:17",
+  "LibPrep_CreatedDate": "2025-02-12 09:09:17",
+  "LibPrep_LastModifiedDate": "2025-02-15 04:41:04",
+  "LibPool_CreatedDate": "2025-02-15 04:42:13",
+  "LibPool_LastModifiedDate": "2025-02-15 04:42:13",
+  "PoolBatch_CreatedDate": "2025-02-15 04:42:03",
+  "PoolBatch_LastModifiedDate": "2025-02-15 04:42:12",
+  "SeqStart_CreatedDate": "2025-02-15 04:44:48",
+  "SeqStart_LastModifiedDate": "2025-02-15 04:44:48",
+  "SeqEnd_CreatedDate": "2025-02-15 04:44:56",
+  "SeqEnd_LastModifiedDate": "2025-02-15 04:44:56",
+  "DataTrans_CreatedDate": "2025-02-15 04:45:05",
+  "DataTrans_LastModifiedDate": "2025-02-15 04:45:05",
+  "QC_CreatedDate": "2025-02-15 04:45:05",
+  "QC_LastModifiedDate": "2025-02-17 05:57:22"
+}

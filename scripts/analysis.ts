@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 async function main() {
   const matchedBarcodes: any[] = [];
   const notMatchedBarcodes: string[] = [];
-
+  const data: any[] = [];
   let total = 0;
 
   for (const code of barcodes) {
@@ -35,6 +35,13 @@ async function main() {
       },
     });
 
+    data.push({
+      barcode: code,
+      lab: hit ? true : false,
+      qus: questionnaire ? true : false,
+      outward: outward ? true : false,
+    });
+    
     if (hit || questionnaire || outward) {
       const obj = {
         barcode: code,
@@ -52,6 +59,11 @@ async function main() {
       console.log(`❌ ${code} → no match`);
     }
   }
+
+  writeFileSync(
+    "./output/analysis/dataLokesh.json",
+    JSON.stringify(data, null, 2)
+  );
 
   const counts = matchedBarcodes.reduce(
     (acc, { questionnaire, lab, outward }) => {

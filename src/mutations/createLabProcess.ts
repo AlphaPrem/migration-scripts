@@ -39,9 +39,9 @@ async function createLabProcess(
     };
 
     const response = await axios.request(config);
-
+    
     if (!response.data.data || !response.data.data.createNewLabProcess) {
-      throw new Error("Failed to create lab Process In Lab database");
+      throw new Error(response.data.errors[0].message);
     }
 
     logger.info(
@@ -50,6 +50,7 @@ async function createLabProcess(
 
     return response.data.data.createNewLabProcess;
   } catch (error: unknown) {
+    console.log(error);
     if (isAxiosError(error)) {
       console.dir(error?.response?.data);
       logger.error(

@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { exit } from "process";
 import { timeStamps } from "../data/timeStamp";
+import logger from "../lib/logger/logger";
 
 const prisma = new PrismaClient();
 
@@ -36,12 +37,12 @@ interface TimestampUpdateData {
 }
 
 async function updateTimestamps() {
-  console.log("🚀 Starting timestamp updates...");
+  logger.info("🚀 Starting timestamp updates...");
 
   await prisma.$transaction(async (tx) => {
     await Promise.all(
-      timeStamps.map(async (data:TimestampUpdateData, index) => {
-        console.log(`🔄 Processing record ${index + 1}...`);
+      timeStamps.map(async (data: TimestampUpdateData, index) => {
+        logger.info(`🔄 Processing record ${index + 1}...`);
 
         await Promise.all([
           tx.inward.update({
@@ -96,17 +97,17 @@ async function updateTimestamps() {
           }),
         ]);
 
-        console.log(`✅ Record ${index + 1} updated`);
+        logger.info(`✅ Record ${index + 1} updated`);
       })
     );
   });
 
-  console.log("🎉 All records updated successfully.");
+  logger.info("🎉 All records updated successfully.");
 }
 
 updateTimestamps()
   .catch((error) => {
-    console.error("💥 Critical failure during updates:", error.message ?? error);
+    logger.error("💥 Critical failure during updates:", error.message ?? error);
     exit(1);
   })
   .finally(async () => {

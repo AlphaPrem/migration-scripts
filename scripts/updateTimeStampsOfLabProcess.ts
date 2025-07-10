@@ -108,7 +108,7 @@ async function updateTimestamps() {
 updateTimestamps()
   .catch((error) => {
     logger.error("💥 Critical failure during updates:", error.message ?? error);
-    exit(1);
+    process.exit(1);
   })
   .finally(async () => {
     await prisma.$disconnect();

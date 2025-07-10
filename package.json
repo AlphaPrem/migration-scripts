@@ -12,6 +12,7 @@
     "checkCustomer": "ts-node scripts/checkCustomer.ts",
     "updateInventory": "ts-node scripts/updateInventory.ts",
     "checkQuestionnaire": "ts-node scripts/checkQuestionnaire.ts",
+    "questionnaire:insert--confirm": "ts-node scripts/createQuestionnaire.ts",
     "lab": "ts-node scripts/checkLabProcesses.ts",
     "lab:update--timestamps": "ts-node scripts/updateTimeStampsOfLabProcess.ts",
     "test": "echo \"Error: no test specified\" && exit 1"

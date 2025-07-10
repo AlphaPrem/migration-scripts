@@ -46,14 +46,19 @@ async function main() {
 
       for (const data of processedQuestionnaires) {
         logger.info(`Processing questionnaire for barcode: ${data.kitCode}`);
-        const createdRecord = await tx.sampleCollectionData.create({
-          data,
+        const updatedRecord = await tx.sampleCollectionData.update({
+          where:{
+            kitCode:data.kitCode
+          },
+          data:{
+            version:"3"
+          }
         });
 
-        results.push(createdRecord);
+        results.push(updatedRecord);
 
-        logger.info("✅ Questionnaire created:", createdRecord.id);
-        IDS.push(createdRecord.id);
+        logger.info("✅ Questionnaire updated:", );
+        IDS.push(updatedRecord.id);
       }
 
       return results;
@@ -67,15 +72,15 @@ async function main() {
   const ids = created.map((c: any) => c.id);
 
   writeFileSync(
-    "./modified/questionnaire/created_questionnaires.json",
+    "./modified/questionnaire/updated_questionnaires.json",
     JSON.stringify(created, null, 2)
   );
   writeFileSync(
-    "./modified/questionnaire/created_questionnaires_id.json",
+    "./modified/questionnaire/updated_questionnaires_id.json",
     JSON.stringify(ids, null, 2)
   );
   writeFileSync(
-    "./modified/questionnaire/ids_backup.json",
+    "./modified/questionnaire/ids_updated_backup.json",
     JSON.stringify(IDS, null, 2)
   );
 }

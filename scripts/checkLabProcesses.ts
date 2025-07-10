@@ -38,11 +38,11 @@ async function main() {
   //   0
   // );
   writeFileSync(
-    "./output/existing.json",
+    "./output/lab/existing.json",
     JSON.stringify(matchedBarcodes, null, 2)
   );
   writeFileSync(
-    "./output/non_existing.json",
+    "./output/lab/non_existing.json",
     JSON.stringify(notMatchedBarcodes, null, 2)
   );
   console.log(

@@ -60,6 +60,10 @@ async function main() {
           return null; // Skip if no inventory found
         }
 
+        logger.info(
+          `Processing outward for inventory: ${inventory.id} with barcode: ${data.Shopify_Kit_Id__c}`
+        );
+
         const updatedInventory = await tx.outward.updateMany({
           where: { inventoryId: inventory.id },
           data: {
@@ -67,6 +71,10 @@ async function main() {
             updatedAt: new Date(data.LastModifiedDate),
           },
         });
+
+        logger.info(
+          `Updated outward for inventory: ${inventory.id} with barcode: ${data.Shopify_Kit_Id__c}`
+        );
 
         return updatedInventory;
       })

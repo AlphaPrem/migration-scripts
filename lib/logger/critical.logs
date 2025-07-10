@@ -1,364 +1,80 @@
-2025-07-09 12:52:31.750 info: Searching for sample collection data using kit code: 00007726
-2025-07-09 12:52:31.794 warn: ⚠️ No questionnaire found for kit code 000039101. Skipping lab LID-A-000165.
-2025-07-09 12:52:31.796 info: 
-2025-07-09 12:54:42.300 info: Searching for sample collection data using kit code: 000039646
-2025-07-09 12:54:42.375 info: [SUCCESS] Inventory record found. ID: 686504150b6486d468930a14
-2025-07-09 12:54:42.377 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039646
-2025-07-09 12:54:42.781 info: [LAB-INWARD] Lab Inward created successfully. ID: 686e193a0b6486d468930dcf, Created At: 1752045882750
-2025-07-09 12:54:43.732 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 686619ecc178c956e5526771
-2025-07-09 12:54:43.899 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686e193b0b6486d468930dd2
-2025-07-09 12:54:44.063 info: [DNA][CREATE] DNA record created successfully. ID: 686e193c0b6486d468930dd4
-2025-07-09 12:54:44.196 info: [DNA][UPDATE] DNA record updated successfully. ID: 686e193c0b6486d468930dd4
-2025-07-09 12:54:44.330 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686e193c0b6486d468930dd8
-2025-07-09 12:54:44.862 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
-2025-07-09 12:54:45.699 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686e193c0b6486d468930ddd
-2025-07-09 12:54:45.836 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686e193c0b6486d468930ddd
-2025-07-09 12:54:46.015 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686e193d0b6486d468930de3
-2025-07-09 12:54:46.155 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686e193d0b6486d468930de3
-2025-07-09 12:54:46.157 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686e193b0b6486d468930dd2
-2025-07-09 12:54:46.311 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686e193b0b6486d468930dd2
-2025-07-09 12:54:46.312 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686e193b0b6486d468930dd2 and sequencing ID: 686e193e0b6486d468930de6
-2025-07-09 12:54:46.459 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686e193b0b6486d468930dd2 and sequencing ID: 686e193e0b6486d468930de6
-2025-07-09 12:54:46.461 info: [SEQUENCING-Update] Updating sequencing for ID: 686e193e0b6486d468930de6
-2025-07-09 12:54:46.972 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686e193e0b6486d468930de6
-2025-07-09 12:54:46.973 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686e193b0b6486d468930dd2
-2025-07-09 12:54:47.144 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686e193b0b6486d468930dd2
-2025-07-09 12:54:47.145 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686e193b0b6486d468930dd2 and sequencing end ID: 686e193f0b6486d468930dec
-2025-07-09 12:54:47.929 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686e193b0b6486d468930dd2 and sequencing end ID: 686e193f0b6486d468930dec
-2025-07-09 12:54:47.930 info: [SEQUENCING-End] updating sequencing end for seq id: 686e193f0b6486d468930dec
-2025-07-09 12:54:48.080 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686e193f0b6486d468930dec
-2025-07-09 12:54:48.232 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 686619ecc178c956e5526771
-2025-07-09 12:54:48.366 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686619ecc178c956e5526771
-2025-07-09 12:54:48.368 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 686619ecc178c956e5526771
-2025-07-09 12:54:48.512 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686619ecc178c956e5526771
-2025-07-09 12:54:48.568 info: Searching for sample collection data using kit code: 000251751
-2025-07-09 12:54:48.604 info: [SUCCESS] Inventory record found. ID: 686504350b6486d468930a24
-2025-07-09 12:54:48.605 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000251751
-2025-07-09 12:54:48.752 info: [LAB-INWARD] Lab Inward created successfully. ID: 686e19400b6486d468930df6, Created At: 1752045888732
-2025-07-09 12:54:49.604 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 68661dbfb16fbaf818b2b750
-2025-07-09 12:54:49.782 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686e19410b6486d468930df9
-2025-07-09 12:54:49.946 info: [DNA][CREATE] DNA record created successfully. ID: 686e19410b6486d468930dfb
-2025-07-09 12:54:50.101 info: [DNA][UPDATE] DNA record updated successfully. ID: 686e19410b6486d468930dfb
-2025-07-09 12:54:50.251 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686e19420b6486d468930dff
-2025-07-09 12:54:50.398 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
-2025-07-09 12:54:51.190 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686e19420b6486d468930e04
-2025-07-09 12:54:51.322 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686e19420b6486d468930e04
-2025-07-09 12:54:51.482 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686e19430b6486d468930e0a
-2025-07-09 12:54:51.613 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686e19430b6486d468930e0a
-2025-07-09 12:54:51.614 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686e19410b6486d468930df9
-2025-07-09 12:54:51.766 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686e19410b6486d468930df9
-2025-07-09 12:54:51.767 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686e19410b6486d468930df9 and sequencing ID: 686e19430b6486d468930e0d
-2025-07-09 12:54:51.926 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686e19410b6486d468930df9 and sequencing ID: 686e19430b6486d468930e0d
-2025-07-09 12:54:51.927 info: [SEQUENCING-Update] Updating sequencing for ID: 686e19430b6486d468930e0d
-2025-07-09 12:54:52.081 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686e19430b6486d468930e0d
-2025-07-09 12:54:52.082 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686e19410b6486d468930df9
-2025-07-09 12:54:52.220 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686e19410b6486d468930df9
-2025-07-09 12:54:52.221 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686e19410b6486d468930df9 and sequencing end ID: 686e19440b6486d468930e13
-2025-07-09 12:54:53.039 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686e19410b6486d468930df9 and sequencing end ID: 686e19440b6486d468930e13
-2025-07-09 12:54:53.040 info: [SEQUENCING-End] updating sequencing end for seq id: 686e19440b6486d468930e13
-2025-07-09 12:54:53.169 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686e19440b6486d468930e13
-2025-07-09 12:54:53.316 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 68661dbfb16fbaf818b2b750
-2025-07-09 12:54:53.490 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 68661dbfb16fbaf818b2b750
-2025-07-09 12:54:53.491 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 68661dbfb16fbaf818b2b750
-2025-07-09 12:54:53.648 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 68661dbfb16fbaf818b2b750
-2025-07-09 12:54:53.699 info: Searching for sample collection data using kit code: 000039342
-2025-07-09 12:54:53.740 info: [SUCCESS] Inventory record found. ID: 686503e60b6486d468930a00
-2025-07-09 12:54:53.740 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039342
-2025-07-09 12:54:53.913 info: [LAB-INWARD] Lab Inward created successfully. ID: 686e19450b6486d468930e1d, Created At: 1752045893887
-2025-07-09 12:54:54.703 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 68661dbfb16fbaf818b2b751
-2025-07-09 12:54:54.871 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686e19460b6486d468930e20
-2025-07-09 12:54:55.029 info: [DNA][CREATE] DNA record created successfully. ID: 686e19460b6486d468930e22
-2025-07-09 12:54:55.152 info: [DNA][UPDATE] DNA record updated successfully. ID: 686e19460b6486d468930e22
-2025-07-09 12:54:55.304 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686e19470b6486d468930e26
-2025-07-09 12:54:55.441 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
-2025-07-09 12:54:56.288 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686e19470b6486d468930e2b
-2025-07-09 12:54:56.420 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686e19470b6486d468930e2b
-2025-07-09 12:54:56.597 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686e19480b6486d468930e31
-2025-07-09 12:54:56.723 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686e19480b6486d468930e31
-2025-07-09 12:54:56.724 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686e19460b6486d468930e20
-2025-07-09 12:54:56.869 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686e19460b6486d468930e20
-2025-07-09 12:54:56.870 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686e19460b6486d468930e20 and sequencing ID: 686e19480b6486d468930e34
-2025-07-09 12:54:57.032 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686e19460b6486d468930e20 and sequencing ID: 686e19480b6486d468930e34
-2025-07-09 12:54:57.033 info: [SEQUENCING-Update] Updating sequencing for ID: 686e19480b6486d468930e34
-2025-07-09 12:54:57.165 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686e19480b6486d468930e34
-2025-07-09 12:54:57.166 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686e19460b6486d468930e20
-2025-07-09 12:54:57.312 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686e19460b6486d468930e20
-2025-07-09 12:54:57.312 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686e19460b6486d468930e20 and sequencing end ID: 686e19490b6486d468930e3a
-2025-07-09 12:54:58.100 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686e19460b6486d468930e20 and sequencing end ID: 686e19490b6486d468930e3a
-2025-07-09 12:54:58.100 info: [SEQUENCING-End] updating sequencing end for seq id: 686e19490b6486d468930e3a
-2025-07-09 12:54:58.216 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686e19490b6486d468930e3a
-2025-07-09 12:54:58.369 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 68661dbfb16fbaf818b2b751
-2025-07-09 12:54:58.515 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 68661dbfb16fbaf818b2b751
-2025-07-09 12:54:58.515 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 68661dbfb16fbaf818b2b751
-2025-07-09 12:54:58.665 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 68661dbfb16fbaf818b2b751
-2025-07-09 12:54:58.716 info: Searching for sample collection data using kit code: 000006988
-2025-07-09 12:54:58.748 info: [SUCCESS] Inventory record found. ID: 67bebc840c76c527fe0174a5
-2025-07-09 12:54:58.750 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000006988
-2025-07-09 12:54:58.908 info: [LAB-INWARD] Lab Inward created successfully. ID: 686e194a0b6486d468930e44, Created At: 1752045898888
-2025-07-09 12:54:59.053 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 67e2484e84ead03c45dd5ad0
-2025-07-09 12:54:59.207 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686e194b0b6486d468930e47
-2025-07-09 12:54:59.363 info: [DNA][CREATE] DNA record created successfully. ID: 686e194b0b6486d468930e49
-2025-07-09 12:54:59.491 info: [DNA][UPDATE] DNA record updated successfully. ID: 686e194b0b6486d468930e49
-2025-07-09 12:54:59.625 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686e194b0b6486d468930e4d
-2025-07-09 12:54:59.751 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
-2025-07-09 12:54:59.921 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686e194b0b6486d468930e52
-2025-07-09 12:55:00.071 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686e194b0b6486d468930e52
-2025-07-09 12:55:00.239 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686e194c0b6486d468930e58
-2025-07-09 12:55:00.367 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686e194c0b6486d468930e58
-2025-07-09 12:55:00.367 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686e194b0b6486d468930e47
-2025-07-09 12:55:00.511 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686e194b0b6486d468930e47
-2025-07-09 12:55:00.512 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686e194b0b6486d468930e47 and sequencing ID: 686e194c0b6486d468930e5b
-2025-07-09 12:55:00.668 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686e194b0b6486d468930e47 and sequencing ID: 686e194c0b6486d468930e5b
-2025-07-09 12:55:00.669 info: [SEQUENCING-Update] Updating sequencing for ID: 686e194c0b6486d468930e5b
-2025-07-09 12:55:00.798 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686e194c0b6486d468930e5b
-2025-07-09 12:55:00.798 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686e194b0b6486d468930e47
-2025-07-09 12:55:00.955 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686e194b0b6486d468930e47
-2025-07-09 12:55:00.955 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686e194b0b6486d468930e47 and sequencing end ID: 686e194c0b6486d468930e61
-2025-07-09 12:55:01.099 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686e194b0b6486d468930e47 and sequencing end ID: 686e194c0b6486d468930e61
-2025-07-09 12:55:01.099 info: [SEQUENCING-End] updating sequencing end for seq id: 686e194c0b6486d468930e61
-2025-07-09 12:55:01.215 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686e194c0b6486d468930e61
-2025-07-09 12:55:01.361 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 67e2484e84ead03c45dd5ad0
-2025-07-09 12:55:01.546 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 67e2484e84ead03c45dd5ad0
-2025-07-09 12:55:01.547 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 67e2484e84ead03c45dd5ad0
-2025-07-09 12:55:01.705 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 67e2484e84ead03c45dd5ad0
-2025-07-09 12:55:01.767 info: Searching for sample collection data using kit code: 000039535
-2025-07-09 12:55:01.802 info: [SUCCESS] Inventory record found. ID: 686503dd0b6486d4689309fc
-2025-07-09 12:55:01.803 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039535
-2025-07-09 12:55:01.949 info: [LAB-INWARD] Lab Inward created successfully. ID: 686e194d0b6486d468930e6b, Created At: 1752045901931
-2025-07-09 12:55:02.877 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 68661dbfb16fbaf818b2b752
-2025-07-09 12:55:03.057 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686e194f0b6486d468930e6e
-2025-07-09 12:55:03.228 info: [DNA][CREATE] DNA record created successfully. ID: 686e194f0b6486d468930e70
-2025-07-09 12:55:03.353 info: [DNA][UPDATE] DNA record updated successfully. ID: 686e194f0b6486d468930e70
-2025-07-09 12:55:03.475 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686e194f0b6486d468930e74
-2025-07-09 12:55:03.609 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
-2025-07-09 12:55:04.476 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686e194f0b6486d468930e79
-2025-07-09 12:55:04.616 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686e194f0b6486d468930e79
-2025-07-09 12:55:04.790 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686e19500b6486d468930e7f
-2025-07-09 12:55:04.920 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686e19500b6486d468930e7f
-2025-07-09 12:55:04.921 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686e194f0b6486d468930e6e
-2025-07-09 12:55:05.071 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686e194f0b6486d468930e6e
-2025-07-09 12:55:05.071 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686e194f0b6486d468930e6e and sequencing ID: 686e19510b6486d468930e82
-2025-07-09 12:55:05.227 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686e194f0b6486d468930e6e and sequencing ID: 686e19510b6486d468930e82
-2025-07-09 12:55:05.227 info: [SEQUENCING-Update] Updating sequencing for ID: 686e19510b6486d468930e82
-2025-07-09 12:55:05.380 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686e19510b6486d468930e82
-2025-07-09 12:55:05.381 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686e194f0b6486d468930e6e
-2025-07-09 12:55:05.533 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686e194f0b6486d468930e6e
-2025-07-09 12:55:05.534 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686e194f0b6486d468930e6e and sequencing end ID: 686e19510b6486d468930e88
-2025-07-09 12:55:06.360 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686e194f0b6486d468930e6e and sequencing end ID: 686e19510b6486d468930e88
-2025-07-09 12:55:06.361 info: [SEQUENCING-End] updating sequencing end for seq id: 686e19510b6486d468930e88
-2025-07-09 12:55:06.500 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686e19510b6486d468930e88
-2025-07-09 12:55:06.663 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 68661dbfb16fbaf818b2b752
-2025-07-09 12:55:06.805 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 68661dbfb16fbaf818b2b752
-2025-07-09 12:55:06.805 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 68661dbfb16fbaf818b2b752
-2025-07-09 12:55:06.955 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 68661dbfb16fbaf818b2b752
-2025-07-09 12:55:07.008 info: Searching for sample collection data using kit code: 000039289
-2025-07-09 12:55:07.050 info: [SUCCESS] Inventory record found. ID: 686503d50b6486d4689309f8
-2025-07-09 12:55:07.052 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039289
-2025-07-09 12:55:07.207 info: [LAB-INWARD] Lab Inward created successfully. ID: 686e19530b6486d468930e92, Created At: 1752045907187
-2025-07-09 12:55:08.036 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 68661dbfb16fbaf818b2b753
-2025-07-09 12:55:08.246 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686e19540b6486d468930e95
-2025-07-09 12:55:08.392 info: [DNA][CREATE] DNA record created successfully. ID: 686e19540b6486d468930e97
-2025-07-09 12:55:08.531 info: [DNA][UPDATE] DNA record updated successfully. ID: 686e19540b6486d468930e97
-2025-07-09 12:55:08.661 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686e19540b6486d468930e9b
-2025-07-09 12:55:08.790 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
-2025-07-09 12:55:09.616 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686e19540b6486d468930ea0
-2025-07-09 12:55:09.743 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686e19540b6486d468930ea0
-2025-07-09 12:55:09.929 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686e19550b6486d468930ea6
-2025-07-09 12:55:10.075 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686e19550b6486d468930ea6
-2025-07-09 12:55:10.075 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686e19540b6486d468930e95
-2025-07-09 12:55:10.213 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686e19540b6486d468930e95
-2025-07-09 12:55:10.213 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686e19540b6486d468930e95 and sequencing ID: 686e19560b6486d468930ea9
-2025-07-09 12:55:10.368 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686e19540b6486d468930e95 and sequencing ID: 686e19560b6486d468930ea9
-2025-07-09 12:55:10.369 info: [SEQUENCING-Update] Updating sequencing for ID: 686e19560b6486d468930ea9
-2025-07-09 12:55:10.502 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686e19560b6486d468930ea9
-2025-07-09 12:55:10.502 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686e19540b6486d468930e95
-2025-07-09 12:55:10.657 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686e19540b6486d468930e95
-2025-07-09 12:55:10.657 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686e19540b6486d468930e95 and sequencing end ID: 686e19560b6486d468930eaf
-2025-07-09 12:55:11.480 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686e19540b6486d468930e95 and sequencing end ID: 686e19560b6486d468930eaf
-2025-07-09 12:55:11.481 info: [SEQUENCING-End] updating sequencing end for seq id: 686e19560b6486d468930eaf
-2025-07-09 12:55:11.629 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686e19560b6486d468930eaf
-2025-07-09 12:55:11.787 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 68661dbfb16fbaf818b2b753
-2025-07-09 12:55:11.929 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 68661dbfb16fbaf818b2b753
-2025-07-09 12:55:11.930 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 68661dbfb16fbaf818b2b753
-2025-07-09 12:55:12.085 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 68661dbfb16fbaf818b2b753
-2025-07-09 12:55:12.134 info: Searching for sample collection data using kit code: 000039242
-2025-07-09 12:55:12.170 info: [SUCCESS] Inventory record found. ID: 686503cc0b6486d4689309f4
-2025-07-09 12:55:12.170 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039242
-2025-07-09 12:55:12.303 info: [LAB-INWARD] Lab Inward created successfully. ID: 686e19580b6486d468930eb9, Created At: 1752045912281
-2025-07-09 12:55:13.131 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 68661f69cda28424ae4f8f42
-2025-07-09 12:55:13.289 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686e19590b6486d468930ebc
-2025-07-09 12:55:13.436 info: [DNA][CREATE] DNA record created successfully. ID: 686e19590b6486d468930ebe
-2025-07-09 12:55:13.554 info: [DNA][UPDATE] DNA record updated successfully. ID: 686e19590b6486d468930ebe
-2025-07-09 12:55:13.704 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686e19590b6486d468930ec2
-2025-07-09 12:55:13.839 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
-2025-07-09 12:55:14.643 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686e19590b6486d468930ec7
-2025-07-09 12:55:14.770 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686e19590b6486d468930ec7
-2025-07-09 12:55:14.945 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686e195a0b6486d468930ecd
-2025-07-09 12:55:15.071 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686e195a0b6486d468930ecd
-2025-07-09 12:55:15.071 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686e19590b6486d468930ebc
-2025-07-09 12:55:15.233 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686e19590b6486d468930ebc
-2025-07-09 12:55:15.233 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686e19590b6486d468930ebc and sequencing ID: 686e195b0b6486d468930ed0
-2025-07-09 12:55:15.385 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686e19590b6486d468930ebc and sequencing ID: 686e195b0b6486d468930ed0
-2025-07-09 12:55:15.386 info: [SEQUENCING-Update] Updating sequencing for ID: 686e195b0b6486d468930ed0
-2025-07-09 12:55:15.521 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686e195b0b6486d468930ed0
-2025-07-09 12:55:15.522 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686e19590b6486d468930ebc
-2025-07-09 12:55:15.665 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686e19590b6486d468930ebc
-2025-07-09 12:55:15.666 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686e19590b6486d468930ebc and sequencing end ID: 686e195b0b6486d468930ed6
-2025-07-09 12:55:16.432 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686e19590b6486d468930ebc and sequencing end ID: 686e195b0b6486d468930ed6
-2025-07-09 12:55:16.433 info: [SEQUENCING-End] updating sequencing end for seq id: 686e195b0b6486d468930ed6
-2025-07-09 12:55:16.571 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686e195b0b6486d468930ed6
-2025-07-09 12:55:16.726 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 68661f69cda28424ae4f8f42
-2025-07-09 12:55:16.885 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 68661f69cda28424ae4f8f42
-2025-07-09 12:55:16.885 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 68661f69cda28424ae4f8f42
-2025-07-09 12:55:17.024 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 68661f69cda28424ae4f8f42
-2025-07-09 12:55:17.076 info: Searching for sample collection data using kit code: 000039294
-2025-07-09 12:55:17.117 info: [SUCCESS] Inventory record found. ID: 6865040c0b6486d468930a10
-2025-07-09 12:55:17.118 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039294
-2025-07-09 12:55:17.288 info: [LAB-INWARD] Lab Inward created successfully. ID: 686e195d0b6486d468930ee0, Created At: 1752045917266
-2025-07-09 12:55:18.244 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 68661f69cda28424ae4f8f41
-2025-07-09 12:55:18.403 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686e195e0b6486d468930ee3
-2025-07-09 12:55:18.576 info: [DNA][CREATE] DNA record created successfully. ID: 686e195e0b6486d468930ee5
-2025-07-09 12:55:18.696 info: [DNA][UPDATE] DNA record updated successfully. ID: 686e195e0b6486d468930ee5
-2025-07-09 12:55:18.845 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686e195e0b6486d468930ee9
-2025-07-09 12:55:18.988 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
-2025-07-09 12:55:19.795 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686e195f0b6486d468930eee
-2025-07-09 12:55:19.934 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686e195f0b6486d468930eee
-2025-07-09 12:55:20.085 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686e19600b6486d468930ef4
-2025-07-09 12:55:20.229 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686e19600b6486d468930ef4
-2025-07-09 12:55:20.230 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686e195e0b6486d468930ee3
-2025-07-09 12:55:20.392 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686e195e0b6486d468930ee3
-2025-07-09 12:55:20.392 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686e195e0b6486d468930ee3 and sequencing ID: 686e19600b6486d468930ef7
-2025-07-09 12:55:20.547 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686e195e0b6486d468930ee3 and sequencing ID: 686e19600b6486d468930ef7
-2025-07-09 12:55:20.547 info: [SEQUENCING-Update] Updating sequencing for ID: 686e19600b6486d468930ef7
-2025-07-09 12:55:20.674 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686e19600b6486d468930ef7
-2025-07-09 12:55:20.674 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686e195e0b6486d468930ee3
-2025-07-09 12:55:20.838 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686e195e0b6486d468930ee3
-2025-07-09 12:55:20.838 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686e195e0b6486d468930ee3 and sequencing end ID: 686e19600b6486d468930efd
-2025-07-09 12:55:21.613 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686e195e0b6486d468930ee3 and sequencing end ID: 686e19600b6486d468930efd
-2025-07-09 12:55:21.614 info: [SEQUENCING-End] updating sequencing end for seq id: 686e19600b6486d468930efd
-2025-07-09 12:55:21.739 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686e19600b6486d468930efd
-2025-07-09 12:55:21.900 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 68661f69cda28424ae4f8f41
-2025-07-09 12:55:22.048 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 68661f69cda28424ae4f8f41
-2025-07-09 12:55:22.049 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 68661f69cda28424ae4f8f41
-2025-07-09 12:55:22.214 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 68661f69cda28424ae4f8f41
-2025-07-09 12:55:22.306 info: Searching for sample collection data using kit code: 000039370
-2025-07-09 12:55:22.348 info: [SUCCESS] Inventory record found. ID: 686503f80b6486d468930a08
-2025-07-09 12:55:22.348 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039370
-2025-07-09 12:55:22.496 info: [LAB-INWARD] Lab Inward created successfully. ID: 686e19620b6486d468930f07, Created At: 1752045922476
-2025-07-09 12:55:23.377 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 68661f69cda28424ae4f8f43
-2025-07-09 12:55:23.547 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686e19630b6486d468930f0a
-2025-07-09 12:55:23.717 info: [DNA][CREATE] DNA record created successfully. ID: 686e19630b6486d468930f0c
-2025-07-09 12:55:23.841 info: [DNA][UPDATE] DNA record updated successfully. ID: 686e19630b6486d468930f0c
-2025-07-09 12:55:23.986 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686e19630b6486d468930f10
-2025-07-09 12:55:24.115 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
-2025-07-09 12:55:24.890 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686e19640b6486d468930f15
-2025-07-09 12:55:25.015 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686e19640b6486d468930f15
-2025-07-09 12:55:25.179 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686e19650b6486d468930f1b
-2025-07-09 12:55:25.311 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686e19650b6486d468930f1b
-2025-07-09 12:55:25.312 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686e19630b6486d468930f0a
-2025-07-09 12:55:25.447 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686e19630b6486d468930f0a
-2025-07-09 12:55:25.448 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686e19630b6486d468930f0a and sequencing ID: 686e19650b6486d468930f1e
-2025-07-09 12:55:25.585 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686e19630b6486d468930f0a and sequencing ID: 686e19650b6486d468930f1e
-2025-07-09 12:55:25.586 info: [SEQUENCING-Update] Updating sequencing for ID: 686e19650b6486d468930f1e
-2025-07-09 12:55:25.717 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686e19650b6486d468930f1e
-2025-07-09 12:55:25.718 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686e19630b6486d468930f0a
-2025-07-09 12:55:25.856 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686e19630b6486d468930f0a
-2025-07-09 12:55:25.857 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686e19630b6486d468930f0a and sequencing end ID: 686e19650b6486d468930f24
-2025-07-09 12:55:26.620 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686e19630b6486d468930f0a and sequencing end ID: 686e19650b6486d468930f24
-2025-07-09 12:55:26.621 info: [SEQUENCING-End] updating sequencing end for seq id: 686e19650b6486d468930f24
-2025-07-09 12:55:26.749 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686e19650b6486d468930f24
-2025-07-09 12:55:26.885 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 68661f69cda28424ae4f8f43
-2025-07-09 12:55:27.066 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 68661f69cda28424ae4f8f43
-2025-07-09 12:55:27.066 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 68661f69cda28424ae4f8f43
-2025-07-09 12:55:27.201 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 68661f69cda28424ae4f8f43
-2025-07-09 12:55:27.254 info: Searching for sample collection data using kit code: 000039432
-2025-07-09 12:55:27.290 info: [SUCCESS] Inventory record found. ID: 686504250b6486d468930a1c
-2025-07-09 12:55:27.291 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039432
-2025-07-09 12:55:27.453 info: [LAB-INWARD] Lab Inward created successfully. ID: 686e19670b6486d468930f2e, Created At: 1752045927432
-2025-07-09 12:55:28.279 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 68661f69cda28424ae4f8f44
-2025-07-09 12:55:28.442 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686e19680b6486d468930f31
-2025-07-09 12:55:28.610 info: [DNA][CREATE] DNA record created successfully. ID: 686e19680b6486d468930f33
-2025-07-09 12:55:28.744 info: [DNA][UPDATE] DNA record updated successfully. ID: 686e19680b6486d468930f33
-2025-07-09 12:55:28.889 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686e19680b6486d468930f37
-2025-07-09 12:55:29.032 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
-2025-07-09 12:55:29.846 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686e19690b6486d468930f3c
-2025-07-09 12:55:29.976 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686e19690b6486d468930f3c
-2025-07-09 12:55:30.131 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686e196a0b6486d468930f42
-2025-07-09 12:55:30.251 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686e196a0b6486d468930f42
-2025-07-09 12:55:30.252 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686e19680b6486d468930f31
-2025-07-09 12:55:30.395 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686e19680b6486d468930f31
-2025-07-09 12:55:30.395 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686e19680b6486d468930f31 and sequencing ID: 686e196a0b6486d468930f45
-2025-07-09 12:55:30.561 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686e19680b6486d468930f31 and sequencing ID: 686e196a0b6486d468930f45
-2025-07-09 12:55:30.561 info: [SEQUENCING-Update] Updating sequencing for ID: 686e196a0b6486d468930f45
-2025-07-09 12:55:30.683 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686e196a0b6486d468930f45
-2025-07-09 12:55:30.683 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686e19680b6486d468930f31
-2025-07-09 12:55:30.838 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686e19680b6486d468930f31
-2025-07-09 12:55:30.839 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686e19680b6486d468930f31 and sequencing end ID: 686e196a0b6486d468930f4b
-2025-07-09 12:55:31.654 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686e19680b6486d468930f31 and sequencing end ID: 686e196a0b6486d468930f4b
-2025-07-09 12:55:31.654 info: [SEQUENCING-End] updating sequencing end for seq id: 686e196a0b6486d468930f4b
-2025-07-09 12:55:31.791 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686e196a0b6486d468930f4b
-2025-07-09 12:55:31.936 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 68661f69cda28424ae4f8f44
-2025-07-09 12:55:32.070 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 68661f69cda28424ae4f8f44
-2025-07-09 12:55:32.071 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 68661f69cda28424ae4f8f44
-2025-07-09 12:55:32.209 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 68661f69cda28424ae4f8f44
-2025-07-09 12:55:32.268 info: Searching for sample collection data using kit code: 000039101
-2025-07-09 12:55:32.322 info: [SUCCESS] Inventory record found. ID: 686504030b6486d468930a0c
-2025-07-09 12:55:32.322 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039101
-2025-07-09 12:55:32.461 info: [LAB-INWARD] Lab Inward created successfully. ID: 686e196c0b6486d468930f55, Created At: 1752045932443
-2025-07-09 12:55:33.313 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 686619ecc178c956e552676f
-2025-07-09 12:55:33.503 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686e196d0b6486d468930f58
-2025-07-09 12:55:33.650 info: [DNA][CREATE] DNA record created successfully. ID: 686e196d0b6486d468930f5a
-2025-07-09 12:55:33.785 info: [DNA][UPDATE] DNA record updated successfully. ID: 686e196d0b6486d468930f5a
-2025-07-09 12:55:33.931 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686e196d0b6486d468930f5e
-2025-07-09 12:55:34.071 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
-2025-07-09 12:55:34.882 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686e196e0b6486d468930f63
-2025-07-09 12:55:35.014 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686e196e0b6486d468930f63
-2025-07-09 12:55:35.183 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686e196f0b6486d468930f69
-2025-07-09 12:55:35.327 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686e196f0b6486d468930f69
-2025-07-09 12:55:35.327 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686e196d0b6486d468930f58
-2025-07-09 12:55:35.459 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686e196d0b6486d468930f58
-2025-07-09 12:55:35.460 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686e196d0b6486d468930f58 and sequencing ID: 686e196f0b6486d468930f6c
-2025-07-09 12:55:35.609 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686e196d0b6486d468930f58 and sequencing ID: 686e196f0b6486d468930f6c
-2025-07-09 12:55:35.610 info: [SEQUENCING-Update] Updating sequencing for ID: 686e196f0b6486d468930f6c
-2025-07-09 12:55:35.740 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686e196f0b6486d468930f6c
-2025-07-09 12:55:35.740 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686e196d0b6486d468930f58
-2025-07-09 12:55:35.901 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686e196d0b6486d468930f58
-2025-07-09 12:55:35.902 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686e196d0b6486d468930f58 and sequencing end ID: 686e196f0b6486d468930f72
-2025-07-09 12:55:36.718 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686e196d0b6486d468930f58 and sequencing end ID: 686e196f0b6486d468930f72
-2025-07-09 12:55:36.719 info: [SEQUENCING-End] updating sequencing end for seq id: 686e196f0b6486d468930f72
-2025-07-09 12:55:36.844 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686e196f0b6486d468930f72
-2025-07-09 12:55:36.981 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 686619ecc178c956e552676f
-2025-07-09 12:55:37.119 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686619ecc178c956e552676f
-2025-07-09 12:55:37.119 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 686619ecc178c956e552676f
-2025-07-09 12:55:37.257 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686619ecc178c956e552676f
-2025-07-09 12:55:37.304 info: Searching for sample collection data using kit code: 000039252
-2025-07-09 12:55:37.336 info: [SUCCESS] Inventory record found. ID: 686503f10b6486d468930a04
-2025-07-09 12:55:37.336 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000039252
-2025-07-09 12:55:37.467 info: [LAB-INWARD] Lab Inward created successfully. ID: 686e19710b6486d468930f7c, Created At: 1752045937448
-2025-07-09 12:55:38.262 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 686619ecc178c956e5526770
-2025-07-09 12:55:38.464 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686e19720b6486d468930f7f
-2025-07-09 12:55:38.602 info: [DNA][CREATE] DNA record created successfully. ID: 686e19720b6486d468930f81
-2025-07-09 12:55:38.722 info: [DNA][UPDATE] DNA record updated successfully. ID: 686e19720b6486d468930f81
-2025-07-09 12:55:38.868 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686e19720b6486d468930f85
-2025-07-09 12:55:38.999 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
-2025-07-09 12:55:39.856 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686e19730b6486d468930f8a
-2025-07-09 12:55:39.972 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686e19730b6486d468930f8a
-2025-07-09 12:55:40.176 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686e19740b6486d468930f90
-2025-07-09 12:55:40.303 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686e19740b6486d468930f90
-2025-07-09 12:55:40.303 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686e19720b6486d468930f7f
-2025-07-09 12:55:40.472 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686e19720b6486d468930f7f
-2025-07-09 12:55:40.473 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686e19720b6486d468930f7f and sequencing ID: 686e19740b6486d468930f93
-2025-07-09 12:55:40.625 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686e19720b6486d468930f7f and sequencing ID: 686e19740b6486d468930f93
-2025-07-09 12:55:40.625 info: [SEQUENCING-Update] Updating sequencing for ID: 686e19740b6486d468930f93
-2025-07-09 12:55:40.763 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686e19740b6486d468930f93
-2025-07-09 12:55:40.765 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686e19720b6486d468930f7f
-2025-07-09 12:55:40.914 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686e19720b6486d468930f7f
-2025-07-09 12:55:40.914 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686e19720b6486d468930f7f and sequencing end ID: 686e19740b6486d468930f99
-2025-07-09 12:55:41.694 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686e19720b6486d468930f7f and sequencing end ID: 686e19740b6486d468930f99
-2025-07-09 12:55:41.694 info: [SEQUENCING-End] updating sequencing end for seq id: 686e19740b6486d468930f99
-2025-07-09 12:55:41.835 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686e19740b6486d468930f99
-2025-07-09 12:55:41.983 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 686619ecc178c956e5526770
-2025-07-09 12:55:42.125 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686619ecc178c956e5526770
-2025-07-09 12:55:42.126 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 686619ecc178c956e5526770
-2025-07-09 12:55:42.273 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686619ecc178c956e5526770
-2025-07-09 12:55:42.274 info: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2025-07-10 10:20:26.039 info: Processing outward for inventory: 6709169de4b9294e3852bb49 with barcode: 000415005
+2025-07-10 10:20:26.046 info: Processing outward for inventory: 6709168fe4b9294e3852ba05 with barcode: 000414845
+2025-07-10 10:20:26.048 info: Processing outward for inventory: 670916a0e4b9294e3852bbad with barcode: 000415079
+2025-07-10 10:20:26.049 info: Processing outward for inventory: 668d103b029e2aca64653da7 with barcode: 000018411
+2025-07-10 10:20:26.049 info: Processing outward for inventory: 670916a5e4b9294e3852bc29 with barcode: 000039660
+2025-07-10 10:20:26.050 info: Processing outward for inventory: 6709168fe4b9294e3852ba11 with barcode: 000414829
+2025-07-10 10:20:26.051 info: Processing outward for inventory: 67091693e4b9294e3852ba75 with barcode: 000414962
+2025-07-10 10:20:26.052 info: Processing outward for inventory: 6709168fe4b9294e3852ba0d with barcode: 000414443
+2025-07-10 10:20:26.052 info: Processing outward for inventory: 670916aee4b9294e3852bcd6 with barcode: 000414739
+2025-07-10 10:20:26.052 info: Processing outward for inventory: 6709169fe4b9294e3852bb91 with barcode: 000414704
+2025-07-10 10:20:26.053 info: Processing outward for inventory: 670916ade4b9294e3852bcce with barcode: 000414825
+2025-07-10 10:20:26.053 info: Processing outward for inventory: 670916b0e4b9294e3852bd23 with barcode: 000414814
+2025-07-10 10:20:26.053 info: Processing outward for inventory: 6709169fe4b9294e3852bb89 with barcode: 000414929
+2025-07-10 10:20:26.054 info: Processing outward for inventory: 670916ace4b9294e3852bca1 with barcode: 000414930
+2025-07-10 10:20:26.054 info: Processing outward for inventory: 670916a1e4b9294e3852bbb9 with barcode: 000415245
+2025-07-10 10:20:26.054 info: Processing outward for inventory: 67091690e4b9294e3852ba15 with barcode: 000415343
+2025-07-10 10:20:26.054 info: Processing outward for inventory: 670916b6e4b9294e3852bdb4 with barcode: 000414791
+2025-07-10 10:20:26.055 info: Processing outward for inventory: 670916b4e4b9294e3852bd7a with barcode: 000414932
+2025-07-10 10:20:26.055 info: Processing outward for inventory: 670916b2e4b9294e3852bd4b with barcode: 000414710
+2025-07-10 10:20:26.055 info: Processing outward for inventory: 670916b3e4b9294e3852bd73 with barcode: 000414690
+2025-07-10 10:20:26.056 info: Processing outward for inventory: 670916a8e4b9294e3852bc60 with barcode: 000414792
+2025-07-10 10:20:26.056 info: Processing outward for inventory: 670916b4e4b9294e3852bd7f with barcode: 000039641
+2025-07-10 10:20:26.057 info: Processing outward for inventory: 67091694e4b9294e3852ba79 with barcode: 000414407
+2025-07-10 10:20:26.057 info: Processing outward for inventory: 670916a2e4b9294e3852bbcd with barcode: 000414836
+2025-07-10 10:20:26.057 info: Processing outward for inventory: 67bebc7e0c76c527fe01741e with barcode: 000007368
+2025-07-10 10:20:26.057 info: Processing outward for inventory: 67bebc7b0c76c527fe0173e6 with barcode: 000007363
+2025-07-10 10:20:26.058 info: Processing outward for inventory: 6709168fe4b9294e3852ba01 with barcode: 000414743
+2025-07-10 10:20:26.058 info: Processing outward for inventory: 67bebc9e0c76c527fe017654 with barcode: 000007287
+2025-07-10 10:20:26.058 info: Processing outward for inventory: 67bebc960c76c527fe0175f3 with barcode: 000007309
+2025-07-10 10:20:26.059 info: Processing outward for inventory: 67bebc970c76c527fe017603 with barcode: 000007367
+2025-07-10 10:20:26.059 info: Processing outward for inventory: 67bebca00c76c527fe01768c with barcode: 000011483
+2025-07-10 10:20:26.059 info: Processing outward for inventory: 67bebca20c76c527fe0176b5 with barcode: 000008670
+2025-07-10 10:20:26.059 info: Processing outward for inventory: 67bebc9b0c76c527fe01761b with barcode: 000007462
+2025-07-10 10:20:26.060 info: Processing outward for inventory: 67bebca20c76c527fe0176ad with barcode: 000007339
+2025-07-10 10:20:26.060 info: Processing outward for inventory: 67bebc8c0c76c527fe017566 with barcode: 000011387
+2025-07-10 10:20:26.060 info: Processing outward for inventory: 67bebc9e0c76c527fe017650 with barcode: 000007034
+2025-07-10 10:20:26.061 info: Processing outward for inventory: 67bebc880c76c527fe01750d with barcode: 000007310
+2025-07-10 10:20:26.061 info: Processing outward for inventory: 67bebc9d0c76c527fe017647 with barcode: 000063630
+2025-07-10 10:20:26.061 info: Processing outward for inventory: 67bebc8a0c76c527fe017539 with barcode: 000007028
+2025-07-10 10:20:26.061 info: Processing outward for inventory: 67bebc9b0c76c527fe017623 with barcode: 000007029
+2025-07-10 10:20:27.648 info: Updated outward for inventory: 6709169de4b9294e3852bb49 with barcode: 000415005
+2025-07-10 10:20:27.649 info: Updated outward for inventory: 6709168fe4b9294e3852ba05 with barcode: 000414845
+2025-07-10 10:20:27.650 info: Updated outward for inventory: 670916a0e4b9294e3852bbad with barcode: 000415079
+2025-07-10 10:20:27.650 info: Updated outward for inventory: 668d103b029e2aca64653da7 with barcode: 000018411
+2025-07-10 10:20:27.651 info: Updated outward for inventory: 670916a5e4b9294e3852bc29 with barcode: 000039660
+2025-07-10 10:20:27.651 info: Updated outward for inventory: 6709168fe4b9294e3852ba11 with barcode: 000414829
+2025-07-10 10:20:27.651 info: Updated outward for inventory: 67091693e4b9294e3852ba75 with barcode: 000414962
+2025-07-10 10:20:27.652 info: Updated outward for inventory: 6709168fe4b9294e3852ba0d with barcode: 000414443
+2025-07-10 10:20:27.652 info: Updated outward for inventory: 670916aee4b9294e3852bcd6 with barcode: 000414739
+2025-07-10 10:20:27.652 info: Updated outward for inventory: 6709169fe4b9294e3852bb91 with barcode: 000414704
+2025-07-10 10:20:27.653 info: Updated outward for inventory: 670916ade4b9294e3852bcce with barcode: 000414825
+2025-07-10 10:20:27.653 info: Updated outward for inventory: 670916b0e4b9294e3852bd23 with barcode: 000414814
+2025-07-10 10:20:27.654 info: Updated outward for inventory: 6709169fe4b9294e3852bb89 with barcode: 000414929
+2025-07-10 10:20:27.655 info: Updated outward for inventory: 670916ace4b9294e3852bca1 with barcode: 000414930
+2025-07-10 10:20:27.655 info: Updated outward for inventory: 670916a1e4b9294e3852bbb9 with barcode: 000415245
+2025-07-10 10:20:27.656 info: Updated outward for inventory: 67091690e4b9294e3852ba15 with barcode: 000415343
+2025-07-10 10:20:27.656 info: Updated outward for inventory: 670916b6e4b9294e3852bdb4 with barcode: 000414791
+2025-07-10 10:20:27.656 info: Updated outward for inventory: 670916b4e4b9294e3852bd7a with barcode: 000414932
+2025-07-10 10:20:27.657 info: Updated outward for inventory: 670916b2e4b9294e3852bd4b with barcode: 000414710
+2025-07-10 10:20:27.657 info: Updated outward for inventory: 670916b3e4b9294e3852bd73 with barcode: 000414690
+2025-07-10 10:20:27.658 info: Updated outward for inventory: 670916a8e4b9294e3852bc60 with barcode: 000414792
+2025-07-10 10:20:27.659 info: Updated outward for inventory: 670916b4e4b9294e3852bd7f with barcode: 000039641
+2025-07-10 10:20:27.659 info: Updated outward for inventory: 67091694e4b9294e3852ba79 with barcode: 000414407
+2025-07-10 10:20:27.659 info: Updated outward for inventory: 670916a2e4b9294e3852bbcd with barcode: 000414836
+2025-07-10 10:20:27.660 info: Updated outward for inventory: 67bebc7e0c76c527fe01741e with barcode: 000007368
+2025-07-10 10:20:27.661 info: Updated outward for inventory: 67bebc7b0c76c527fe0173e6 with barcode: 000007363
+2025-07-10 10:20:27.661 info: Updated outward for inventory: 6709168fe4b9294e3852ba01 with barcode: 000414743
+2025-07-10 10:20:27.662 info: Updated outward for inventory: 67bebc9e0c76c527fe017654 with barcode: 000007287
+2025-07-10 10:20:27.662 info: Updated outward for inventory: 67bebc960c76c527fe0175f3 with barcode: 000007309
+2025-07-10 10:20:27.662 info: Updated outward for inventory: 67bebc970c76c527fe017603 with barcode: 000007367
+2025-07-10 10:20:27.663 info: Updated outward for inventory: 67bebca00c76c527fe01768c with barcode: 000011483
+2025-07-10 10:20:27.663 info: Updated outward for inventory: 67bebca20c76c527fe0176b5 with barcode: 000008670
+2025-07-10 10:20:27.664 info: Updated outward for inventory: 67bebc9b0c76c527fe01761b with barcode: 000007462
+2025-07-10 10:20:27.664 info: Updated outward for inventory: 67bebca20c76c527fe0176ad with barcode: 000007339
+2025-07-10 10:20:27.665 info: Updated outward for inventory: 67bebc8c0c76c527fe017566 with barcode: 000011387
+2025-07-10 10:20:27.665 info: Updated outward for inventory: 67bebc9e0c76c527fe017650 with barcode: 000007034
+2025-07-10 10:20:27.665 info: Updated outward for inventory: 67bebc880c76c527fe01750d with barcode: 000007310
+2025-07-10 10:20:27.666 info: Updated outward for inventory: 67bebc9d0c76c527fe017647 with barcode: 000063630
+2025-07-10 10:20:27.667 info: Updated outward for inventory: 67bebc8a0c76c527fe017539 with barcode: 000007028
+2025-07-10 10:20:27.668 info: Updated outward for inventory: 67bebc9b0c76c527fe017623 with barcode: 000007029

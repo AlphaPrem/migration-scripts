@@ -18,6 +18,8 @@ async function main() {
     return;
   }
 
+  const ids: string[] = [];
+
   let validate: boolean = true;
 
   outwards.forEach((data: OutwardDataFormat) => {
@@ -43,9 +45,9 @@ async function main() {
    * *all* documents are inserted or *none* are.
    * (Requires MongoDB 4.2+ on a replica‑set or sharded cluster.)
    */
-  const created = await prisma.$transaction(async (tx) =>
-    Promise.all(
-      outwards.map(async (data: OutwardDataFormat) => {
+  const created = await prisma.$transaction(async (tx) => {
+    for (const [index, data] of outwards.entries()) {
+      try {
         const inventory = await tx.inventory.findUnique({
           where: { barcode: data.Shopify_Kit_Id__c },
           select: {
@@ -64,8 +66,22 @@ async function main() {
           `Processing outward for inventory: ${inventory.id} with barcode: ${data.Shopify_Kit_Id__c}`
         );
 
-        const updatedInventory = await tx.outward.updateMany({
-          where: { inventoryId: inventory.id },
+        const outward = await tx.outward.findUnique({
+          where: { id: inventory.id },
+          select: {
+            id: true,
+          },
+        });
+
+        if (!outward) {
+          logger.warn(
+            `No outward found for barcode: ${data.Shopify_Kit_Id__c}`
+          );
+          return null; // Skip if no inventory found
+        }
+
+        const updatedInventory = await tx.outward.update({
+          where: { id: outward.id },
           data: {
             createdAt: new Date(data.CreatedDate),
             updatedAt: new Date(data.LastModifiedDate),
@@ -76,13 +92,13 @@ async function main() {
           `Updated outward for inventory: ${inventory.id} with barcode: ${data.Shopify_Kit_Id__c}`
         );
 
+        ids.push(outward.id);
         return updatedInventory;
-      })
-    )
-  );
-
-  // 3️⃣  Extract the IDs only.
-  const ids = created.map((c: any) => c.id);
+      } catch (error) {
+        logger.error(`❌ Error updating record ${index + 1}:`, error);
+      }
+    }
+  });
 
   writeFileSync(
     "./modified/modified_outward.json",

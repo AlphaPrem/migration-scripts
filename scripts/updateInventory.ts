@@ -90,32 +90,30 @@ async function main() {
    * (Requires MongoDB 4.2+ on a replica‑set or sharded cluster.)
    */
   const created = await prisma.$transaction(async (tx) =>
-    Promise.all(
-      customers.map(async (data) => {
-        const updatedInventory = await tx.inventory.update({
-          where: { barcode: data.BARCODE__c },
-          data: {
-            createdAt: new Date(data.CreatedDate),
-            updatedAt: new Date(data.LastModifiedDate),
-          },
-        });
+    customers.map(async (data) => {
+      const updatedInventory = await tx.inventory.update({
+        where: { barcode: data.BARCODE__c },
+        data: {
+          createdAt: new Date(data.CreatedDate),
+          updatedAt: new Date(data.LastModifiedDate),
+        },
+      });
 
-        // 2️⃣  Update every inward row that points to that inventory
-        await tx.inward.updateMany({
-          where: { inventoryId: updatedInventory.id },
-          data: {
-            createdAt: new Date(data.CreatedDate),
-            updatedAt: new Date(data.LastModifiedDate),
-          },
-        });
+      // 2️⃣  Update every inward row that points to that inventory
+      await tx.inward.updateMany({
+        where: { inventoryId: updatedInventory.id },
+        data: {
+          createdAt: new Date(data.CreatedDate),
+          updatedAt: new Date(data.LastModifiedDate),
+        },
+      });
 
-        return updatedInventory;
-      })
-    )
+      return updatedInventory;
+    })
   );
 
   // 3️⃣  Extract the IDs only.
-  const ids = created.map((c) => c.id);
+  const ids = created.map((c: any) => c.id);
 
   writeFileSync(
     "./output/created_customers.json",

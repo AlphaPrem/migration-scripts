@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node src/dev.ts",
+    "lab:insert--confirm": "ts-node src/dev.ts",
     "barcode": "ts-node scripts/checkBarcodes.ts",
     "outward": "ts-node scripts/checkOutward.ts",
     "outward:update--timestamps": "ts-node scripts/updateOutward.ts",
@@ -12,6 +12,7 @@
     "checkCustomer": "ts-node scripts/checkCustomer.ts",
     "updateInventory": "ts-node scripts/updateInventory.ts",
     "checkQuestionnaire": "ts-node scripts/checkQuestionnaire.ts",
+    "lab": "ts-node scripts/checkLabProcesses.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

@@ -1,6 +1,6 @@
 import { Prisma, PrismaClient } from "@prisma/client";
 import { writeFileSync } from "fs";
-import { labProcess2 as labs } from "../data/lab";
+import { failedLabs, labProcess2 as labs } from "../data/lab";
 import { createLabInward } from "./mutations/createLabInward";
 import { ILabInwardInput } from "./types/labInward";
 import { ILabProcessInput } from "./types/labProcess";
@@ -79,7 +79,7 @@ export const USERID = "686518760b6486d468930a2e";
 async function main() {
   const final = [];
 
-  if (labs.length === 0) {
+  if (failedLabs.length === 0) {
     console.warn("No customer data supplied ‑ nothing to seed.");
     return;
   }
@@ -90,7 +90,7 @@ async function main() {
    * (Requires MongoDB 4.2+ on a replica‑set or sharded cluster.)
    */
   // 3️⃣  Extract the IDs only.
-  for (const lab of labs) {
+  for (const lab of failedLabs) {
     try {
       // step - 0: data gathering
       const ids = [];

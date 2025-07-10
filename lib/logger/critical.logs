@@ -2348,3 +2348,465 @@ Transaction API error: Transaction already closed: A query cannot be executed on
 2025-07-10 15:32:41.737 info: 🔄 Processing record 63...
 2025-07-10 15:32:42.291 info: ✅ Record 63 updated
 2025-07-10 15:32:42.315 info: 🎉 All records updated successfully.
+2025-07-10 15:48:45.898 info: Searching for sample collection data using kit code: 000007363
+2025-07-10 15:48:45.926 info: [SUCCESS] Inventory record found. ID: 67bebc7b0c76c527fe0173e6
+2025-07-10 15:48:45.927 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007363
+2025-07-10 15:48:46.067 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:48:46.067 error: ❌ Error creating lab inward for LID-A-000206: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:48:46.068 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:76:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:48:46.095 info: Searching for sample collection data using kit code: 000011483
+2025-07-10 15:48:46.116 info: [SUCCESS] Inventory record found. ID: 67bebca00c76c527fe01768c
+2025-07-10 15:48:46.116 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000011483
+2025-07-10 15:48:46.155 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:48:46.155 error: ❌ Error creating lab inward for LID-A-000241: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:48:46.156 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:76:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:48:46.182 info: Searching for sample collection data using kit code: 000008670
+2025-07-10 15:48:46.203 info: [SUCCESS] Inventory record found. ID: 67bebca20c76c527fe0176b5
+2025-07-10 15:48:46.204 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000008670
+2025-07-10 15:48:46.239 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:48:46.239 error: ❌ Error creating lab inward for LID-A-000252: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:48:46.240 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:76:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:48:46.265 info: Searching for sample collection data using kit code: 000007462
+2025-07-10 15:48:46.286 info: [SUCCESS] Inventory record found. ID: 67bebc9b0c76c527fe01761b
+2025-07-10 15:48:46.286 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007462
+2025-07-10 15:48:46.321 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:48:46.322 error: ❌ Error creating lab inward for LID-A-000253: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:48:46.322 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:76:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:48:46.348 info: Searching for sample collection data using kit code: 000007309
+2025-07-10 15:48:46.370 info: [SUCCESS] Inventory record found. ID: 67bebc960c76c527fe0175f3
+2025-07-10 15:48:46.370 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007309
+2025-07-10 15:48:46.408 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:48:46.408 error: ❌ Error creating lab inward for LID-A-000287: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:48:46.409 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:76:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:48:46.434 info: Searching for sample collection data using kit code: 000007368
+2025-07-10 15:48:46.455 info: [SUCCESS] Inventory record found. ID: 67bebc7e0c76c527fe01741e
+2025-07-10 15:48:46.455 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007368
+2025-07-10 15:48:46.491 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:48:46.491 error: ❌ Error creating lab inward for LID-A-000290: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:48:46.491 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:76:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:48:46.516 info: Searching for sample collection data using kit code: 000011387
+2025-07-10 15:48:46.537 info: [SUCCESS] Inventory record found. ID: 67bebc8c0c76c527fe017566
+2025-07-10 15:48:46.537 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000011387
+2025-07-10 15:48:46.572 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:48:46.572 error: ❌ Error creating lab inward for LID-A-000293: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:48:46.573 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:76:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:48:46.598 info: Searching for sample collection data using kit code: 000007034
+2025-07-10 15:48:46.618 info: [SUCCESS] Inventory record found. ID: 67bebc9e0c76c527fe017650
+2025-07-10 15:48:46.618 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007034
+2025-07-10 15:48:46.655 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:48:46.655 error: ❌ Error creating lab inward for LID-A-000299: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:48:46.655 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:76:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:48:46.680 info: Searching for sample collection data using kit code: 000007367
+2025-07-10 15:48:46.701 info: [SUCCESS] Inventory record found. ID: 67bebc970c76c527fe017603
+2025-07-10 15:48:46.701 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007367
+2025-07-10 15:48:46.737 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:48:46.737 error: ❌ Error creating lab inward for LID-A-000312: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:48:46.737 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:76:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:48:46.738 info: 
+2025-07-10 15:52:17.760 info: Searching for sample collection data using kit code: 000007363
+2025-07-10 15:52:17.796 info: [SUCCESS] Inventory record found. ID: 67bebc7b0c76c527fe0173e6
+2025-07-10 15:52:17.797 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007363
+2025-07-10 15:52:17.952 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:52:17.952 error: ❌ Error creating lab inward for LID-A-000206: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:52:17.953 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:78:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:52:17.988 info: Searching for sample collection data using kit code: 000011483
+2025-07-10 15:52:18.017 info: [SUCCESS] Inventory record found. ID: 67bebca00c76c527fe01768c
+2025-07-10 15:52:18.017 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000011483
+2025-07-10 15:52:18.068 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:52:18.069 error: ❌ Error creating lab inward for LID-A-000241: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:52:18.069 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:78:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:52:18.105 info: Searching for sample collection data using kit code: 000008670
+2025-07-10 15:52:18.134 info: [SUCCESS] Inventory record found. ID: 67bebca20c76c527fe0176b5
+2025-07-10 15:52:18.134 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000008670
+2025-07-10 15:52:18.176 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:52:18.176 error: ❌ Error creating lab inward for LID-A-000252: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:52:18.176 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:78:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:52:18.210 info: Searching for sample collection data using kit code: 000007462
+2025-07-10 15:52:18.239 info: [SUCCESS] Inventory record found. ID: 67bebc9b0c76c527fe01761b
+2025-07-10 15:52:18.239 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007462
+2025-07-10 15:52:18.283 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:52:18.283 error: ❌ Error creating lab inward for LID-A-000253: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:52:18.283 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:78:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:52:18.315 info: Searching for sample collection data using kit code: 000007309
+2025-07-10 15:52:18.344 info: [SUCCESS] Inventory record found. ID: 67bebc960c76c527fe0175f3
+2025-07-10 15:52:18.344 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007309
+2025-07-10 15:52:18.384 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:52:18.385 error: ❌ Error creating lab inward for LID-A-000287: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:52:18.385 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:78:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:52:18.419 info: Searching for sample collection data using kit code: 000007368
+2025-07-10 15:52:18.447 info: [SUCCESS] Inventory record found. ID: 67bebc7e0c76c527fe01741e
+2025-07-10 15:52:18.447 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007368
+2025-07-10 15:52:18.488 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:52:18.489 error: ❌ Error creating lab inward for LID-A-000290: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:52:18.489 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:78:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:52:18.523 info: Searching for sample collection data using kit code: 000011387
+2025-07-10 15:52:18.551 info: [SUCCESS] Inventory record found. ID: 67bebc8c0c76c527fe017566
+2025-07-10 15:52:18.552 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000011387
+2025-07-10 15:52:18.593 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:52:18.594 error: ❌ Error creating lab inward for LID-A-000293: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:52:18.594 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:78:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:52:18.625 info: Searching for sample collection data using kit code: 000007034
+2025-07-10 15:52:18.654 info: [SUCCESS] Inventory record found. ID: 67bebc9e0c76c527fe017650
+2025-07-10 15:52:18.654 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007034
+2025-07-10 15:52:18.697 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:52:18.697 error: ❌ Error creating lab inward for LID-A-000299: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:52:18.697 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:78:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:52:18.732 info: Searching for sample collection data using kit code: 000007367
+2025-07-10 15:52:18.760 info: [SUCCESS] Inventory record found. ID: 67bebc970c76c527fe017603
+2025-07-10 15:52:18.760 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007367
+2025-07-10 15:52:18.803 error: Error: For this barcode, Inward already exists !
+2025-07-10 15:52:18.803 error: ❌ Error creating lab inward for LID-A-000312: {"0":"E","1":"r","2":"r","3":"o","4":"r","5":":","6":" ","7":"F","8":"o","9":"r","10":" ","11":"t","12":"h","13":"i","14":"s","15":" ","16":"b","17":"a","18":"r","19":"c","20":"o","21":"d","22":"e","23":",","24":" ","25":"I","26":"n","27":"w","28":"a","29":"r","30":"d","31":" ","32":"a","33":"l","34":"r","35":"e","36":"a","37":"d","38":"y","39":" ","40":"e","41":"x","42":"i","43":"s","44":"t","45":"s","46":" ","47":"!"}
+2025-07-10 15:52:18.804 error: Error: Error: For this barcode, Inward already exists !
+    at /Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:78:13
+    at Generator.next (<anonymous>)
+    at fulfilled (/Users/prem/Desktop/alphabi/migration/code/src/mutations/createLabInward.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-07-10 15:52:18.804 info: 
+2025-07-10 16:06:13.277 info: Updated outward successfully for:  {"0":"0","1":"0","2":"0","3":"0","4":"0","5":"7","6":"3","7":"6","8":"3"}
+2025-07-10 16:06:13.554 info: Updated outward successfully for:  {"0":"0","1":"0","2":"0","3":"0","4":"1","5":"1","6":"4","7":"8","8":"3"}
+2025-07-10 16:06:13.825 info: Updated outward successfully for:  {"0":"0","1":"0","2":"0","3":"0","4":"0","5":"8","6":"6","7":"7","8":"0"}
+2025-07-10 16:06:14.089 info: Updated outward successfully for:  {"0":"0","1":"0","2":"0","3":"0","4":"0","5":"7","6":"4","7":"6","8":"2"}
+2025-07-10 16:06:14.349 info: Updated outward successfully for:  {"0":"0","1":"0","2":"0","3":"0","4":"0","5":"7","6":"3","7":"0","8":"9"}
+2025-07-10 16:06:14.604 info: Updated outward successfully for:  {"0":"0","1":"0","2":"0","3":"0","4":"0","5":"7","6":"3","7":"6","8":"8"}
+2025-07-10 16:06:14.868 info: Updated outward successfully for:  {"0":"0","1":"0","2":"0","3":"0","4":"1","5":"1","6":"3","7":"8","8":"7"}
+2025-07-10 16:06:15.132 info: Updated outward successfully for:  {"0":"0","1":"0","2":"0","3":"0","4":"0","5":"7","6":"0","7":"3","8":"4"}
+2025-07-10 16:06:15.390 info: Updated outward successfully for:  {"0":"0","1":"0","2":"0","3":"0","4":"0","5":"7","6":"3","7":"6","8":"7"}
+2025-07-10 16:06:50.551 info: Searching for sample collection data using kit code: 000007363
+2025-07-10 16:06:50.583 info: [SUCCESS] Inventory record found. ID: 67bebc7b0c76c527fe0173e6
+2025-07-10 16:06:50.584 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007363
+2025-07-10 16:06:50.758 info: [LAB-INWARD] Lab Inward created successfully. ID: 686f97c20b6486d4689319b4, Created At: 1752143810735
+2025-07-10 16:06:51.464 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 686f6f96c2c1b0cff9071296
+2025-07-10 16:06:51.528 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686f97c30b6486d4689319b7
+2025-07-10 16:06:51.584 info: [DNA][CREATE] DNA record created successfully. ID: 686f97c30b6486d4689319b9
+2025-07-10 16:06:51.618 info: [DNA][UPDATE] DNA record updated successfully. ID: 686f97c30b6486d4689319b9
+2025-07-10 16:06:51.735 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686f97c30b6486d4689319bd
+2025-07-10 16:06:51.771 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
+2025-07-10 16:06:52.469 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686f97c30b6486d4689319c2
+2025-07-10 16:06:52.502 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686f97c30b6486d4689319c2
+2025-07-10 16:06:52.755 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686f97c40b6486d4689319c8
+2025-07-10 16:06:52.786 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686f97c40b6486d4689319c8
+2025-07-10 16:06:52.787 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686f97c30b6486d4689319b7
+2025-07-10 16:06:52.833 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686f97c30b6486d4689319b7
+2025-07-10 16:06:52.834 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686f97c30b6486d4689319b7 and sequencing ID: 686f97c40b6486d4689319cb
+2025-07-10 16:06:52.881 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686f97c30b6486d4689319b7 and sequencing ID: 686f97c40b6486d4689319cb
+2025-07-10 16:06:52.881 info: [SEQUENCING-Update] Updating sequencing for ID: 686f97c40b6486d4689319cb
+2025-07-10 16:06:52.915 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686f97c40b6486d4689319cb
+2025-07-10 16:06:52.915 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686f97c30b6486d4689319b7
+2025-07-10 16:06:52.961 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686f97c30b6486d4689319b7
+2025-07-10 16:06:52.962 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686f97c30b6486d4689319b7 and sequencing end ID: 686f97c40b6486d4689319d1
+2025-07-10 16:06:53.604 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686f97c30b6486d4689319b7 and sequencing end ID: 686f97c40b6486d4689319d1
+2025-07-10 16:06:53.605 info: [SEQUENCING-End] updating sequencing end for seq id: 686f97c40b6486d4689319d1
+2025-07-10 16:06:53.635 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686f97c40b6486d4689319d1
+2025-07-10 16:06:53.844 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 686f6f96c2c1b0cff9071296
+2025-07-10 16:06:53.890 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f96c2c1b0cff9071296
+2025-07-10 16:06:53.891 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 686f6f96c2c1b0cff9071296
+2025-07-10 16:06:53.933 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f96c2c1b0cff9071296
+2025-07-10 16:06:53.968 info: Searching for sample collection data using kit code: 000011483
+2025-07-10 16:06:53.991 info: [SUCCESS] Inventory record found. ID: 67bebca00c76c527fe01768c
+2025-07-10 16:06:53.992 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000011483
+2025-07-10 16:06:54.040 info: [LAB-INWARD] Lab Inward created successfully. ID: 686f97c60b6486d4689319db, Created At: 1752143814026
+2025-07-10 16:06:54.706 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 686f6f97c2c1b0cff90712a8
+2025-07-10 16:06:54.768 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686f97c60b6486d4689319de
+2025-07-10 16:06:54.849 info: [DNA][CREATE] DNA record created successfully. ID: 686f97c60b6486d4689319e0
+2025-07-10 16:06:54.881 info: [DNA][UPDATE] DNA record updated successfully. ID: 686f97c60b6486d4689319e0
+2025-07-10 16:06:54.921 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686f97c60b6486d4689319e4
+2025-07-10 16:06:54.954 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
+2025-07-10 16:06:55.653 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686f97c60b6486d4689319e9
+2025-07-10 16:06:55.685 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686f97c60b6486d4689319e9
+2025-07-10 16:06:55.852 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686f97c70b6486d4689319ef
+2025-07-10 16:06:55.883 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686f97c70b6486d4689319ef
+2025-07-10 16:06:55.883 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686f97c60b6486d4689319de
+2025-07-10 16:06:55.930 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686f97c60b6486d4689319de
+2025-07-10 16:06:55.930 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686f97c60b6486d4689319de and sequencing ID: 686f97c70b6486d4689319f2
+2025-07-10 16:06:55.975 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686f97c60b6486d4689319de and sequencing ID: 686f97c70b6486d4689319f2
+2025-07-10 16:06:55.975 info: [SEQUENCING-Update] Updating sequencing for ID: 686f97c70b6486d4689319f2
+2025-07-10 16:06:56.006 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686f97c70b6486d4689319f2
+2025-07-10 16:06:56.006 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686f97c60b6486d4689319de
+2025-07-10 16:06:56.051 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686f97c60b6486d4689319de
+2025-07-10 16:06:56.051 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686f97c60b6486d4689319de and sequencing end ID: 686f97c80b6486d4689319f8
+2025-07-10 16:06:56.698 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686f97c60b6486d4689319de and sequencing end ID: 686f97c80b6486d4689319f8
+2025-07-10 16:06:56.699 info: [SEQUENCING-End] updating sequencing end for seq id: 686f97c80b6486d4689319f8
+2025-07-10 16:06:56.729 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686f97c80b6486d4689319f8
+2025-07-10 16:06:56.828 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 686f6f97c2c1b0cff90712a8
+2025-07-10 16:06:56.875 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f97c2c1b0cff90712a8
+2025-07-10 16:06:56.875 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 686f6f97c2c1b0cff90712a8
+2025-07-10 16:06:56.919 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f97c2c1b0cff90712a8
+2025-07-10 16:06:56.951 info: Searching for sample collection data using kit code: 000008670
+2025-07-10 16:06:56.975 info: [SUCCESS] Inventory record found. ID: 67bebca20c76c527fe0176b5
+2025-07-10 16:06:56.975 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000008670
+2025-07-10 16:06:57.022 info: [LAB-INWARD] Lab Inward created successfully. ID: 686f97c90b6486d468931a02, Created At: 1752143817009
+2025-07-10 16:06:57.755 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 686f6f98c2c1b0cff90712af
+2025-07-10 16:06:57.820 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686f97c90b6486d468931a05
+2025-07-10 16:06:57.875 info: [DNA][CREATE] DNA record created successfully. ID: 686f97c90b6486d468931a07
+2025-07-10 16:06:57.908 info: [DNA][UPDATE] DNA record updated successfully. ID: 686f97c90b6486d468931a07
+2025-07-10 16:06:58.024 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686f97c90b6486d468931a0b
+2025-07-10 16:06:58.058 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
+2025-07-10 16:06:58.761 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686f97ca0b6486d468931a10
+2025-07-10 16:06:58.795 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686f97ca0b6486d468931a10
+2025-07-10 16:06:59.026 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686f97ca0b6486d468931a16
+2025-07-10 16:06:59.061 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686f97ca0b6486d468931a16
+2025-07-10 16:06:59.062 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686f97c90b6486d468931a05
+2025-07-10 16:06:59.108 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686f97c90b6486d468931a05
+2025-07-10 16:06:59.108 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686f97c90b6486d468931a05 and sequencing ID: 686f97cb0b6486d468931a19
+2025-07-10 16:06:59.155 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686f97c90b6486d468931a05 and sequencing ID: 686f97cb0b6486d468931a19
+2025-07-10 16:06:59.155 info: [SEQUENCING-Update] Updating sequencing for ID: 686f97cb0b6486d468931a19
+2025-07-10 16:06:59.199 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686f97cb0b6486d468931a19
+2025-07-10 16:06:59.199 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686f97c90b6486d468931a05
+2025-07-10 16:06:59.244 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686f97c90b6486d468931a05
+2025-07-10 16:06:59.245 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686f97c90b6486d468931a05 and sequencing end ID: 686f97cb0b6486d468931a1f
+2025-07-10 16:06:59.924 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686f97c90b6486d468931a05 and sequencing end ID: 686f97cb0b6486d468931a1f
+2025-07-10 16:06:59.924 info: [SEQUENCING-End] updating sequencing end for seq id: 686f97cb0b6486d468931a1f
+2025-07-10 16:06:59.956 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686f97cb0b6486d468931a1f
+2025-07-10 16:07:00.004 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 686f6f98c2c1b0cff90712af
+2025-07-10 16:07:00.052 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f98c2c1b0cff90712af
+2025-07-10 16:07:00.052 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 686f6f98c2c1b0cff90712af
+2025-07-10 16:07:00.097 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f98c2c1b0cff90712af
+2025-07-10 16:07:00.131 info: Searching for sample collection data using kit code: 000007462
+2025-07-10 16:07:00.154 info: [SUCCESS] Inventory record found. ID: 67bebc9b0c76c527fe01761b
+2025-07-10 16:07:00.154 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007462
+2025-07-10 16:07:00.203 info: [LAB-INWARD] Lab Inward created successfully. ID: 686f97cc0b6486d468931a29, Created At: 1752143820189
+2025-07-10 16:07:00.928 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 686f6f98c2c1b0cff90712b0
+2025-07-10 16:07:00.990 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686f97cc0b6486d468931a2c
+2025-07-10 16:07:01.045 info: [DNA][CREATE] DNA record created successfully. ID: 686f97cd0b6486d468931a2e
+2025-07-10 16:07:01.076 info: [DNA][UPDATE] DNA record updated successfully. ID: 686f97cd0b6486d468931a2e
+2025-07-10 16:07:01.115 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686f97cd0b6486d468931a32
+2025-07-10 16:07:01.147 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
+2025-07-10 16:07:02.679 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686f97cd0b6486d468931a37
+2025-07-10 16:07:02.717 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686f97cd0b6486d468931a37
+2025-07-10 16:07:02.797 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686f97ce0b6486d468931a3d
+2025-07-10 16:07:02.831 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686f97ce0b6486d468931a3d
+2025-07-10 16:07:02.831 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686f97cc0b6486d468931a2c
+2025-07-10 16:07:02.879 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686f97cc0b6486d468931a2c
+2025-07-10 16:07:02.880 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686f97cc0b6486d468931a2c and sequencing ID: 686f97ce0b6486d468931a40
+2025-07-10 16:07:02.931 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686f97cc0b6486d468931a2c and sequencing ID: 686f97ce0b6486d468931a40
+2025-07-10 16:07:02.931 info: [SEQUENCING-Update] Updating sequencing for ID: 686f97ce0b6486d468931a40
+2025-07-10 16:07:02.965 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686f97ce0b6486d468931a40
+2025-07-10 16:07:02.965 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686f97cc0b6486d468931a2c
+2025-07-10 16:07:03.014 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686f97cc0b6486d468931a2c
+2025-07-10 16:07:03.014 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686f97cc0b6486d468931a2c and sequencing end ID: 686f97ce0b6486d468931a46
+2025-07-10 16:07:03.668 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686f97cc0b6486d468931a2c and sequencing end ID: 686f97ce0b6486d468931a46
+2025-07-10 16:07:03.668 info: [SEQUENCING-End] updating sequencing end for seq id: 686f97ce0b6486d468931a46
+2025-07-10 16:07:03.701 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686f97ce0b6486d468931a46
+2025-07-10 16:07:03.751 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 686f6f98c2c1b0cff90712b0
+2025-07-10 16:07:03.802 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f98c2c1b0cff90712b0
+2025-07-10 16:07:03.802 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 686f6f98c2c1b0cff90712b0
+2025-07-10 16:07:03.849 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f98c2c1b0cff90712b0
+2025-07-10 16:07:03.884 info: Searching for sample collection data using kit code: 000007309
+2025-07-10 16:07:03.908 info: [SUCCESS] Inventory record found. ID: 67bebc960c76c527fe0175f3
+2025-07-10 16:07:03.908 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007309
+2025-07-10 16:07:03.958 info: [LAB-INWARD] Lab Inward created successfully. ID: 686f97cf0b6486d468931a50, Created At: 1752143823945
+2025-07-10 16:07:04.663 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 686f6f97c2c1b0cff90712a5
+2025-07-10 16:07:04.727 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686f97d00b6486d468931a53
+2025-07-10 16:07:04.783 info: [DNA][CREATE] DNA record created successfully. ID: 686f97d00b6486d468931a55
+2025-07-10 16:07:04.815 info: [DNA][UPDATE] DNA record updated successfully. ID: 686f97d00b6486d468931a55
+2025-07-10 16:07:04.858 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686f97d00b6486d468931a59
+2025-07-10 16:07:04.892 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
+2025-07-10 16:07:05.584 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686f97d00b6486d468931a5e
+2025-07-10 16:07:05.616 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686f97d00b6486d468931a5e
+2025-07-10 16:07:05.678 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686f97d10b6486d468931a64
+2025-07-10 16:07:05.710 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686f97d10b6486d468931a64
+2025-07-10 16:07:05.710 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686f97d00b6486d468931a53
+2025-07-10 16:07:05.756 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686f97d00b6486d468931a53
+2025-07-10 16:07:05.756 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686f97d00b6486d468931a53 and sequencing ID: 686f97d10b6486d468931a67
+2025-07-10 16:07:05.803 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686f97d00b6486d468931a53 and sequencing ID: 686f97d10b6486d468931a67
+2025-07-10 16:07:05.803 info: [SEQUENCING-Update] Updating sequencing for ID: 686f97d10b6486d468931a67
+2025-07-10 16:07:05.836 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686f97d10b6486d468931a67
+2025-07-10 16:07:05.836 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686f97d00b6486d468931a53
+2025-07-10 16:07:05.883 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686f97d00b6486d468931a53
+2025-07-10 16:07:05.883 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686f97d00b6486d468931a53 and sequencing end ID: 686f97d10b6486d468931a6d
+2025-07-10 16:07:06.525 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686f97d00b6486d468931a53 and sequencing end ID: 686f97d10b6486d468931a6d
+2025-07-10 16:07:06.525 info: [SEQUENCING-End] updating sequencing end for seq id: 686f97d10b6486d468931a6d
+2025-07-10 16:07:06.555 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686f97d10b6486d468931a6d
+2025-07-10 16:07:06.600 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 686f6f97c2c1b0cff90712a5
+2025-07-10 16:07:06.649 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f97c2c1b0cff90712a5
+2025-07-10 16:07:06.649 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 686f6f97c2c1b0cff90712a5
+2025-07-10 16:07:06.722 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f97c2c1b0cff90712a5
+2025-07-10 16:07:06.752 info: Searching for sample collection data using kit code: 000007368
+2025-07-10 16:07:06.774 info: [SUCCESS] Inventory record found. ID: 67bebc7e0c76c527fe01741e
+2025-07-10 16:07:06.774 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007368
+2025-07-10 16:07:06.821 info: [LAB-INWARD] Lab Inward created successfully. ID: 686f97d20b6486d468931a77, Created At: 1752143826809
+2025-07-10 16:07:07.477 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 686f6f95c2c1b0cff907127c
+2025-07-10 16:07:07.545 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686f97d30b6486d468931a7a
+2025-07-10 16:07:07.602 info: [DNA][CREATE] DNA record created successfully. ID: 686f97d30b6486d468931a7c
+2025-07-10 16:07:07.636 info: [DNA][UPDATE] DNA record updated successfully. ID: 686f97d30b6486d468931a7c
+2025-07-10 16:07:07.677 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686f97d30b6486d468931a80
+2025-07-10 16:07:07.711 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
+2025-07-10 16:07:08.458 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686f97d30b6486d468931a85
+2025-07-10 16:07:08.491 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686f97d30b6486d468931a85
+2025-07-10 16:07:08.553 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686f97d40b6486d468931a8b
+2025-07-10 16:07:08.585 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686f97d40b6486d468931a8b
+2025-07-10 16:07:08.585 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686f97d30b6486d468931a7a
+2025-07-10 16:07:08.634 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686f97d30b6486d468931a7a
+2025-07-10 16:07:08.635 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686f97d30b6486d468931a7a and sequencing ID: 686f97d40b6486d468931a8e
+2025-07-10 16:07:08.688 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686f97d30b6486d468931a7a and sequencing ID: 686f97d40b6486d468931a8e
+2025-07-10 16:07:08.688 info: [SEQUENCING-Update] Updating sequencing for ID: 686f97d40b6486d468931a8e
+2025-07-10 16:07:08.723 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686f97d40b6486d468931a8e
+2025-07-10 16:07:08.723 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686f97d30b6486d468931a7a
+2025-07-10 16:07:08.770 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686f97d30b6486d468931a7a
+2025-07-10 16:07:08.770 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686f97d30b6486d468931a7a and sequencing end ID: 686f97d40b6486d468931a94
+2025-07-10 16:07:09.504 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686f97d30b6486d468931a7a and sequencing end ID: 686f97d40b6486d468931a94
+2025-07-10 16:07:09.505 info: [SEQUENCING-End] updating sequencing end for seq id: 686f97d40b6486d468931a94
+2025-07-10 16:07:09.537 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686f97d40b6486d468931a94
+2025-07-10 16:07:09.585 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 686f6f95c2c1b0cff907127c
+2025-07-10 16:07:09.631 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f95c2c1b0cff907127c
+2025-07-10 16:07:09.631 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 686f6f95c2c1b0cff907127c
+2025-07-10 16:07:09.678 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f95c2c1b0cff907127c
+2025-07-10 16:07:09.707 info: Searching for sample collection data using kit code: 000011387
+2025-07-10 16:07:09.732 info: [SUCCESS] Inventory record found. ID: 67bebc8c0c76c527fe017566
+2025-07-10 16:07:09.732 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000011387
+2025-07-10 16:07:09.779 info: [LAB-INWARD] Lab Inward created successfully. ID: 686f97d50b6486d468931a9e, Created At: 1752143829766
+2025-07-10 16:07:10.493 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 686f6f99c2c1b0cff90712c3
+2025-07-10 16:07:10.561 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686f97d60b6486d468931aa1
+2025-07-10 16:07:10.621 info: [DNA][CREATE] DNA record created successfully. ID: 686f97d60b6486d468931aa3
+2025-07-10 16:07:10.653 info: [DNA][UPDATE] DNA record updated successfully. ID: 686f97d60b6486d468931aa3
+2025-07-10 16:07:10.693 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686f97d60b6486d468931aa7
+2025-07-10 16:07:10.727 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
+2025-07-10 16:07:11.424 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686f97d60b6486d468931aac
+2025-07-10 16:07:11.455 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686f97d60b6486d468931aac
+2025-07-10 16:07:11.524 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686f97d70b6486d468931ab2
+2025-07-10 16:07:11.553 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686f97d70b6486d468931ab2
+2025-07-10 16:07:11.553 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686f97d60b6486d468931aa1
+2025-07-10 16:07:11.598 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686f97d60b6486d468931aa1
+2025-07-10 16:07:11.598 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686f97d60b6486d468931aa1 and sequencing ID: 686f97d70b6486d468931ab5
+2025-07-10 16:07:11.643 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686f97d60b6486d468931aa1 and sequencing ID: 686f97d70b6486d468931ab5
+2025-07-10 16:07:11.644 info: [SEQUENCING-Update] Updating sequencing for ID: 686f97d70b6486d468931ab5
+2025-07-10 16:07:11.675 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686f97d70b6486d468931ab5
+2025-07-10 16:07:11.675 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686f97d60b6486d468931aa1
+2025-07-10 16:07:11.722 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686f97d60b6486d468931aa1
+2025-07-10 16:07:11.722 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686f97d60b6486d468931aa1 and sequencing end ID: 686f97d70b6486d468931abb
+2025-07-10 16:07:12.410 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686f97d60b6486d468931aa1 and sequencing end ID: 686f97d70b6486d468931abb
+2025-07-10 16:07:12.411 info: [SEQUENCING-End] updating sequencing end for seq id: 686f97d70b6486d468931abb
+2025-07-10 16:07:12.443 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686f97d70b6486d468931abb
+2025-07-10 16:07:12.491 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 686f6f99c2c1b0cff90712c3
+2025-07-10 16:07:12.541 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f99c2c1b0cff90712c3
+2025-07-10 16:07:12.542 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 686f6f99c2c1b0cff90712c3
+2025-07-10 16:07:12.588 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f99c2c1b0cff90712c3
+2025-07-10 16:07:12.623 info: Searching for sample collection data using kit code: 000007034
+2025-07-10 16:07:12.646 info: [SUCCESS] Inventory record found. ID: 67bebc9e0c76c527fe017650
+2025-07-10 16:07:12.647 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007034
+2025-07-10 16:07:12.694 info: [LAB-INWARD] Lab Inward created successfully. ID: 686f97d80b6486d468931ac5, Created At: 1752143832682
+2025-07-10 16:07:13.423 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 686f6f99c2c1b0cff90712c5
+2025-07-10 16:07:13.489 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686f97d90b6486d468931ac8
+2025-07-10 16:07:13.545 info: [DNA][CREATE] DNA record created successfully. ID: 686f97d90b6486d468931aca
+2025-07-10 16:07:13.577 info: [DNA][UPDATE] DNA record updated successfully. ID: 686f97d90b6486d468931aca
+2025-07-10 16:07:13.619 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686f97d90b6486d468931ace
+2025-07-10 16:07:13.653 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
+2025-07-10 16:07:14.348 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686f97d90b6486d468931ad3
+2025-07-10 16:07:14.382 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686f97d90b6486d468931ad3
+2025-07-10 16:07:14.444 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686f97da0b6486d468931ad9
+2025-07-10 16:07:14.476 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686f97da0b6486d468931ad9
+2025-07-10 16:07:14.476 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686f97d90b6486d468931ac8
+2025-07-10 16:07:14.525 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686f97d90b6486d468931ac8
+2025-07-10 16:07:14.525 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686f97d90b6486d468931ac8 and sequencing ID: 686f97da0b6486d468931adc
+2025-07-10 16:07:14.573 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686f97d90b6486d468931ac8 and sequencing ID: 686f97da0b6486d468931adc
+2025-07-10 16:07:14.574 info: [SEQUENCING-Update] Updating sequencing for ID: 686f97da0b6486d468931adc
+2025-07-10 16:07:14.610 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686f97da0b6486d468931adc
+2025-07-10 16:07:14.611 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686f97d90b6486d468931ac8
+2025-07-10 16:07:14.661 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686f97d90b6486d468931ac8
+2025-07-10 16:07:14.662 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686f97d90b6486d468931ac8 and sequencing end ID: 686f97da0b6486d468931ae2
+2025-07-10 16:07:15.353 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686f97d90b6486d468931ac8 and sequencing end ID: 686f97da0b6486d468931ae2
+2025-07-10 16:07:15.353 info: [SEQUENCING-End] updating sequencing end for seq id: 686f97da0b6486d468931ae2
+2025-07-10 16:07:15.383 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686f97da0b6486d468931ae2
+2025-07-10 16:07:15.435 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 686f6f99c2c1b0cff90712c5
+2025-07-10 16:07:15.480 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f99c2c1b0cff90712c5
+2025-07-10 16:07:15.480 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 686f6f99c2c1b0cff90712c5
+2025-07-10 16:07:15.523 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f99c2c1b0cff90712c5
+2025-07-10 16:07:15.550 info: Searching for sample collection data using kit code: 000007367
+2025-07-10 16:07:15.574 info: [SUCCESS] Inventory record found. ID: 67bebc970c76c527fe017603
+2025-07-10 16:07:15.574 info: [LAB-INWARD] Creating new Lab Inward entry for Sample Tube Barcode: 000007367
+2025-07-10 16:07:15.621 info: [LAB-INWARD] Lab Inward created successfully. ID: 686f97db0b6486d468931aec, Created At: 1752143835607
+2025-07-10 16:07:16.345 info: [updateSampleCollectionInward] : successfully updated sampleCollectionInward for sampleCollectionData 686f6f97c2c1b0cff90712a6
+2025-07-10 16:07:16.409 info: [LAB-PROCESS][CREATE] Successfully created new lab process with ID: 686f97dc0b6486d468931aef
+2025-07-10 16:07:16.465 info: [DNA][CREATE] DNA record created successfully. ID: 686f97dc0b6486d468931af1
+2025-07-10 16:07:16.494 info: [DNA][UPDATE] DNA record updated successfully. ID: 686f97dc0b6486d468931af1
+2025-07-10 16:07:16.531 info: [GEL-ELECTROPHORESIS][CREATE] Gel Electrophoresis record created successfully. ID: 686f97dc0b6486d468931af5
+2025-07-10 16:07:16.565 info: [GEL-ELECTROPHORESIS][UPDATE] Gel Electrophoresis record updated successfully. ID: undefined
+2025-07-10 16:07:17.255 info: [LIBRARY-PREP][CREATE] Library preparation created successfully. ID: 686f97dc0b6486d468931afa
+2025-07-10 16:07:17.286 info: [LIBRARY-PREP][UPDATE] Library preparation updated successfully. ID: 686f97dc0b6486d468931afa
+2025-07-10 16:07:17.346 info: [LIBRARY-POOLING][CREATE] Library Pooling created successfully. ID: 686f97dd0b6486d468931b00
+2025-07-10 16:07:17.378 info: [LIBRARY-POOLING][UPDATE] Library Pooling updated successfully. ID: 686f97dd0b6486d468931b00
+2025-07-10 16:07:17.378 info: [SEQUENCING-Start] Creating sequencing for lab process ID: 686f97dc0b6486d468931aef
+2025-07-10 16:07:17.424 info: [SEQUENCING-Start] Successfully created sequencing for lab process ID: 686f97dc0b6486d468931aef
+2025-07-10 16:07:17.424 info: [SEQUENCING-Connect] Connecting sequencing for lab process ID: 686f97dc0b6486d468931aef and sequencing ID: 686f97dd0b6486d468931b03
+2025-07-10 16:07:17.470 info: [SEQUENCING-Connect] Successfully connected sequencing for lab process ID: 686f97dc0b6486d468931aef and sequencing ID: 686f97dd0b6486d468931b03
+2025-07-10 16:07:17.470 info: [SEQUENCING-Update] Updating sequencing for ID: 686f97dd0b6486d468931b03
+2025-07-10 16:07:17.504 info: [SEQUENCING-Update] Successfully updated sequencing for ID: 686f97dd0b6486d468931b03
+2025-07-10 16:07:17.504 info: [SEQUENCING-End] Creating sequencing end for lab process ID: 686f97dc0b6486d468931aef
+2025-07-10 16:07:17.551 info: [SEQUENCING-End] Successfully created sequencing end for lab process ID: 686f97dc0b6486d468931aef
+2025-07-10 16:07:17.552 info: [SEQUENCING-End] Connecting sequencing end for lab process ID: 686f97dc0b6486d468931aef and sequencing end ID: 686f97dd0b6486d468931b09
+2025-07-10 16:07:18.198 info: [SEQUENCING-End] Successfully connected sequencing end for lab process ID: 686f97dc0b6486d468931aef and sequencing end ID: 686f97dd0b6486d468931b09
+2025-07-10 16:07:18.198 info: [SEQUENCING-End] updating sequencing end for seq id: 686f97dd0b6486d468931b09
+2025-07-10 16:07:18.235 info: [SEQUENCING-End] successfully updated sequencing end for seq id: 686f97dd0b6486d468931b09
+2025-07-10 16:07:18.282 info: [BIO_INFO-QC START] Creating bio informatics qc for questionnaire ID: 686f6f97c2c1b0cff90712a6
+2025-07-10 16:07:18.328 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f97c2c1b0cff90712a6
+2025-07-10 16:07:18.329 info: [BIO_INFO-QC UPDATE] updating bio informatics qc for questionnaire ID: 686f6f97c2c1b0cff90712a6
+2025-07-10 16:07:18.372 info: [BIO_INFO-QC UPDATE] success bio informatics qc for questionnaire ID: 686f6f97c2c1b0cff90712a6
+2025-07-10 16:07:18.373 info: [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]

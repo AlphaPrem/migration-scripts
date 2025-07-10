@@ -103,7 +103,7 @@ async function updateTimestamps() {
       }
     },
     {
-      timeout: 30000, // 30 seconds timeout for the transaction
+      timeout: 60000, // 30 seconds timeout for the transaction
     }
   );
 

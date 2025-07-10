@@ -39,68 +39,73 @@ interface TimestampUpdateData {
 async function updateTimestamps() {
   logger.info("🚀 Starting timestamp updates...");
 
-  await prisma.$transaction(async (tx) => {
-    await Promise.all(
-      timeStamps.map(async (data: TimestampUpdateData, index) => {
-        logger.info(`🔄 Processing record ${index + 1}...`);
+  await prisma.$transaction(
+    async (tx) => {
+      for (const [index, data] of timeStamps.entries()) {
+        try {
+          logger.info(`🔄 Processing record ${index + 1}...`);
 
-        await Promise.all([
-          tx.inward.update({
+          await tx.inward.update({
             where: { id: data.inwardId },
             data: { createdAt: new Date(data.inwardCreatedAt) },
-          }),
+          });
 
-          tx.labProcess.update({
+          await tx.labProcess.update({
             where: { id: data.labProcessId },
             data: {
               createdAt: new Date(data.labProcessCreatedAt),
               updatedAt: new Date(data.labProcessUpdatedAt),
             },
-          }),
+          });
 
-          tx.dNA.update({
+          await tx.dNA.update({
             where: { id: data.dnaId },
             data: { createdAt: new Date(data.dnaCreatedAt) },
-          }),
+          });
 
-          tx.gelElectrophoresis.update({
+          await tx.gelElectrophoresis.update({
             where: { id: data.gelElectrophoresisId },
             data: { createdAt: new Date(data.gelElectrophoresisCreatedAt) },
-          }),
+          });
 
-          tx.libraryPreparation.update({
+          await tx.libraryPreparation.update({
             where: { id: data.libraryPreparationId },
             data: { createdAt: new Date(data.libraryPreparationCreatedAt) },
-          }),
+          });
 
-          tx.libraryPooling.update({
+          await tx.libraryPooling.update({
             where: { id: data.libraryPoolingId },
             data: { createdAt: new Date(data.libraryPoolingCreatedAt) },
-          }),
+          });
 
-          tx.sequencing.update({
+          await tx.sequencing.update({
             where: { id: data.sequencingStartId },
             data: { createdAt: new Date(data.sequencingStartCreatedAt) },
-          }),
+          });
 
-          tx.sequencingEnd.update({
+          await tx.sequencingEnd.update({
             where: { id: data.sequencingEndId },
             data: { createdAt: new Date(data.sequencingEndCreatedAt) },
-          }),
+          });
 
-          tx.dataTransferToBioinformatics.update({
+          await tx.dataTransferToBioinformatics.update({
             where: { id: data.dataTransferId },
             data: {
               createdAt: new Date(data.dataTransferCreatedAt),
               updatedAt: new Date(data.dataTransferUpdatedAt),
             },
-          }),
-        ]);
+          });
 
-        logger.info(`✅ Record ${index + 1} updated`);
-      })
-    );
-  });
+          logger.info(`✅ Record ${index + 1} updated`);
+        } catch (error) {
+          logger.error(`❌ Error updating record ${index + 1}:`, error);
+        }
+      }
+    },
+    {
+      timeout: 30000, // 30 seconds timeout for the transaction
+    }
+  );
 
   logger.info("🎉 All records updated successfully.");
 }

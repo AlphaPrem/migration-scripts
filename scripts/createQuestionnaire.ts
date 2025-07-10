@@ -26,6 +26,7 @@ async function main() {
         ...rest,
         DOB: new Date(dob).toISOString(),
         createdAt: new Date(createdAt),
+        version: "3",
         // updatedAt: new Date(updatedAt),
       };
     }

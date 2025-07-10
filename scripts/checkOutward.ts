@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { appendFileSync, writeFileSync } from "fs";
-import { barcodes } from "../barcodes"; // Import the static list of barcodes
+import { barcodes } from "../data/barcodes"; // Import the static list of barcodes
 
 const logFilePath = "./output/match_log.txt";
 const prisma = new PrismaClient();
